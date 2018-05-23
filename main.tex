@@ -1,0 +1,519 @@
+\documentclass{amsbook}
+\usepackage{basic-preamble}
+\overfullrule=2cm
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+\begin{document}
+
+% ==================================================
+% Header
+% ==================================================
+
+% Authors
+% -------
+
+\author[Caio]{Caio}
+\address{Department of Mathematics and Statistics,
+	Memorial University of Newfoundland,
+St. John's, NL, A1C5S7, Canada}
+\email{cdnh22@mun.ca}
+
+% Footnotes
+% ---------
+
+
+% Title
+% -----
+
+\date{}
+
+\title{Odd Type II}
+
+% Classification and key words
+% ----------------------------
+
+\subjclass[2010]{Primary 17B70; Secondary 16W50, 16W55, 17A70}
+\keywords{Graded algebra, associative superalgebra, simple Lie superalgebra, classical Lie superalgebra}
+
+% Abstract
+% --------
+
+% Maketitle
+% ---------
+
+\maketitle
+
+
+\chapter{Supermodules over superalgebras}
+
+A supermodule over a superalgebra is simply a $\ZZ_2$-graded module. But one must have special care about the side in which write the internal homomorphisms.
+
+Recall that a homomorphism is a homomorphism of modules that also preserve degree. Sometimes, though, it is convenient to consider homomorphisms with degrees.
+
+It is usual in the theory of modules to write homomorphisms of left modules on the right and vice-versa. Following this convention, if $R$ is a superalgebra and $U$ and $V$ are left modules over it, then an internal homomorphism $\vphi: U\to V$ is a map, written on the right such that
+%
+\begin{equation}\label{eq:map-on-the-right}
+    (r\cdot u) \vphi = r\cdot (u \vphi).
+\end{equation}
+%
+Sometimes, though, it is convenient to write homomorphisms of left modules also on the left (when dealing with bimodules, for example). In this case, the correct definition for a homomorphism is a map $\psi: U\to V$, written on the left, such that
+%
+\begin{equation}\label{eq:map-on-the-left}
+    \psi (r\cdot u)  = (-1)^{|r||\psi|} \cdot (u \vphi).
+\end{equation}
+%
+%
+There is a map relating maps on the right to maps on the left, which is a super contravariant functor:
+%
+\begin{equation}\label{eq:map-change-side}
+    \bar f (u)  = (-1)^{|f||u|} (u)f.
+\end{equation}
+%
+
+
+\chapter{$\vphi$-gradings}
+
+The orthosymplectic and the parapletic superalgebras are definied with respect to a non-degenerate bilienar form. More specifically, if $\vphi$ is the superadjunction related to this form, then we consider the Lie subsuperalgebra of the skew elements with respect to this form.
+
+We are now going to define the right notion of ``Type I gradings'' for such algebras (which, as we are going to see, turn out to be all gradings on then). The problem here is that not all gradings on the associative superalgebra restrict to the Lie one. But the restriction actually work if we have a graded superalgebra with superinvolution, \ie, if the the super involtion is homegeneous of degree $e$.
+
+\begin{defi}
+    Let $(R, \vphi)$ be an associative superalgebra with involution. A \emph{$\vphi$-grading} on it is a $G$-grading $\Gamma$ ($G$ is fixed) such that $\vphi$ is homogeneous of degree $e$. In this case, we say that $(R, \vphi)$ equipped with $\Gamma$ is \emph{graded as superalgebra with superinvolution}.
+\end{defi}
+
+Under the situation above, it is straightfoward that $\Skew (R, \vphi)$ is a graded subsuperspace of $R$. It follows from the lemma bellow:
+
+\begin{lemma}
+    Let $V$ be a $G$-graded vector space and let $f: V \to V$ be a homegeous map of degree $e$. Then the eigenspaces of $f$ are graded subspaces.
+\end{lemma}
+
+\begin{proof}
+    Let $v\in V$ be an eigenvector with eigenvalue $\lambda \in \FF$ and write $v = \sum_{g\in G} v_g$, where $v_g \in V_g$. On one hand, $f(v) = \lambda v = \sum_{g\in G} \lambda v$. On the other hand, $f(v) = \sum_{g\in G} f(v_g)$. Since the decomposition on homoneous elements is unique, we have that $f(v_g) = \lambda v_g$ for all $g\in G$, completing the proof.
+\end{proof}
+
+It is important to know how to translate this notion to the language of $\widehat G$-actions.
+
+\begin{defi}
+    Let $(R,\vphi)$ and $(S, \psi)$ be superalgebras with involution. We say that $f: R \to S$ is a \emph{homomorphism of superalgebras with superinvolution} if it is a homomorphism of algebras such that $f\circ \vphi = \vphi \circ f$.
+\end{defi}
+
+In particular, an automorphism of the superalgebra $(R, \vphi)$ with involution is an automorphism of $R$ commuting with $\vphi$. We denote the group of homomorphisms of $(R, \vphi)$ by $\Aut_\vphi(R)$.
+
+\begin{prop}
+    Let $\Gamma$ be a grading on a vector space $V$. A linear map $f: V \to V$ is homogeneous of degree $e$ if, and only if, $f$ commutes with the action of $\widehat G$.
+\end{prop}
+
+Another version:
+
+\begin{prop}\label{prop:homogeneous-deg-e-widehatG}
+    Let $V$ and $W$ be graded vector spaces. A linear map $f: V \to W$ is homogeneous of degree $e$ if, and only if, $f$ is a $\widehat G$-equivariant map.
+\end{prop}
+
+It follows from Proposition \ref{prop:homogeneous-deg-e-widehatG} that a grading is a $\vphi$-grading if, and only if, the image of the representation map $\eta_\Gamma: \widehat G \to \Aut (R)$ is contained in $\Aut_\vphi(R)$.
+
+
+
+\chapter{Overview of $\vphi$-gradings}
+
+This is an overview of what I wat done in the section/chapter of $\vphi$-gradings. Each bullet should be expanded to a paragraph/definition/result/proof, roughly in order of appearence in the final text. The goal is to have a better idea of how it will look like.
+
+Some bulletes are for things that must come before, others are for things the should come later. But these are less detailed. As the real work gets done, the bullets will necessarily change a little.
+
+\section{Before}
+
+\begin{itemize}
+        \item The sign in identifying $U \tensor V$ with $V \tensor U$.
+    
+        \item Side of $R$-linear maps: left or right? How to move from one to another.
+    
+        \item The dual basis, and how it changes moving the maps to the left (even if $R=\FF$).
+    
+        \item The supertranspose and definition of super-anti-automorphisms.
+        
+        \item In general, super-anti-automorphisms don't have order $2$. Indeed, we will see, they only exist for certain choice of $m$ and $n$ (one must be even or both must be equal)
+        
+        \item Nondegenerate bilinear forms yield super-anti-automorphisms. Supersymmetry implies order $2$.
+        
+        \item Notation $\FF^{(m|n)}$
+
+\end{itemize}
+
+
+\section{Actual}
+
+    \begin{itemize}
+        \item Why consider $\vphi$-gradings? They are the type I gradings for Lie superalgebras orthosympletic or peripletic.
+        
+        \item Definition of superalgebra with distinguished map and its homomorphisms
+        
+        \item Definition of $\Aut (R, \vphi)$.
+        
+        \item Note that if the map is the identity, nothing is new
+        
+        \item Definition of $\vphi$-grading for any distinguished map $\vphi$
+        
+        \item Again, $\vphi = \id$ yields nothing new
+        
+        \item The case of interest for us is when $\vphi$ is a super-anti-automorphism. In this case the grading restricts to a grading on $\Skew(R, \vphi)$.
+        
+        \item Subsection: Correspondence between $\widehat G$-actions and $\vphi$-gradings. Recall that $\vphi$ has degree $e$ iff it is $\widehat G$-equivariant. Hence homomorphisms of $\vphi$-gradings correspond to maps commuting with $\vphi$.
+        
+        \item In particular, $\vphi$-gradings correspond to $\widehat G$-representations by automorphisms of $(R, \vphi)$. (end of subsection)
+        
+        \item Subsection: Type II gradings on $A$ as $\vphi$-gradings
+        
+        \item Check the beamer about this
+        
+        \item New model for $\gl(m|n)$. Take $R = M(m,n) \times M(m,n)$ and consider $\psi$ to be any super-anti-automorphism on $M(m,n)$. Then take $\vphi (x, y) = (\psi\inv (y) , \psi (x) )$ on $R$. It is a superinvolution.
+        
+        \item We could take the supertranspose for $\psi$, but it will be more convenient (simplify computations later) to take ``the $(-i)$-supertranspose'' instead.
+        
+        \item One could choose the abstract version: $\End (U) \times \End(U^*)$ and the superadjoint.
+        
+        \item One could also discuss also the $M \times M\sop$ version...
+        
+        \item Anyway, $\gl(m|n)$ is isomorphic to $\Skew (R, \vphi)$.
+        
+        \item The group of automorphisms of $R$ commuting with $\vphi$ is bigger then the group of automorphisms of $M(m,n)$.
+        
+        \item It is precisely the group of automorphisms of $A$, by \cite{serganova}.
+        
+        \item So both Type I and Type II gradings can be recovered this form.
+        
+        \item But it is more convenient for Type II gradings: these are the ones that make $R$ simple as a graded algebra, so we can apply the theorem $\End_\D (U)$.
+        
+        \item Why is that? There are only 2 ideals on $R$. If one of them is graded, them the other also is (by $1 =  \epsilon_1 + \epsilon_2$). But in this case the top corner is $M(m,n)$ as graded algebra and $\gl(m|n)$ gets its grading by the restriction, hence it is Type I. The converse is true by the same reasoning (and recalling point bellow).
+        
+        \item Recall here: If there is an isomorphism between the $Aut(R, \vphi)$ and $Aut(S, \psi)$ ($\psi$ could be any map, not necessarily super-anti-auto), them there is a bijection of gradings and of iso classes of gradings.
+        
+        \item We will keep the original description for the Type I gradings
+        
+        \item Subsection: $\vphi$-gradings and bilinear forms
+        
+        \item We can use a super-anti-autormorphism to identify $R$ with $R\sop$. In particular, we can consider right $R$-modules as left $R$-modules.
+        
+        \item Take $U$ a finite dimensional right $\D$-module. It is naturaly an left $R$-module for $R = \End_\D (U)$. Recall that, by proposition long time ago, that we can then identify $\D = \End_R(U)$ (maps on the right here).
+        
+        \item Naturally, $U\Star$ is a right $R$-module. And it must be simple as a $R$-module (proof here).
+        
+        \item It can be seen as an left $R\sop$-module.
+        
+        \item Also, $\D\sop = \End_{R\sop} (U\Star)$.
+        
+        \item Using $\vphi$, it is a left $R$-module again (still simple). But we have only one of such up to isomorphism and shift.
+        
+        \item Let $\vphi_1$ be such a map. It is not unique, we can compose with a map on the right or a map on the left (wich are elements of $\D\sop$ or $\D$, depending on the side.
+        
+        \item (here the sides of $D$ and $D\sop$ are inverted because of correct composition)
+        
+        \item Fixed one $\vphi_1$, we can use it to find an iso between $\D$ and $\D\sop$. Call it $\vphi_0$.
+        
+        \item We can move $\vphi_1$ to the left using our convention.
+        
+        \item We can now change $\vphi_1$ to a $\vphi_0$-sesquilinear form $B$.
+        
+        \item Definition: $\vphi_0$-sesquilinear form.
+        
+        \item With the pair $(\vphi_0, B)$ we can reconver $\vphi$. Two pairs yield the same $\vphi$ if and only if something.
+        
+        \item start hidden subsection: now suppose $\vphi^2 = \id$.
+        
+        \item Note that the pair $(\vphi_0\inv, \vphi_0\inv (B (y,x)))$ yields $\vphi\inv$. Hence yields $\vphi$. So there $d\in \D\even_0$ such that...
+        
+        \item But we are over an algebraically closed field. This implies $d \in \FF$ and $\vphi_0 = \vphi_0\inv$, ie, $\vphi_0$ is a superinvolution.
+        
+        \item Need here: the formula $\vphi(x) = \Phi\inv x\Star \Phi$.
+        
+        \item Subsection: Odd gradings
+        
+        \item Again, gradings are odd if $\D$ is odd, so lets see when this can happen.
+        
+        \item it can't happen for $\D$ simple as algebra! Why? Because them $T$ would have to be an elementary $2$-group. But if $T$ is an elementary $2$-group, them $\vphi_0$ would have order (at least) $4$. (check proof in beamer)
+        
+        \item If the reader is interested only in $B, C, D, P$, he can stop here.
+        
+        \item Hidden subsection:
+        
+        \item example: $\mc O_{II}$ (basic odd superalgebra of type II)
+        
+        \item Look bellow for the example
+        
+        \item First with refinement, by hand
+        
+        \item Second with loop construction
+        
+        \item Them show isomorphism
+        
+        \item Theorem: every odd type II graded division algebra is $\mc O_{II} \tensor \D$, for even $\D$.
+        
+        \item Next: recall what we are missing from before (eg $V^*$ and $^* V$).
+        
+        \item Next: Fill what we have till now
+        
+        \item Next: Isomorphism of $\vphi$-gradings
+        
+        \item Next: The possible type II gradings on $A$, their relation with $\langle \pi, \tau\rangle$ and isomorphisms.
+        
+    \end{itemize}
+
+\section{After}
+
+
+
+
+\chapter{The Dual of a Superspace}
+
+We will now discuss the concept of dual of a superspace. If $U = U\even \oplus U\odd$ is a superspace, then $U^*$ is also a superspace with the elementary grading.
+% If $L: U \to V$ is a homogeneous linear map between superspaces, we define the \emph{superadjoint of $L$} to be the map $L^*: V^* \to U^*$ defined by $L^*(f) = (-1)^{|L||f|} f \circ L$.
+
+\begin{defi}
+    Let $L: U \to V$ be linear map between superspaces.
+    We define the \emph{superadjoint of $L$} to be the map $L^*: V^* \to U^*$ defined by $L^*(f) = (-1)^{|L||f|} f \circ L$ if $L$ is homogeneous and extend it by linearity.
+\end{defi}
+
+In the case $U = V$, the map $\vphi: \End(U) \to \End(U^*)$ given by $\vphi(L) = L^*$ is a super-anti-isomorphism of superalgebras, i.e., $\vphi (LS) = (-1)^|L||S| \vphi(S) \vphi(L)$.
+
+As in the case of finite dimensional vector spaces, we will identify a finite dimensional superspace $U$ with $U^{**}$, but not via the usual evaluation map.
+
+\begin{defi}
+    Let $U$ be a superspace. By \emph{superevaluation} we mean any of the two following maps: $ \langle\, ,\rangle : U^* \times U$ defined by $\langle f, u\rangle = f(u)$ and  $ \langle\, ,\rangle : U \times U^*$ defined by $\langle u, f\rangle = (-1)^{|u||f|}f(u)$. 
+\end{defi}
+
+With this definition, we have that $\langle T(x), y\rangle = (-1)^{|L||x|}\langle x, L^* (y)\rangle$.
+
+The map $U \to U^{**}$ given by $u \mapsto  \langle u , \cdot \rangle$ is clearly linear, homogeneous of degree $\bar 0$ and injective. Hence, if $U$ is finite dimensional it is an isomorphism of superspaces, and we will use it to identify $U^{**}$ with $U$.
+
+\begin{prop}\label{prop:superadjunction-is-involutive}
+    Let $L: U \to V$ be a linear map between finite dimensional superspaces. Then $L^{**} = L$.
+\end{prop}
+
+\begin{proof}
+    WE REMIND THE AUTHOR TO NOT FORGET IT.
+\end{proof}
+
+Differently from the case of usual vector spaces, things do not transfer smoothly to matrix realizations when we fix bases. To be precise, let $\mc B = \{e_1, \ldots, e_k\}$ be a homogeneous basis of a superspace $U$. Given $\lambda \in \FF$, we define the \emph{$\lambda$-superdual basis of $\mc B$} as being the set $\mc B^*_\lambda = \{e_1^*, \ldots, e_k^*\} \subseteq U^*$, where $e_i^*$ is the linear functional defined by $e_i^*(e_j) = \delta_{ij}$ if $e_j$ is even and $e_i^*(e_j) = \lambda \delta_{ij}$ if $e_j$ is odd. In the case $\lambda = 1$, we get the usual dual basis.
+
+Let $\mc B$ and $\mc C$ be homogeneous bases of the finite dimensional superspaces $U$ and $V$, respectively. Suppose $L: U \to V$ is a linear map whose matrix in relation to the bases above is
+$\begin{pmatrix}
+        a & b\\
+        c & d
+    \end{pmatrix}$.
+Then, considering $\mc B^*_\lambda$ and $\mc C^*_\lambda$ on $U^*$ and $V^*$, the matrix of $L^*$ is
+$\begin{pmatrix}
+        a\transp & -\lambda c\transp\\
+        \lambda\inv b\transp & d\transp
+    \end{pmatrix}$.
+    
+\begin{defi}
+    Let $X = \begin{pmatrix}
+        a & b\\
+        c & d
+    \end{pmatrix}$ be the a $(n_1 | m_1)\times (n_2 | m_2)$ supermatrix and $\lambda \in \FF$. The \emph{$\lambda$-supertranspose of $X$} is the matrix
+    \[
+    \begin{pmatrix}
+        a\transp & -\lambda c\transp\\
+        \lambda\inv b\transp & d\transp
+    \end{pmatrix}. 
+    \]
+    %
+    If $\lambda = 1$, we call it simply the \emph{supertranspose of $X$} and denote it by $X\stransp$.
+\end{defi}
+
+Note that the $\lambda$-supertranspose is not involutive in general. This happens because $(\mc B^*_\lambda)^*_\lambda$ and $(\mc B^*_\lambda)^*_\lambda$ do not correspond to the original bases $\mc B$ and $\mc C$ on $U = U^{**}$ and $V=V^{**}$. Actually, they correspond to $\nu (\mc B)$ and $\nu (\mc C)$, respectively, where $\nu$ denotes the parity automorphism.
+
+\begin{remark}\label{rmk:which-supertranspose-to-use}
+    Unless stated otherwise and if the original space $U$ is clear from the context, we will use the convention of considering the $1$-superdual basis for passing from $U$ to $U^*$ and the $(-1)$-superdual basis for passing from $U^*$ to $U^{**}$. In particular, if for a fixed homogeneous basis $X$ is the matrix of an operator $L \in \End(U)$, then the supertranspose of $X$ is the matrix of $L^* \in \End(U^*)$; but if $X$ is the matrix of an operator $L\in \End(U^*)$, then the $(-1)$-supertranspose corresponds to $L^* \in \End(U) = \End(U^{**})$.
+\end{remark}
+
+Despite of not being involutive, the $\lambda$-supertranspose is an anti-super-auto\-mor\-phism of $M(m,n)$, for every $\lambda \in \FF$. In the case $i = \sqrt{-1}\in \FF$, it may be convenient to use the $(-i)$-supertranspose, since it avoids confusion about where to put the signs: the $(-i)$-supertranspose of $\begin{pmatrix}
+        a & b\\
+        c & d
+    \end{pmatrix}$
+is $\begin{pmatrix}
+        a\transp & i c\transp\\
+        i b\transp & d\transp
+    \end{pmatrix}$.
+    
+\begin{prop}\label{prop:lambda-supertransp-are-isomorphic}
+    Let $R = M(m,n)$, $\vphi: R \to R$ be the $1$-supertranspose and $\vphi': R\to R$ be the $\lambda$-supertranspose, for some $\lambda \in \FF$. If $\sqrt{\lambda}\in \FF$, then $(R, \vphi) \iso (R, \vphi')$.
+\end{prop}
+
+\begin{proof}
+    WE REMIND THE AUTHOR TO NOT FORGET
+\end{proof}
+
+
+%We define the \emph{first superdual basis} to be the set $\{ e_1^*, \ldots, e_k^* \}$ defined by $e_i^*(e_j) = \delta_{ij}$ (as the usual dual basis).
+
+% \begin{defi}
+%     We define the \emph{supertranspose} of a matrix in $M(m,n)$ by
+%     \[
+%     \begin{pmatrix}
+%         a & b\\
+%         c & d
+%     \end{pmatrix}\stransp =
+%     \begin{pmatrix}
+%         a\transp & -c\transp\\
+%         b\transp & d\transp
+%     \end{pmatrix}.
+%     \]
+% \end{defi}
+
+% DEFINITION ONLY FOR SQUARE MATRICES, WE NEED TO CORRECT.
+
+% Let $U$ and $V$ be finite dimensional superspaces; fix bases for $U$ and $V$ and consider their first superdual bases on $U^*$ and $V^*$. If a matrix $A$ represents a linear map $L: U \to V$, then $A\stransp$ represents $L^*$.
+
+% The supertranspose, though, is not involutive. This happens because if we start with a homogeneous basis $\mc B$ on $U$ and take first superdual basis twice, we end up with a basis different from $\mc B$ on $U = U^{**}$. WE THEN HAVE THE 2ND SUPERDUAL BASIS.
+
+% WE HAVE A CONVENTION.
+
+% If $i = \sqrt{-1} \in \FF$, one could take another approach.
+
+
+\section{Coarsening by homomorphism and Loop algebra}
+% -------------------------------------
+
+\begin{defi}
+	Let $G$ and $H$ be groups, $\alpha:G\to H$ be a group homomorphism and $\Gamma:\,A=\bigoplus_{g\in G} A_g$ be a $G$-grading. The \emph{coarsening of $\Gamma$ induced by $\alpha$} is the $H$-grading ${}^\alpha \Gamma: A= \bigoplus_{h\in H} B_h$ where
+	$ B_h = \bigoplus_{g\in \alpha\inv (h)} A_g$. (This coarsening is not necessarily proper.)
+\end{defi}
+
+
+\chapter{Graded division superalgebras with super-anti-automorphism}
+% -----------------------------------------
+
+
+Let $\D$ be a $G$-graded division superalgebra, associated to the pair $(T, \beta)$ and with parity map $| \cdot |: T \to \ZZ_2$.
+
+Since each component of $\D$ is one-dimensional, an invertible homogeneous map $\vphi: \D \to \D$ is completely determined by a map $\eta: T \to \FF^\times$ such that $\vphi(X_t) = \eta(t) X_t$ for all $t\in T$ and $X_t\in \D_t$. The map $\vphi$ is a super-anti-automorphism if, and only if,
+%
+\begin{align*}
+    &\vphi(X_a X_b) = (-1)^{|a||b|} \vphi(X_b) \vphi(X_a)\\ \iff& \eta(ab)X_a X_b = (-1)^{|a||b|} \eta(a) \eta(b) X_b X_a\\ \iff& \eta(ab)X_a X_b = (-1)^{|a||b|} \eta(a) \eta(b) \beta(b,a) X_a X_b\\ \iff& \eta(ab) = (-1)^{|a||b|} \eta(a) \eta(b) \beta(b,a). \numberthis \label{eq:eta-super-anti-auto}
+\end{align*}
+
+\begin{prop}
+    If $\D$ admits a super-anti-automorphism, then $\beta$ can only take values $\pm 1$. Moreover, if $\D$ is simple as an algebra, then $T$ is an elementary $2$-group.
+\end{prop}
+
+\begin{proof}
+    Let $X_a\in \D_a$ and $X_b\in \D_b$, $a,b\in T$, be nonzero. By definition of $\beta$, $X_a X_b = \beta(a,b) X_b X_a$. Applying a super-anti-automorphism $\vphi$, we get \[(-1)^{|a||b|} \eta(a) \eta(b) X_b X_a = \beta(a,b) (-1)^{|a||b|} \eta(a) \eta(b) X_a X_b,\] hence $X_b X_a = \beta(a,b) X_a X_b = \beta(a,b)^2 X_b X_a$. It follows that $\beta(a,b)^2 = 1$, proving the first assertion.
+    
+    We now assume $\D$ simple as algebra, i.e., $\beta$ nondegenerate. If $a\in T$ has order $n>2$, then $\beta(a, \cdot)\in \widehat T$ would had order $n$. But $\beta(a, \cdot )^2 =1$, as we just saw.
+\end{proof}
+
+\begin{cor}\label{cor:super-anti-order-4}
+    Suppose $\D$ is simple as an algebra. If $\D\odd = 0$, every super-anti-automorphism is a superinvolution, but if $\D\odd \neq 0$, every super-anti-automorphism has order $4$.
+\end{cor}
+
+\begin{proof}
+    Let $a\in T$ and $0 \neq X_a \in \D_a$. If $a$ is even, Equation \eqref{eq:eta-super-anti-auto} implies $\eta(e) = \eta (a^2) = \eta(a)^2$, hence $\eta(e) = 1$ (case $a=e$) and, then,  $\eta(a) \in \{ \pm 1 \}$. If $\D\odd = 0$, this means $\vphi^2 = \id$. Now, if $a$ is odd, Equation \eqref{eq:eta-super-anti-auto} implies $1 = \eta(e) = \eta (a^2) = - \eta(a)^2$, hence $\eta(a) \in \{ \pm i \}$, where $i = \sqrt{-1}$. This implies $\vphi$ has order $4$.
+\end{proof}
+
+As a consequence of Corollary \ref{cor:super-anti-order-4}, all Type I gradings on the superalgebras in the series $B$, $C$, $D$ and $P$ are even.
+
+We will now focus on the case $\D$ is odd, i.e., $\D\odd \neq 0$.
+
+\begin{ex}\label{ex:supertransp-graded}
+    Consider on $M(1,1)$ the $\ZZ_2$-grading given by declaring $\begin{pmatrix}
+       1 & 0 \\
+       0 & 1
+     \end{pmatrix}$ and
+     $\begin{pmatrix}
+       0 & i \\
+       1 & 0
+     \end{pmatrix}$ to have degree $\barr 0$ and
+     $\begin{pmatrix}
+       -1 & 0 \\
+       0 & 1
+     \end{pmatrix}$ and
+     $\begin{pmatrix}
+       0 & -i \\
+       1 & 0
+     \end{pmatrix}$ to have degree $\barr 1$. In other words, as a $\ZZ_2^\#$-grading on $M_2(\FF)$ we have\\
+     %
+     \begin{center}
+     \begin{tabular}{ l c r }
+     $\deg \begin{pmatrix}
+      \phantom{-}1 & 0\phantom{..} \\
+      \phantom{-}0 & 1\phantom{..}
+     \end{pmatrix} = (\bar 0, \bar 0)$, && $\deg \begin{pmatrix}
+      \phantom{.}0 & \phantom{-}i\phantom{.} \\
+      \phantom{.}1 & \phantom{-}0\phantom{.}
+     \end{pmatrix} = (\bar 0, \bar 1)$,\\
+     $\deg \begin{pmatrix}
+      -1 & 0\phantom{..} \\
+       \phantom{-}0 & 1\phantom{..}
+     \end{pmatrix} = (\bar 1, \bar 0)$ &
+     and
+     & $\deg \begin{pmatrix}
+      \phantom{.}0 & -i\phantom{.} \\
+      \phantom{.}1 & \phantom{-}0\phantom{.}
+     \end{pmatrix} = (\bar 1, \bar 1)$,
+     \end{tabular}
+     \end{center}
+     %
+     which is clearly a division grading. The supertranspose is a super-anti-automorphism on it.
+\end{ex}
+
+\begin{ex}\label{ex:FZZ_4-with-superinvoltion}
+    Let $T= \langle \omega \rangle$ where $\omega$ has order $4$, $\beta$ be trivial and $| \cdot |: T \to \ZZ_2$ be the only nontrivial homomorphism. In other words, $\D = \FF T$ with $\D\even = \FF 1 \oplus F \omega^2$ and $\D\odd = \FF \omega \oplus \omega^3$. We define a superivolution by $\eta (1) = 1$, $\eta (\omega) = 1$, $\eta (\omega^2) = -1$ and $\eta(\omega^3) = -1$. %We will denote this superinvolution by 
+    
+    One could verify by hand that $\eta$ satisfies Equation \eqref{eq:eta-super-anti-auto}, but it also follows from the following argument. In both $\D$ and $\D\sop$, $\omega$ is an element with order $4$ and both are superalgebras with dimension $4$. Hence, both homomorphisms $\theta: \frac{\FF[x]}{\langle x^4 - 1 \rangle} \to \D$ and $\theta': \frac{\FF[x]}{\langle x^4 - 1 \rangle} \to \D\sop$ sending $x$ to $\omega$ are isomorphisms (note that $\theta(x^2) = \omega^2$ and $\theta'(x^2) = (\omega\sop)^2 = - \omega^2$, so they are different maps!). The map $\theta'\circ \theta\inv: \D \to \D\sop$ corresponds to an super-anti-automorphism with the $\eta$ above.
+\end{ex}
+
+Example \ref{ex:FZZ_4-with-superinvoltion} is our first example of odd graded division superalgebra with superinvolution. We can use it to transform any even graded division superalgebra into an odd one by ``extending scalars''.
+
+\begin{lemma}
+    Let $(R, \vphi)$ and $(S, \psi)$ be graded superalgebras with superinvolution, with grading groups $G$ and $H$, respectively. Then $(R\tensor S, \vphi\tensor \psi)$ is a $G\times H$-graded superalgebra with superinvolution.\qed
+\end{lemma}
+
+\begin{lemma}
+    Let $\D$ and $\mc E$ be graded division superalgebras, with grading groups $G$ and $H$, respectively. If $\D$ is even, then $\D \tensor \mc E$ is a $G\times H$-graded division superalgebra.
+\end{lemma}
+
+\begin{proof}
+    It is straightforward that the tensor product of graded division algebras is a graded division algebra, hence the result follows from considering $\D$ as a $G$-graded algebra and $\mc E$ as a $H\times \ZZ_2$-graded algebra.
+\end{proof}
+
+WE REMIND THE AUTHOR TO EXPLAIN THE DIFFERENT TYPES OF TENSOR PRODUCT IN THE GENERALITIES.
+
+Using the two Lemmas above and Example \ref{ex:FZZ_4-with-superinvoltion}, we have an infinitely many examples of odd graded division superalgebras. Nevertheless, their centers include a $4$-dimensional superalgebra, so none of them is a Type II odd graded division algebra. 
+\begin{ex}
+    Consider $M_2(\FF)$ with the division grading
+\end{ex}
+
+Neither Example \ref{ex:supertransp-graded} or Example \ref{ex:FZZ_4-with-superinvoltion} appear as graded division superalgebras of a Type II grading on $M(n,n)$. But both can be used to construct such superalgebras. We will now show two constructions, one based on Example \ref{ex:supertransp-graded} and other on Example \ref{ex:FZZ_4-with-superinvoltion}.
+
+% Example \ref{ex:FZZ_4-with-superinvoltion} suggests that to have a graded division superalgebra we need to ``increase'' the canonical $\ZZ_2$-grading to a $\ZZ_4$-grading. We have seen two constructions that do that on Section \ref{sec:loop-and-induced-algebras}.% We will start with
+
+Neither Example \ref{ex:supertransp-graded} or Example \ref{ex:FZZ_4-with-superinvoltion} are examples of odd Type II gradings. Nevertheless, we will now present two constructions of such gradings, one based on Example \ref{ex:supertransp-graded} and other based on Example \ref{ex:FZZ_4-with-superinvoltion}. 
+
+\begin{prop}\label{prop:involution-on-cartesian-product}
+    Let $R$ be a $G$-graded superalgebra and $\psi: R \to R$ be a super-anti-automorphism (homogeneous of degree $e$). Then $\vphi: R\times R \to R\times R$ geiven by $\vphi(x, y) = (\vphi\inv (y), \vphi (x))$ is a superinvoltion on the $G$-graded superalgebra $R\times R$. \qed
+\end{prop}
+
+Using Proposition \ref{prop:involution-on-cartesian-product} with $R$ being the graded superalgebra of Example \ref{ex:supertransp-graded}, we get a graded superalgebra with involution which is not a graded division superalgebra. To make its grading a division grading, we need to refine it. We could do it explicitly, but to not repeat ourselves we will follow another approach.
+
+\begin{ex}
+    Let $(R, \psi)$ be the graded superalgebra with super-anti-automorphism of Example \ref{ex:supertransp-graded}. Interpreting its canonical $\ZZ_2$-grading as a $\frac{\ZZ_4}{\langle \bar 2 \rangle}$-grading, its induced algebra $\D = \operatorname{Ind} x$ is a graded division superalgebra. Indeed, $\D = \chi_1 \tensor R \oplus \chi_i \tensor R$ where $\chi_z: \ZZ_4 \to \FF^\times$ denotes the character that sends $\bar 1$ to $z$. Its grading is $\ldots$ .
+    
+    Now let $\vphi'$ be the homogeneous of degree $e$ map on induced from $\psi$ and $\theta$ be the automorphism given by the action of $\chi_i$. We define $\vphi := \theta \vphi'$. One can readly check that it a superinvolution on $\D$.
+\end{ex}
+
+We will now construct a different model of the same superalgebra. This new construction, though, can be done over any field, even if it does not have a square root of $-1$.
+
+%As we saw in Section \ref{ainda-nao-existe}, in an algebraically closed field of characteristic $0$, the induced algebra is always isomorphic to a corresponding loop algebra.
+
+\begin{prop}
+    Let $(S, \psi)$ be the superalgebra with superinvolution of Example \ref{ex:FZZ_4-with-superinvoltion} and let $M_2(\FF)$ be the matrix algebra endowed with the $\ZZ_2 \times \ZZ_2$-division grading given by:...
+    
+    and let $\theta$ be the transposition on it.
+\end{prop}
+
+
+
+\bibliographystyle{amsalpha}
+\bibliography{bibliography}
+
+\end{document}
