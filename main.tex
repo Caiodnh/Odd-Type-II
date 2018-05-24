@@ -2,6 +2,18 @@
 \usepackage{basic-preamble}
 \overfullrule=2cm
 
+% checklist
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+
+
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
 \begin{document}
@@ -45,85 +57,17 @@ St. John's, NL, A1C5S7, Canada}
 \maketitle
 
 
-\chapter{Supermodules over superalgebras}
-
-A supermodule over a superalgebra is simply a $\ZZ_2$-graded module. But one must have special care about the side in which write the internal homomorphisms.
-
-Recall that a homomorphism is a homomorphism of modules that also preserve degree. Sometimes, though, it is convenient to consider homomorphisms with degrees.
-
-It is usual in the theory of modules to write homomorphisms of left modules on the right and vice-versa. Following this convention, if $R$ is a superalgebra and $U$ and $V$ are left modules over it, then an internal homomorphism $\vphi: U\to V$ is a map, written on the right such that
-%
-\begin{equation}\label{eq:map-on-the-right}
-    (r\cdot u) \vphi = r\cdot (u \vphi).
-\end{equation}
-%
-Sometimes, though, it is convenient to write homomorphisms of left modules also on the left (when dealing with bimodules, for example). In this case, the correct definition for a homomorphism is a map $\psi: U\to V$, written on the left, such that
-%
-\begin{equation}\label{eq:map-on-the-left}
-    \psi (r\cdot u)  = (-1)^{|r||\psi|} \cdot (u \vphi).
-\end{equation}
-%
-%
-There is a map relating maps on the right to maps on the left, which is a super contravariant functor:
-%
-\begin{equation}\label{eq:map-change-side}
-    \bar f (u)  = (-1)^{|f||u|} (u)f.
-\end{equation}
-%
-
-
-\chapter{$\vphi$-gradings}
-
-The orthosymplectic and the parapletic superalgebras are definied with respect to a non-degenerate bilienar form. More specifically, if $\vphi$ is the superadjunction related to this form, then we consider the Lie subsuperalgebra of the skew elements with respect to this form.
-
-We are now going to define the right notion of ``Type I gradings'' for such algebras (which, as we are going to see, turn out to be all gradings on then). The problem here is that not all gradings on the associative superalgebra restrict to the Lie one. But the restriction actually work if we have a graded superalgebra with superinvolution, \ie, if the the super involtion is homegeneous of degree $e$.
-
-\begin{defi}
-    Let $(R, \vphi)$ be an associative superalgebra with involution. A \emph{$\vphi$-grading} on it is a $G$-grading $\Gamma$ ($G$ is fixed) such that $\vphi$ is homogeneous of degree $e$. In this case, we say that $(R, \vphi)$ equipped with $\Gamma$ is \emph{graded as superalgebra with superinvolution}.
-\end{defi}
-
-Under the situation above, it is straightfoward that $\Skew (R, \vphi)$ is a graded subsuperspace of $R$. It follows from the lemma bellow:
-
-\begin{lemma}
-    Let $V$ be a $G$-graded vector space and let $f: V \to V$ be a homegeous map of degree $e$. Then the eigenspaces of $f$ are graded subspaces.
-\end{lemma}
-
-\begin{proof}
-    Let $v\in V$ be an eigenvector with eigenvalue $\lambda \in \FF$ and write $v = \sum_{g\in G} v_g$, where $v_g \in V_g$. On one hand, $f(v) = \lambda v = \sum_{g\in G} \lambda v$. On the other hand, $f(v) = \sum_{g\in G} f(v_g)$. Since the decomposition on homoneous elements is unique, we have that $f(v_g) = \lambda v_g$ for all $g\in G$, completing the proof.
-\end{proof}
-
-It is important to know how to translate this notion to the language of $\widehat G$-actions.
-
-\begin{defi}
-    Let $(R,\vphi)$ and $(S, \psi)$ be superalgebras with involution. We say that $f: R \to S$ is a \emph{homomorphism of superalgebras with superinvolution} if it is a homomorphism of algebras such that $f\circ \vphi = \vphi \circ f$.
-\end{defi}
-
-In particular, an automorphism of the superalgebra $(R, \vphi)$ with involution is an automorphism of $R$ commuting with $\vphi$. We denote the group of homomorphisms of $(R, \vphi)$ by $\Aut_\vphi(R)$.
-
-\begin{prop}
-    Let $\Gamma$ be a grading on a vector space $V$. A linear map $f: V \to V$ is homogeneous of degree $e$ if, and only if, $f$ commutes with the action of $\widehat G$.
-\end{prop}
-
-Another version:
-
-\begin{prop}\label{prop:homogeneous-deg-e-widehatG}
-    Let $V$ and $W$ be graded vector spaces. A linear map $f: V \to W$ is homogeneous of degree $e$ if, and only if, $f$ is a $\widehat G$-equivariant map.
-\end{prop}
-
-It follows from Proposition \ref{prop:homogeneous-deg-e-widehatG} that a grading is a $\vphi$-grading if, and only if, the image of the representation map $\eta_\Gamma: \widehat G \to \Aut (R)$ is contained in $\Aut_\vphi(R)$.
-
-
 
 \chapter{Overview of $\vphi$-gradings}
 
-This is an overview of what I wat done in the section/chapter of $\vphi$-gradings. Each bullet should be expanded to a paragraph/definition/result/proof, roughly in order of appearence in the final text. The goal is to have a better idea of how it will look like.
+This is an overview of what I want done in the section/chapter of $\vphi$-gradings. Each bullet should be expanded to a paragraph/definition/result/proof, roughly in order of appearance in the final text. The goal is to have a better idea of how it will look like.
 
-Some bulletes are for things that must come before, others are for things the should come later. But these are less detailed. As the real work gets done, the bullets will necessarily change a little.
+Some billets are for things that must come before, others are for things the should come later. But these are less detailed. As the real work gets done, the bullets will necessarily change a little.
 
 \section{Before}
 
 \begin{itemize}
-        \item The sign in identifying $U \tensor V$ with $V \tensor U$.
+        \item[\done] The sign in identifying $U \tensor V$ with $V \tensor U$.
     
         \item Side of $R$-linear maps: left or right? How to move from one to another.
     
@@ -142,20 +86,20 @@ Some bulletes are for things that must come before, others are for things the sh
 
 \section{Actual}
 
-    \begin{itemize}
-        \item Why consider $\vphi$-gradings? They are the type I gradings for Lie superalgebras orthosympletic or peripletic.
+    \begin{todolist}
+        \item[\done] Why consider $\vphi$-gradings? They are the type I gradings for Lie superalgebras orthosympletic or peripletic. DONE
         
-        \item Definition of superalgebra with distinguished map and its homomorphisms
+        \item[\done] Definition of superalgebra with distinguished map and its homomorphisms. DONE
         
-        \item Definition of $\Aut (R, \vphi)$.
+        \item[\done] Definition of $\Aut (R, \vphi)$. DONE
         
-        \item Note that if the map is the identity, nothing is new
+        \item[\done] Note that if the map is the identity, nothing is new. DONE
         
-        \item Definition of $\vphi$-grading for any distinguished map $\vphi$
+        \item[\done] Definition of $\vphi$-grading for any distinguished map $\vphi$. DONE
         
         \item Again, $\vphi = \id$ yields nothing new
         
-        \item The case of interest for us is when $\vphi$ is a super-anti-automorphism. In this case the grading restricts to a grading on $\Skew(R, \vphi)$.
+        \item[\done] The case of interest for us is when $\vphi$ is a super-anti-automorphism. In this case the grading restricts to a grading on $\Skew(R, \vphi)$. DONE
         
         \item Subsection: Correspondence between $\widehat G$-actions and $\vphi$-gradings. Recall that $\vphi$ has degree $e$ iff it is $\widehat G$-equivariant. Hence homomorphisms of $\vphi$-gradings correspond to maps commuting with $\vphi$.
         
@@ -255,11 +199,107 @@ Some bulletes are for things that must come before, others are for things the sh
         
         \item Next: The possible type II gradings on $A$, their relation with $\langle \pi, \tau\rangle$ and isomorphisms.
         
-    \end{itemize}
+    \end{todolist}
 
 \section{After}
 
 
+
+
+
+
+\chapter{Supermodules over superalgebras}
+
+A supermodule over a superalgebra is simply a $\ZZ_2$-graded module. But one must have special care about the side in which write the internal homomorphisms.
+
+Recall that a homomorphism is a homomorphism of modules that also preserve degree. Sometimes, though, it is convenient to consider homomorphisms with degrees.
+
+It is usual in the theory of modules to write homomorphisms of left modules on the right and vice-versa. Following this convention, if $R$ is a superalgebra and $U$ and $V$ are left modules over it, then an internal homomorphism $\vphi: U\to V$ is a map, written on the right such that
+%
+\begin{equation}\label{eq:map-on-the-right}
+    (r\cdot u) \vphi = r\cdot (u \vphi).
+\end{equation}
+%
+Sometimes, though, it is convenient to write homomorphisms of left modules also on the left (when dealing with bimodules, for example). In this case, the correct definition for a homomorphism is a map $\psi: U\to V$, written on the left, such that
+%
+\begin{equation}\label{eq:map-on-the-left}
+    \psi (r\cdot u)  = (-1)^{|r||\psi|} \cdot (u \vphi).
+\end{equation}
+%
+%
+There is a map relating maps on the right to maps on the left, which is a super contravariant functor:
+%
+\begin{equation}\label{eq:map-change-side}
+    \bar f (u)  = (-1)^{|f||u|} (u)f.
+\end{equation}
+%
+
+\chapter{Short version of a $\widehat G$-actions section}
+
+\section{Copy and paste from paper MAP}
+
+One of the important tools for dealing with gradings by abelian groups on (super)algebras is the well-known correspondence between  $G$-gradings and $\widehat G$-actions (see e.g. \cite[\S 1.4]{livromicha}), where $\widehat G$ is the algebraic group of characters of $G$, \ie, group homomorphisms $G \rightarrow \FF^{\times}$. The group $\widehat{G}$ acts on any $G$-graded (super)algebra $A = \bigoplus_{g\in G} A_g$ by $\chi \cdot a = \chi(g) a$ for all $a\in A_g$ (extended to arbitrary $a\in A$ by linearity). The map given by the action of a character $\chi \in \widehat{G}$ is an automorphism of $A$. If $\FF$ is algebraically closed and $\Char \FF = 0$, then $A_g = \{ a\in A \mid \chi \cdot a = \chi (g) a\}$, so the grading can be recovered from the action.
+
+For example, if $A=A\even \oplus A\odd$ is a superalgebra, the action of the nontrivial character of $\ZZ_2$ yields the \emph{parity automorphism} $\upsilon$, which acts as the identity on $A\even$ and as the negative identity on $A\odd$. If $A$ is a $\ZZ$-graded algebra, we get a representation $\widehat \ZZ = \FF^\times \rightarrow \Aut (A)$ given by $\lambda \mapsto \upsilon_\lambda$ where $\upsilon_{\lambda} (x) = \lambda^i x$ for all $x\in A^i$, $i\in \ZZ$.
+
+A grading on a (super)algebra over an algebraically closed field of characteristic $0$ is said to be \emph{inner} if it corresponds to an action by inner automorphisms. For example, the inner gradings on $\Sl(n)$ (also known as Type I gradings) are precisely the restrictions of gradings on the associative algebra $M_n(\FF)$.
+
+
+
+
+\chapter{$\vphi$-gradings}
+
+The orthosymplectic and the parapletic superalgebras are defined with respect to a non-degenerate bilinenar form. More specifically, if $\vphi$ is the superadjunction related to this form, then we consider the Lie subsuperalgebra of the skew elements with respect to this form (see Subsection ??).
+
+We are now going to define the right notion of ``Type I gradings'' for such algebras %(which, as we are going to see, turn out to be all gradings on then).
+The problem here is that not all gradings on the associative superalgebra restrict to the Lie one.
+%But the restriction actually work if we have a graded superalgebra with superinvolution, \ie, if the the super involtion is homegeneous of degree $e$.
+
+\begin{defi}
+    Let $R$ be a superalgebra and let $\vphi: R\to R$ be any map. We call the pair $(R, \vphi)$ a \emph{superalgebra with distinguished map}. If $\vphi$ is a super-anti-automorphism or an superinvolution, we will call it a \emph{superalgebra with super-anti-automorphism} or \emph{superalgebra with superinvolution}, respectively.
+\end{defi}
+
+\begin{defi}
+    Let $(R, \vphi)$ and $(S, \psi)$ be superalgebras with distinguished map. A \emph{homomorphism} them is a superalgebra homomorphism $f: R\to S$ such that $f\circ \vphi = \psi \circ f$. In particular, the \emph{automorphism group} of $(R, \vphi)$, denoted by $\Aut(R, \vphi)$, consists of all automorphisms of $R$ commuting with $\vphi$.
+\end{defi}
+
+We will be more interested in the case $\vphi$ is super-anti-automorphism or an superinvolution, but the general case is useful to avoid redundancy in the results and to connect regular gradings to $\vphi$-gradings (see Proposition ??). Note that if the distinguished maps are taken to be the identity, the concepts above reduce to superalgebra and superalgebra homomorphism. 
+
+\begin{defi}
+    Let $(R, \vphi)$ be an associative superalgebra with distinguished map. A \emph{$\vphi$-grading} on it is a $G$-grading $\Gamma$ ($G$ is fixed) such that $\vphi$ is homogeneous of degree $e$. In this case, we say that $(R, \vphi)$ equipped with $\Gamma$ is a \emph{graded superalgebra with distinguished map}.
+\end{defi}
+
+Under the situation above, the Lie superalgebra $\Skew (R, \vphi)$ is a graded subsuperspace of $R$. It follows from the lemma bellow:
+
+\begin{lemma}
+    Let $V$ be a $G$-graded vector space and let $f: V \to V$ be a homogeneous map of degree $e$. Then the eigenspaces of $f$ are graded subspaces.
+\end{lemma}
+
+\begin{proof}
+    Let $v\in V$ be an eigenvector with eigenvalue $\lambda \in \FF$ and write $v = \sum_{g\in G} v_g$, where $v_g \in V_g$. On one hand, $f(v) = \lambda v = \sum_{g\in G} \lambda v$. On the other hand, $f(v) = \sum_{g\in G} f(v_g)$. Since the decomposition on homogeneous elements is unique, we have that $f(v_g) = \lambda v_g$ for all $g\in G$, completing the proof.
+\end{proof}
+
+\section{$\vphi$-gradings and $\widehat G$-actions}
+
+It is important to know how to translate this notion to the language of $\widehat G$-actions.
+
+\begin{defi}
+    Let $(R,\vphi)$ and $(S, \psi)$ be superalgebras with involution. We say that $f: R \to S$ is a \emph{homomorphism of superalgebras with superinvolution} if it is a homomorphism of algebras such that $f\circ \vphi = \vphi \circ f$.
+\end{defi}
+
+In particular, an automorphism of the superalgebra $(R, \vphi)$ with involution is an automorphism of $R$ commuting with $\vphi$. We denote the group of homomorphisms of $(R, \vphi)$ by $\Aut_\vphi(R)$.
+
+\begin{prop}
+    Let $\Gamma$ be a grading on a vector space $V$. A linear map $f: V \to V$ is homogeneous of degree $e$ if, and only if, $f$ commutes with the action of $\widehat G$.
+\end{prop}
+
+Another version:
+
+\begin{prop}\label{prop:homogeneous-deg-e-widehatG}
+    Let $V$ and $W$ be graded vector spaces. A linear map $f: V \to W$ is homogeneous of degree $e$ if, and only if, $f$ is a $\widehat G$-equivariant map.
+\end{prop}
+
+It follows from Proposition \ref{prop:homogeneous-deg-e-widehatG} that a grading is a $\vphi$-grading if, and only if, the image of the representation map $\eta_\Gamma: \widehat G \to \Aut (R)$ is contained in $\Aut_\vphi(R)$.
 
 
 \chapter{The Dual of a Superspace}
