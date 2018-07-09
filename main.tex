@@ -582,16 +582,29 @@ Let $\D$ be a graded division superalgebra and let $\U$ be a finite dimensional 
 
 Recall {\tt (Section ??)} that $\mc U\Star = \Hom_\D (\mc U, \D)$ is a graded left $\D$-supermodule or, equivalently, a graded right $\D\sop$-supermodule. Analogously, we can make $\mc U\Star$ a graded right $R$-supermodule by defining $(f\cdot r) (u) := f(r\cdot u)$ for all $f\in \mc U\Star$, $r\in R$ and $u\in \mc U$ (i.e., $f\cdot r = f \circ r$, since $R = \End_\D(\mc U)$). Hence, we can consider $\mc U\Star$ as a graded left $R\sop$-supermodule via $r\cdot f = (-1)^{|r||f|} f\cdot r$ % (i.e., $r\cdot f = r\Star (f)$)
 and $\mc U\Star$ becomes a $(R\sop, \D\sop)$-bisupermodule.
-Note that the $R\sop$-action correspond to the representation $\rho: R\sop \to \End_{\D\sop} (\mc U\Star)$ given by $ \rho(r) = r\Star$, which is an isomorphism.
-If we use it to identify $R\sop$ with $\End_{\D\sop} (\mc U\Star)$, we can then apply Proposition \ref{prop:converse-density-thm} again and conclude that $\mc U\Star$ is a graded simple left $R\sop$-module and that $\D\sop \iso \End_{R\sop}(\mc U\Star)$.
+
+\begin{lemma}\label{lemma:U-star-R-sop}
+    The left $R\sop$-supermodule $\mc U\Star$ is a graded simple and the action of $\D\sop$ give us an isomorphism $\D\sop \to \End_{R\sop}(\mc U\Star)$.
+\end{lemma}
+
+\begin{proof}
+    By definition, the $R\sop$-action correspond to the representation $\rho: R\sop \to \End_{\D\sop} (\mc U\Star)$ given by $ \rho(r) = r\Star$, which is an isomorphism since $\U$ is finite dimensional as an $\D$-supermodule. If we use $\rho$ to identify $R\sop$ with $\End_{\D\sop} (\mc U\Star)$, the result follows from Proposition \ref{prop:converse-density-thm}.
+\end{proof}
+
+%Note that the $R\sop$-action correspond to the representation $\rho: R\sop \to \End_{\D\sop} (\mc U\Star)$ given by $ \rho(r) = r\Star$, which is an isomorphism. If we use it to identify $R\sop$ with $\End_{\D\sop} (\mc U\Star)$, we can then apply Proposition \ref{prop:converse-density-thm} again and conclude that $\mc U\Star$ is a graded simple left $R\sop$-module and that we naturally can identify $\D\sop$ with $\End_{R\sop}(\mc U\Star)$.
 
 Now let $\vphi: R\to R$ be a super-anti-automorphism homogeneous of degree $e$.
-We can see it as an isomorphism $\vphi: R\to R\sop$ and use it to make the left $R\sop$-action into an left $R$-action: for all $r\in R$ and all $f\in \U\Star$, we define .
-Then $\mc U\Star$ becomes a graded left $R$-supermodule (to be precise, by $r\cdot f = \vphi(r)\cdot f$, for all $r\in R$ and $f\in \mc U\Star$).
-We, then, have that $\mc U\Star$ is a simple graded left $R$-module and that $\D\sop = \End_R(\mc U\Star)$.
+We can see it as an isomorphism $\vphi: R\to R\sop$ and use it to identify $R$ with $R\sop$. In particular, we will make the left $R\sop$-action into an left $R$-action via $r\cdot f = \vphi(r)f$, for all $r\in R$ and all $f\in \U\Star$. Note that this is the same as defining the left $R$-action using the right $R$-action by $r\cdot f = \sign{r}{f} f \vphi(r)$. 
 
-Since $R$ acts on the left, we will use the convention of writing $R$-superlinear maps on the right. % (see Subsection \ref{ssec:superlinear-maps}).
-By Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomorphism and shift, \ie, there is an invertible $R$-linear map $\vphi_1: \mc U \to \mc U\Star$ which is homogeneous of some degree $(g_0, \alpha)\in G^\#$.
+From now on, the only $R$-action we will consider on $\U\Star$ is the one on the left. Since $R$ acts on the left, we recall that we are using the convention of writing $R$-linear maps on the right.
+
+From Lemma \ref{lemma:U-star-R-sop}, it follows that $\U\Star$ is a simple graded left $R$-supermodule and that we can identify $\D\sop = \End_R (\U\Star)$. But from Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomorphism and shift, hence there is an invertible $R$-linear map $\vphi_1: \mc U \to \mc U\Star$ which is homogeneous of some degree $(g_0, \alpha)\in G^\#$.
+
+%Since  this new action makes $\mc U\Star$ a simple graded left $R$-supermodule. Also, since we had $\D\sop = \End_{R\sop} (\U\Star)$, we c it follows that $\D\sop$ can be identif
+%We, then, have that $\mc U\Star$ is a simple graded left $R$-module and that $\D\sop = \End_R(\mc U\Star)$.
+
+%Since $R$ acts on the left, we will use the convention of writing $R$-superlinear maps on the right. % (see Subsection \ref{ssec:superlinear-maps}).
+%By Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomorphism and shift, \ie, there is an invertible $R$-linear map $\vphi_1: \mc U \to \mc U\Star$ which is homogeneous of some degree $(g_0, \alpha)\in G^\#$.
 
 \begin{defi}
     Let $\V$ and $\V'$ be graded left $R$-supermodules and let $\psi: \V \to \V'$ be a $R$-linear map. We define $\psi^\circ: \V \to \V'$ to be a map on the left given by
@@ -603,12 +616,10 @@ By Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomor
 \begin{lemma}
     Let $\psi: \V \to \V'$ and $\theta: \V' \to \V''$ be $R$-linear maps between left $R$-supermodules. Then
     \begin{enumerate}[(i)]
-        \item $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$ for all $r\in R$ and $v\in V$;
+        \item $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$, for all $r\in R$ and $v\in V$;
         \item $(\psi\theta)^\circ = \sign{\psi}{\theta} \theta^\circ\psi^\circ$.\qed
     \end{enumerate}
 \end{lemma}
-
-Note that the $\D$
 
 We define $B: \U\times \U \to \D$ to be the $\FF$-bilinear map given by $B(u, v) = \vphi_1^\circ (u)(v)$. Considered as a $\FF$-linear map $B: \U\tensor \U \to \D$, it is homogeneous of the same degree $(g_0, \alpha)\in G^\#$.
 
