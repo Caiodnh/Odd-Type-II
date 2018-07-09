@@ -75,6 +75,8 @@
 \newtheorem{claim}{Claim}
 \newtheorem*{claim*}{Claim}
 
+\newcommand{\dual}{\widehat}
+
 \newcommand{\qedclaim}{\vspace{3mm}}
 
 \newcommand{\newclaims}{\setcounter{claim}{0}}
@@ -187,6 +189,8 @@
 \newcommand{\Lie}[1]{\ensuremath{L^{\bar{#1}}}}
 \newcommand{\A}[1]{\ensuremath{A^{\bar{#1}}}}
 
+\newcommand{\sign}[2]{\ensuremath{(-1)^{|#1||#2|}}}
+
 % For Q(n)
 \newcommand\munderbar[1]{\underaccent{\bar}{#1}}
 \newcommand{\trl}{\sharp}
@@ -200,8 +204,11 @@
 % Automorphisms
 \newcommand{\Inn}{\operatorname{Inn}}
 
+% Superconjugation
+\newcommand{\sconj}{\operatorname{sconj}}
+
 % Comments with "\tmp"
-\newcommand{\tmp}[1]{}
+\newcommand{\tmp}[1]{\tt #1}
 
 % bar vs overline
 
