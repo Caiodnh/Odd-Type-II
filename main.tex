@@ -594,9 +594,16 @@ and $\mc U\Star$ becomes a $(R\sop, \D\sop)$-bisupermodule.
 %Note that the $R\sop$-action correspond to the representation $\rho: R\sop \to \End_{\D\sop} (\mc U\Star)$ given by $ \rho(r) = r\Star$, which is an isomorphism. If we use it to identify $R\sop$ with $\End_{\D\sop} (\mc U\Star)$, we can then apply Proposition \ref{prop:converse-density-thm} again and conclude that $\mc U\Star$ is a graded simple left $R\sop$-module and that we naturally can identify $\D\sop$ with $\End_{R\sop}(\mc U\Star)$.
 
 Now let $\vphi: R\to R$ be a super-anti-automorphism homogeneous of degree $e$.
-We can see it as an isomorphism $\vphi: R\to R\sop$ and use it to identify $R$ with $R\sop$. In particular, we will make the left $R\sop$-action into an left $R$-action via $r\cdot f = \vphi(r)f$, for all $r\in R$ and all $f\in \U\Star$. Note that this is the same as defining the left $R$-action using the right $R$-action by $r\cdot f = \sign{r}{f} f \vphi(r)$. 
+We can see it as an isomorphism $\vphi: R\to R\sop$ and use it to identify $R$ with $R\sop$. In particular, we will make the left $R\sop$-action into an left $R$-action via $r\cdot f = \vphi(r)f$, for all $r\in R$ and all $f\in \U\Star$. 
+Note that this is the same as defining the left $R$-action using the right $R$-action by
+%
+\begin{equation}\label{eq:R-action-back-on-the-right}
+    r\cdot f = \sign{r}{f} f \circ \vphi(r) .
+\end{equation}
 
-From now on, the only $R$-action we will consider on $\U\Star$ is the one on the left. Since $R$ acts on the left, we recall that we are using the convention of writing $R$-linear maps on the right.
+We will now consider $\U\Star$ as an $(R,\D\sop)$-superbimodule. 
+In particular, the superalgebra $\End_R(\U\Star)$ should be understood as the set of $R$-linear maps with respect to the $R$-action on the left. 
+Also, since the action on the left, we will follow the convention of writing $R$-linear maps on the right.
 
 From Lemma \ref{lemma:U-star-R-sop}, it follows that $\U\Star$ is a simple graded left $R$-supermodule and that we can identify $\D\sop$ with $\End_R (\U\Star)$. 
 But from Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomorphism and shift, hence there is an invertible $R$-linear map $\vphi_1: \mc U \to \mc U\Star$ which is homogeneous of some degree $(g_0, \alpha)\in G^\#$.
@@ -609,11 +616,20 @@ Note that
 \end{equation}
 
 \begin{defi}
-    Let $\V$ and $\V'$ be graded left $R$-supermodules and let $\psi: \V \to \V'$ be a $R$-linear map. We define $\psi^\circ: \V \to \V'$ to be the following map, written on the left:
+    Let $V$ and $V'$ be left $R$-supermodules and let $\psi: V \to V'$ be a $R$-linear map. We define $\psi^\circ: V \to  V'$ to be the following map, written on the left:
     \[
         \psi^\circ(v) = \sign{\psi}{v} (v)\psi.
     \]
 \end{defi}
+
+\begin{lemma}
+    Let $\psi: V \to V$ and $\theta: V' \to V''$ be $R$-linear maps between left $R$-supermodules. Then, for all $r\in R$ and $v\in V$,
+    \begin{enumerate}[(i)]
+        \item $\psi^\circ (rv) = \sign{\psi}{r} r\psi(v)$;
+        \item $(\psi\theta) = \sign{\psi}{\theta} \theta^\circ \psi^\circ$.
+    \end{enumerate}
+    
+\end{lemma}
 
 \begin{remark}
     The map $\psi^\circ$ defined above is not, in general, $R$-linear. Instead, it satisfies $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$, for all $r\in R$ and $v\in V$. 
@@ -650,7 +666,7 @@ Recalling the definition of the right $\D\sop$-action on $\U\Star$, this can be 
 We define $B: \U\times \U \to \D$ to be the $\FF$-bilinear map given by $B(u, v) = \vphi_1^\circ (u)(v)$. 
 Considered as a $\FF$-linear map $B: \U\tensor \U \to \D$, it is homogeneous of the same parity and degree of $\vphi_1$.
 
-We will now see that, considering ``scalars'' on $\D$, the map $B$ is \emph{$\vphi_0$-sesquilinear}, \ie, we have that
+We will now see that, considering ``scalars'' on $\D$, the map $B$ is \emph{$\vphi_0$-sesquilinear}, \ie, for all $u,v \in \U$ and $d\in \D$, we have that
 \begin{equation}\label{eq:easy-one}
     B(u,vd) = B(u,v)d
 \end{equation}
@@ -659,8 +675,16 @@ and
     B(ud, v) = (-1)^ {(|B| + |u|)|d|}\vphi_0(d) B(u, v).
 \end{equation}
 
-Since $\vphi_1^\circ (u) \in \U\Star$, we have that $\vphi_1^\circ(u)(vd) = \vphi_1^\circ(u)(v)d$, for all $u,v \in \U$ and $d\in \D$, which give us \eqref{eq:easy-one}.
+Since $\vphi_1^\circ (u) \in \U\Star$, we have that $\vphi_1^\circ(u)(vd) = \vphi_1^\circ(u)(v)d$, which give us \eqref{eq:easy-one}.
 Equation \ref{eq:hard-one} is a restatement of \eqref{eq:sesquilinear-with-vphi1-circ}.
+
+Finally, Equation \eqref{eq:R-action-back-on-the-right} give us
+%
+\begin{equation*}
+    \begin{split}
+        B(ru,v) &= \vphi_1^\circ (ru)(v) = \sign{r}{\vphi_1} r \vphi_1^\circ (u)(v)\\ &= \sign{r}{u} \big(\vphi_1^\circ (u) \circ \vphi(r) \big) = \sign{r}{u} B(u,\vphi(r)v),
+    \end{split}
+\end{equation*}
 
 \begin{prop}
     
