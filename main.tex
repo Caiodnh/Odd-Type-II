@@ -598,54 +598,78 @@ We can see it as an isomorphism $\vphi: R\to R\sop$ and use it to identify $R$ w
 
 From now on, the only $R$-action we will consider on $\U\Star$ is the one on the left. Since $R$ acts on the left, we recall that we are using the convention of writing $R$-linear maps on the right.
 
-From Lemma \ref{lemma:U-star-R-sop}, it follows that $\U\Star$ is a simple graded left $R$-supermodule and that we can identify $\D\sop = \End_R (\U\Star)$. But from Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomorphism and shift, hence there is an invertible $R$-linear map $\vphi_1: \mc U \to \mc U\Star$ which is homogeneous of some degree $(g_0, \alpha)\in G^\#$.
+From Lemma \ref{lemma:U-star-R-sop}, it follows that $\U\Star$ is a simple graded left $R$-supermodule and that we can identify $\D\sop$ with $\End_R (\U\Star)$. 
+But from Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomorphism and shift, hence there is an invertible $R$-linear map $\vphi_1: \mc U \to \mc U\Star$ which is homogeneous of some degree $(g_0, \alpha)\in G^\#$.
 
-Consider the map $\tilde\vphi_0(d) := \sign{\vphi_1}{d}\vphi_1\inv d \vphi_1$ (where juxtaposition denotes composition of maps on the right).
-Then
+Using the identifications $\D = \End_R(\U)$ and $\D\sop = \End_R(\U\Star)$ introduced above, we can define $\vphi_0: \D \to \D\sop$ by $\vphi_0(d) := \sign{\vphi_1}{d}\vphi_1\inv d \vphi_1$ (where juxtaposition denotes composition of maps on the right). It is straightforward to check that $\vphi_0$ is an isomorphism and, hence, we can consider it as a super-anti-automorphism of $\D$.
+
+Note that
 \begin{equation}\label{eq:sesquilinear-before-B}
-    (ud)\vphi_1 = (u) (d\vphi_1) =  (u)(\vphi_1\vphi_1\inv d \vphi_1) = \sign{d}{\vphi_1}(u)\vphi_1 \,\tilde\vphi_0(d).
+    (ud)\vphi_1 = u (d\vphi_1) =  u(\vphi_1\vphi_1\inv d \vphi_1) = \sign{d}{\vphi_1}(u\,\vphi_1 )\vphi_0(d).
 \end{equation}
-It is straightforward to check that $\tilde\vphi_0: \D = \End_R(\mc U) \to \End_R(\mc U\Star) = \D\sop$ is an isomorphism of superalgebras.
-%We will consider $\vphi_0$ as a super-anti-automorphism on $\D$.
-
-%Recall (Subsection \ref{ssec:superlinear-maps}) that $\vphi_1^\circ$ is an $R$-superlinear map on the left. Using it, the Equation \eqref{eq:sesquilinear-before-B} becomes
-
-
-%Since  this new action makes $\mc U\Star$ a simple graded left $R$-supermodule. Also, since we had $\D\sop = \End_{R\sop} (\U\Star)$, we c it follows that $\D\sop$ can be identif
-%We, then, have that $\mc U\Star$ is a simple graded left $R$-module and that $\D\sop = \End_R(\mc U\Star)$.
-
-%Since $R$ acts on the left, we will use the convention of writing $R$-superlinear maps on the right. % (see Subsection \ref{ssec:superlinear-maps}).
-%By Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomorphism and shift, \ie, there is an invertible $R$-linear map $\vphi_1: \mc U \to \mc U\Star$ which is homogeneous of some degree $(g_0, \alpha)\in G^\#$.
 
 \begin{defi}
-    Let $\V$ and $\V'$ be graded left $R$-supermodules and let $\psi: \V \to \V'$ be a $R$-linear map. We define $\psi^\circ: \V \to \V'$ to be a map on the left given by
+    Let $\V$ and $\V'$ be graded left $R$-supermodules and let $\psi: \V \to \V'$ be a $R$-linear map. We define $\psi^\circ: \V \to \V'$ to be the following map, written on the left:
     \[
         \psi^\circ(v) = \sign{\psi}{v} (v)\psi.
     \]
 \end{defi}
 
-\begin{lemma}
-    Let $\psi: \V \to \V'$ and $\theta: \V' \to \V''$ be $R$-linear maps between left $R$-supermodules. Then
-    \begin{enumerate}[(i)]
-        \item $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$, for all $r\in R$ and $v\in V$;
-        \item $(\psi\theta)^\circ = \sign{\psi}{\theta} \theta^\circ\psi^\circ$.\qed
-    \end{enumerate}
-\end{lemma}
+\begin{remark}
+    The map $\psi^\circ$ defined above is not, in general, $R$-linear. Instead, it satisfies $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$, for all $r\in R$ and $v\in V$. 
+    Also, given another $R$-linear map $\theta: \V' \to \V''$, we have that $(\psi\theta)^\circ = \sign{\psi}{\theta} \theta^\circ\psi^\circ$.
 
-Note that the isomorphism $\D\sop \to \D$ given by $d \mapsto d^\circ$ relates the right $\D\sop$-action on $\U\Star$ with the left $\D$-action: $f\cdot d = d^\circ \cdot f$.
 
-Using the notation just introduced, Equation \eqref{eq:sesquilinear-before-B} becomes
-\begin{equation}%\label{eq:sesquilinear-with-vphi1-circ}
-    \vphi_1^\circ (ud) = \vphi_1^\circ (u) \tilde\vphi_0 (d)
-\end{equation}
-or, puting $\vphi_0(d) = (\tilde \vphi_0(d))^\circ$,
+    % Let $\psi: \V \to \V'$ and $\theta: \V' \to \V''$ be $R$-linear maps between left $R$-supermodules. Then
+    % \begin{enumerate}[(i)]
+    %     \item $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$, for all $r\in R$ and $v\in V$;
+    %     \item $(\psi\theta)^\circ = \sign{\psi}{\theta} \theta^\circ\psi^\circ$.
+    % \end{enumerate}
+\end{remark}
+
+Using the notation just introduced and Equation \eqref{eq:sesquilinear-before-B}, we have that
+%
+\begin{equation*}%\label{eq:sesquilinear-with-vphi1-circ}
+    \begin{split}
+        \vphi_1^\circ (ud) &= (-1)^{|\vphi_1|(|u|+|d|)} (ud)\vphi_1 \\
+        &=\sign{\vphi_1}{u}(u\,\vphi_1 )\vphi_0(d) = 
+        \vphi_1^\circ (u) \vphi_0 (d)
+    \end{split}
+\end{equation*}
+%
+Recalling the definition of the right $\D\sop$-action on $\U\Star$, this can be rewritten using the left $\D$-action as
+%
 \begin{equation}\label{eq:sesquilinear-with-vphi1-circ}
     \vphi_1^\circ (ud) = (-1)^{|d|(|\vphi_1|+|u|)}\vphi_0 (d)\vphi_1^\circ (u).
 \end{equation}
 
 
+% We define $\vphi_1 := \tilde\vphi_1^\circ$ and $\vphi_0: \D \to \D$ by $\vphi_0(d): \sign{\vphi_1}{d} \vphi_1 d^\circ \vphi_1\inv$. 
+% Note that the left $\D$-action on $\U\Star$ is connected the right $\D\sop$-action by the formula $f\cdot d = d^\circ \cdot f$, hence $\vphi_0$ is an anti-super-automorphism of $\D$. Also, we have that $\vphi_1(ud) = \sign{u}{d} \vphi_1(d^\circ  $
 
-We define $B: \U\times \U \to \D$ to be the $\FF$-bilinear map given by $B(u, v) = \vphi_1^\circ (u)(v)$. Considered as a $\FF$-linear map $B: \U\tensor \U \to \D$, it is homogeneous of the same parity and degree of $\vphi_1$.
+We define $B: \U\times \U \to \D$ to be the $\FF$-bilinear map given by $B(u, v) = \vphi_1^\circ (u)(v)$. 
+Considered as a $\FF$-linear map $B: \U\tensor \U \to \D$, it is homogeneous of the same parity and degree of $\vphi_1$.
+
+We will now see that, considering ``scalars'' on $\D$, the map $B$ is \emph{$\vphi_0$-sesquilinear}, \ie, we have that
+\begin{equation}\label{eq:easy-one}
+    B(u,vd) = B(u,v)d
+\end{equation}
+and
+\begin{equation}\label{eq:hard-one}
+    B(ud, v) = (-1)^ {(|B| + |u|)|d|}\vphi_0(d) B(u, v).
+\end{equation}
+
+Since $\vphi_1^\circ (u) \in \U\Star$, we have that $\vphi_1^\circ(u)(vd) = \vphi_1^\circ(u)(v)d$, for all $u,v \in \U$ and $d\in \D$, which give us \eqref{eq:easy-one}.
+Equation \ref{eq:hard-one} is a restatement of \eqref{eq:sesquilinear-with-vphi1-circ}.
+
+\begin{prop}
+    
+\end{prop}
+
+% it is clear that $B(u,vd) = B(u,v)d$. By Equation \eqref{eq:sesquilinear-before-B}, the map $B: \U \times \U \to \D$ is a \emph{$\vphi_0$-sesquilinear form}, \ie,
+% \[
+%     B(ud, v) = (-1)^ {(|B| + |u|)|d|}
+% \]
 
 % Consider the map $\vphi_0: \D \to \D$ given by 
 
@@ -668,18 +692,33 @@ We define $B: \U\times \U \to \D$ to be the $\FF$-bilinear map given by $B(u, v)
 %     B(u,v) = \vphi_1^\circ (u) (v),
 % \]
 % for all $u,v \in U$.
-The map $B$ is \emph{$\vphi_0$-sesquilinear}, \ie, we have that
-\begin{equation}\label{eq:easy-one}
-    B(u,vd) = B(u,v)d
-\end{equation}
-and
-\begin{equation}\label{eq:hard-one}
-    B(ud, v) = (-1)^ {(|B| + |u|)|d|}\vphi_0(d) B(u, v)
-\end{equation}
-Since $\vphi_1(u) \in \U\Star$, it is clear that $B(u,vd) = B(u,v)d$. By Equation \eqref{eq:sesquilinear-before-B}, the map $B: \U \times \U \to \D$ is a \emph{$\vphi_0$-sesquilinear form}, \ie,
-\[
-    B(ud, v) = (-1)^ {(|B| + |u|)|d|}
-\]
+
+
+%We will consider $\vphi_0$ as a super-anti-automorphism on $\D$.
+
+%Recall (Subsection \ref{ssec:superlinear-maps}) that $\vphi_1^\circ$ is an $R$-superlinear map on the left. Using it, the Equation \eqref{eq:sesquilinear-before-B} becomes
+
+
+%Since  this new action makes $\mc U\Star$ a simple graded left $R$-supermodule. Also, since we had $\D\sop = \End_{R\sop} (\U\Star)$, we c it follows that $\D\sop$ can be identif
+%We, then, have that $\mc U\Star$ is a simple graded left $R$-module and that $\D\sop = \End_R(\mc U\Star)$.
+
+%Since $R$ acts on the left, we will use the convention of writing $R$-superlinear maps on the right. % (see Subsection \ref{ssec:superlinear-maps}).
+%By Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomorphism and shift, \ie, there is an invertible $R$-linear map $\vphi_1: \mc U \to \mc U\Star$ which is homogeneous of some degree $(g_0, \alpha)\in G^\#$.
+
+
+
+% Using the notation just introduced, Equation \eqref{eq:sesquilinear-before-B} becomes
+% \begin{equation}%\label{eq:sesquilinear-with-vphi1-circ}
+%     \vphi_1^\circ (ud) = \vphi_1^\circ (u) \tilde\vphi_0 (d)
+% \end{equation}
+% or, puting $\vphi_0(d) = (\tilde \vphi_0(d))^\circ$,
+% \begin{equation}\label{eq:sesquilinear-with-vphi1-circ}
+%     \vphi_1^\circ (ud) = (-1)^{|d|(|\vphi_1|+|u|)}\vphi_0 (d)\vphi_1^\circ (u).
+% \end{equation}
+
+
+
+
 
 
 
