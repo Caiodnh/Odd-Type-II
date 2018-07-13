@@ -670,9 +670,9 @@ and
 \begin{equation}\label{eq:hard-one}
     B(ud, v) = (-1)^ {(|B| + |u|)|d|}\vphi_0(d) B(u, v).
 \end{equation}
-
+%
 Since $\vphi_1^\circ (u) \in \U\Star$, we have that $\vphi_1^\circ(u)(vd) = \vphi_1^\circ(u)(v)d$, which give us \eqref{eq:easy-one}.
-Equation \ref{eq:hard-one} is a restatement of \eqref{eq:sesquilinear-with-vphi1-circ}.
+Equation \eqref{eq:hard-one} is a restatement of \eqref{eq:sesquilinear-with-vphi1-circ}.
 
 Finally, using Lemma \ref{lemma:change-of-side-properties} and Equation \eqref{eq:R-action-back-on-the-right}, we have
 %
@@ -681,14 +681,21 @@ Finally, using Lemma \ref{lemma:change-of-side-properties} and Equation \eqref{e
         B(ru,v) &= \vphi_1^\circ (ru)(v) = \sign{r}{\vphi_1} r \vphi_1^\circ (u)(v)\\ &= \sign{r}{u} \big(\vphi_1^\circ (u) \circ \vphi(r) \big)(v) = \sign{r}{u} B(u,\vphi(r)v),
     \end{split}
 \end{equation*}
-\ie, the super-anti-automorphism $\vphi$ corresponds to the \emph{superadjuntion} with respect to the form $B$. In particular, we can recover $\vphi$ from the pair $(\vphi_0, B)$.
+\ie, for every $r\in R$, we have that $\vphi(r)$ is its \emph{superadjoint} with respect to $B$. 
+% In particular, we can recover $\vphi$ from the pair $(\vphi_0, B)$.
+
+This discussion proves one direction of Theorem {\tt ??}. I
+
+One should note that the $\vphi_0: \D \to \D\sop$ give $\U\Star$ a right $\D$-module structure by defining $f\cdot d = f\vphi_0(d)$, for all $f\in \U\Star$ and $d\in \D$. In this sense, from
+
+% Clearly, the $\vphi_0$-sesquilinear form $B$ is \emph{nondegenerate} in the sense that the map $\U \to \U\Star$ given by $u \mapsto B(u, \cdot)$ is an isomorphism of right $\D$-modules. 
 
 \begin{thm}
     Let $\D$ be a graded division superalgebra and let $\U$ be a right graded module of finite rank over $\D$. If $\vphi$ is degree preserving super-anti-automorphism on $R := \End_R(\U)$, then there is a super-anti-automorphism $\vphi_0$ on $\D$ and a nondegenerate $\vphi_0$-sesquilinear map $B: \U \times \U \to \D$ such that
     \[
         B(ru,v) = \sign{r}{u} B(u,\vphi(r)v).
     \]
-    
+    Conversely, given a $ $
 \end{thm}
 
 \begin{proof}
