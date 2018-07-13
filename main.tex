@@ -615,25 +615,21 @@ Note that
     (ud)\vphi_1 = u (d\vphi_1) =  u(\vphi_1\vphi_1\inv d \vphi_1) = \sign{d}{\vphi_1}(u\,\vphi_1 )\vphi_0(d).
 \end{equation}
 
-\begin{defi}
+\begin{defi}\label{def:change-map-to-the-left}
     Let $V$ and $V'$ be left $R$-supermodules and let $\psi: V \to V'$ be a $R$-linear map. We define $\psi^\circ: V \to  V'$ to be the following map, written on the left:
     \[
         \psi^\circ(v) = \sign{\psi}{v} (v)\psi.
     \]
 \end{defi}
 
-\begin{lemma}
-    Let $\psi: V \to V$ and $\theta: V' \to V''$ be $R$-linear maps between left $R$-supermodules. Then, for all $r\in R$ and $v\in V$,
-    \begin{enumerate}[(i)]
-        \item $\psi^\circ (rv) = \sign{\psi}{r} r\psi(v)$;
-        \item $(\psi\theta) = \sign{\psi}{\theta} \theta^\circ \psi^\circ$.
-    \end{enumerate}
-    
+\begin{lemma}\label{lemma:change-of-side-properties}
+    In the conditions of Definition \ref{def:change-map-to-the-left}, we have that, for all $r\in R$ and $v\in V$,  $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$. 
+    Also, given another $R$-linear map $\theta: \V' \to \V''$, we have that $(\psi\theta)^\circ = \sign{\psi}{\theta} \theta^\circ\psi^\circ$. \qed
 \end{lemma}
 
-\begin{remark}
-    The map $\psi^\circ$ defined above is not, in general, $R$-linear. Instead, it satisfies $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$, for all $r\in R$ and $v\in V$. 
-    Also, given another $R$-linear map $\theta: \V' \to \V''$, we have that $(\psi\theta)^\circ = \sign{\psi}{\theta} \theta^\circ\psi^\circ$.
+% \begin{remark}
+%     The map $\psi^\circ$ defined above is not, in general, $R$-linear. Instead, it satisfies $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$, for all $r\in R$ and $v\in V$. 
+%     Also, given another $R$-linear map $\theta: \V' \to \V''$, we have that $(\psi\theta)^\circ = \sign{\psi}{\theta} \theta^\circ\psi^\circ$.
 
 
     % Let $\psi: \V \to \V'$ and $\theta: \V' \to \V''$ be $R$-linear maps between left $R$-supermodules. Then
@@ -641,17 +637,17 @@ Note that
     %     \item $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$, for all $r\in R$ and $v\in V$;
     %     \item $(\psi\theta)^\circ = \sign{\psi}{\theta} \theta^\circ\psi^\circ$.
     % \end{enumerate}
-\end{remark}
+% \end{remark}
 
 Using the notation just introduced and Equation \eqref{eq:sesquilinear-before-B}, we have that
 %
-\begin{equation*}%\label{eq:sesquilinear-with-vphi1-circ}
+\begin{equation}\label{eq:vphi1-circ-is-D-linear}
     \begin{split}
         \vphi_1^\circ (ud) &= (-1)^{|\vphi_1|(|u|+|d|)} (ud)\vphi_1 \\
         &=\sign{\vphi_1}{u}(u\,\vphi_1 )\vphi_0(d) = 
         \vphi_1^\circ (u) \vphi_0 (d)
     \end{split}
-\end{equation*}
+\end{equation}
 %
 Recalling the definition of the right $\D\sop$-action on $\U\Star$, this can be rewritten using the left $\D$-action as
 %
@@ -678,17 +674,28 @@ and
 Since $\vphi_1^\circ (u) \in \U\Star$, we have that $\vphi_1^\circ(u)(vd) = \vphi_1^\circ(u)(v)d$, which give us \eqref{eq:easy-one}.
 Equation \ref{eq:hard-one} is a restatement of \eqref{eq:sesquilinear-with-vphi1-circ}.
 
-Finally, Equation \eqref{eq:R-action-back-on-the-right} give us
+Finally, using Lemma \ref{lemma:change-of-side-properties} and Equation \eqref{eq:R-action-back-on-the-right}, we have
 %
 \begin{equation*}
     \begin{split}
-        B(ru,v) &= \vphi_1^\circ (ru)(v) = \sign{r}{\vphi_1} r \vphi_1^\circ (u)(v)\\ &= \sign{r}{u} \big(\vphi_1^\circ (u) \circ \vphi(r) \big) = \sign{r}{u} B(u,\vphi(r)v),
+        B(ru,v) &= \vphi_1^\circ (ru)(v) = \sign{r}{\vphi_1} r \vphi_1^\circ (u)(v)\\ &= \sign{r}{u} \big(\vphi_1^\circ (u) \circ \vphi(r) \big)(v) = \sign{r}{u} B(u,\vphi(r)v),
     \end{split}
 \end{equation*}
+\ie, the super-anti-automorphism $\vphi$ corresponds to the \emph{superadjuntion} with respect to the form $B$. In particular, we can recover $\vphi$ from the pair $(\vphi_0, B)$.
 
-\begin{prop}
+\begin{thm}
+    Let $\D$ be a graded division superalgebra and let $\U$ be a right graded module of finite rank over $\D$. If $\vphi$ is degree preserving super-anti-automorphism on $R := \End_R(\U)$, then there is a super-anti-automorphism $\vphi_0$ on $\D$ and a nondegenerate $\vphi_0$-sesquilinear map $B: \U \times \U \to \D$ such that
+    \[
+        B(ru,v) = \sign{r}{u} B(u,\vphi(r)v).
+    \]
     
-\end{prop}
+\end{thm}
+
+\begin{proof}
+    It only remains to prove the moreover part. From the discussion above, it follows that 
+\end{proof}
+
+
 
 % it is clear that $B(u,vd) = B(u,v)d$. By Equation \eqref{eq:sesquilinear-before-B}, the map $B: \U \times \U \to \D$ is a \emph{$\vphi_0$-sesquilinear form}, \ie,
 % \[
