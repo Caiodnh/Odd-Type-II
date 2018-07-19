@@ -57,333 +57,9 @@ St. John's, NL, A1C5S7, Canada}
 
 %\maketitle
 
-
-
-\chapter{Overview of $\vphi$-gradings}
-
-This is an overview of what I want done in the section/chapter of $\vphi$-gradings. Each bullet should be expanded to a paragraph/definition/result/proof, roughly in order of appearance in the final text. The goal is to have a better idea of how it will look like.
-
-Some billets are for things that must come before, others are for things the should come later. But these are less detailed. As the real work gets done, the bullets will necessarily change a little.
-
-\section{Before}
-
-\begin{itemize}
-        \item The sign in identifying $U \tensor V$ with $V \tensor U$.
+\chapter{Temporary Chapter for References}
     
-        \item Side of $R$-linear maps: left or right? How to move from one to another.
-    
-        \item The dual basis, and how it changes moving the maps to the left (even if $R=\FF$).
-    
-        \item The supertranspose and definition of super-anti-automorphisms.
-        
-        \item In general, super-anti-automorphisms don't have order $2$. Indeed, we will see, they only exist for certain choice of $m$ and $n$ (one must be even or both must be equal)
-        
-        \item Nondegenerate bilinear forms yield super-anti-automorphisms. Supersymmetry implies order $2$.
-        
-        \item Notation $\FF^{(m|n)}$
-
-\end{itemize}
-
-
-\section{Actual}
-
-    \begin{itemize}
-        \item[\done] Why consider $\vphi$-gradings? They are the type I gradings for Lie superalgebras orthosympletic or peripletic. 
-        
-        \item[\done] Definition of superalgebra with distinguished map and its homomorphisms. 
-        
-        \item[\done] Definition of $\Aut (R, \vphi)$. 
-        
-        \item[\done] Note that if the map is the identity, nothing is new. 
-        
-        \item[\done] Definition of $\vphi$-grading for any distinguished map $\vphi$. 
-        
-        \item[\done] Again, $\vphi = \id$ yields nothing new
-        
-        \item[\done] The case of interest for us is when $\vphi$ is a super-anti-automorphism. In this case the grading restricts to a grading on $\Skew(R, \vphi)$. 
-        
-        \item[\done] Subsection: Correspondence between $\widehat G$-actions and $\vphi$-gradings. Recall that $\vphi$ has degree $e$ iff it is $\widehat G$-equivariant. Hence homomorphisms of $\vphi$-gradings correspond to maps commuting with $\vphi$.
-        
-        \item[\done] In particular, $\vphi$-gradings correspond to $\widehat G$-representations by automorphisms of $(R, \vphi)$. (end of subsection)
-        
-        \item[\done] Subsection: Type II gradings on $A$ as $\vphi$-gradings
-        
-        \item[\done] Check the beamer about this
-        
-        \item[\done] New model for $\gl(m|n)$. Take $R = M(m,n) \times M(m,n)$ and consider $\psi$ to be any super-anti-automorphism on $M(m,n)$. Then take $\vphi (x, y) = (\psi\inv (y) , \psi (x) )$ on $R$. It is a superinvolution.
-        
-        \item[\done] We could take the supertranspose for $\psi$, but it will be more convenient (simplify computations later) to take ``the $(-i)$-supertranspose'' instead.
-        
-        \item[\cancel] One could choose the abstract version: $\End (U) \times \End(U^*)$ and the superadjoint.
-        
-        \item[\done] One could also discuss also the $M \times M\sop$ version...
-        
-        \item[\done] Anyway, $\gl(m|n)$ is isomorphic to $\Skew (R, \vphi)$.
-        
-        \item The group of automorphisms of $R$ commuting with $\vphi$ is bigger then the group of automorphisms of $M(m,n)$.
-        
-        \item It is precisely the group of automorphisms of $A$, by \cite{serganova}.
-        
-        \item[\done] So both Type I and Type II gradings can be recovered this form.
-        
-        \item[\done] But it is more convenient for Type II gradings: these are the ones that make $R$ simple as a graded algebra, so we can apply the theorem $\End_\D (U)$.
-        
-        \item[\done] Why is that? There are only 2 ideals on $R$. If one of them is graded, them the other also is (by $1 =  \epsilon_1 + \epsilon_2$). But in this case the top corner is $M(m,n)$ as graded algebra and $\gl(m|n)$ gets its grading by the restriction, hence it is Type I. The converse is true by the same reasoning (and recalling point bellow).
-        
-        \item[\done] Recall here: If there is an isomorphism between the $\Aut(R, \vphi)$ and $\Aut(S, \psi)$ ($\psi$ could be any map, not necessarily super-anti-auto), them there is a bijection of gradings and of iso classes of gradings.
-        
-        \item[\done] We will keep the original description for the Type I gradings
-        
-        \newpage
-        
-        \item[\done] Subsection: $\vphi$-gradings and bilinear forms
-        
-        \item[\done] Let $U$ be a *finite dimensional* right $\D$-module. Then $U^*$ is a left $\D$-module or, equivalently, a right $\D\sop$-module.
-        
-        \item[\done] Note that $U$ is also a *simple* left $R$-module, where $R = \End_\D(U)$. Also note that we can identify $\D = \End_R (U)$ since it is a graded division algebra.
-        
-        \item[\done] Naturally, $U\Star$ is a right $R$-module. And it must be simple as a $R$-module (proof here).
-        
-        \item[\done] So we can see $U\Star$ as a simple left $R\sop$-module.
-        
-        \item[\done] Also note that $\D\sop = \End_{R\sop} (U\Star)$.
-        
-        \item[\done] Now let $\vphi$ be a (homog of deg e) anti-super-aut on $R$. We can use it to identify $R$ with $R\sop$. In particular, we can consider right $R$-modules as left $R$-modules.
-        
-        %\item Take $U$ a finite dimensional right $\D$-module. It is naturaly an left $R$-module for $R = \End_\D (U)$. Recall that, by proposition long time ago, that we can then identify $\D = \End_R(U)$ (maps on the right here).
-        
-        %\item It can be seen as an left $R\sop$-module.
-        
-        %\item Also, $\D\sop = \End_{R\sop} (U\Star)$.
-        
-        \item[\done] Using $\vphi$, $U\Star$ is a left $R$-module again (still simple). But we have only one of such up to isomorphism and shift.
-        
-        \item[\done] Let $\vphi_1$ be such a map. It is not unique, we can compose with a map on the right or a map on the left (which are elements of $\D\sop$ or $\D$, depending on the side.
-        
-        \item[\cancel] (here the sides of $D$ and $D\sop$ are inverted because of correct composition)
-        
-        \item[\done] Fixed one $\vphi_1$, we can use it to find an iso between $\D$ and $\D\sop$. Call it $\vphi_0$.
-        
-        \item We can move $\vphi_1$ to the left using our convention.
-        
-        \item We can now change $\vphi_1$ to a $\vphi_0$-sesquilinear form $B$.
-        
-        \item Definition: $\vphi_0$-sesquilinear form.
-        
-        \item With the pair $(\vphi_0, B)$ we can recover $\vphi$. Two pairs yield the same $\vphi$ if and only if something.
-        
-        \item start hidden subsection: now suppose $\vphi^2 = \id$.
-        
-        \item Note that the pair $(\vphi_0\inv, \vphi_0\inv (B (y,x)))$ yields $\vphi\inv$. Hence yields $\vphi$. So there $d\in \D\even_0$ such that...
-        
-        \item But we are over an algebraically closed field. This implies $d \in \FF$ and $\vphi_0 = \vphi_0\inv$, ie, $\vphi_0$ is a superinvolution.
-        
-        \item Need here: the formula $\vphi(x) = \Phi\inv x\Star \Phi$.
-        
-        \newpage
-        
-        \item Subsection: Odd gradings
-        
-        \item Again, gradings are odd if $\D$ is odd, so lets see when this can happen.
-        
-        \item it can't happen for $\D$ simple as algebra! Why? Because them $T$ would have to be an elementary $2$-group. But if $T$ is an elementary $2$-group, them $\vphi_0$ would have order (at least) $4$. (check proof in beamer)
-        
-        \item If the reader is interested only in $B, C, D, P$, he can stop here.
-        
-        \item Hidden subsection:
-        
-        \item example: $\mc O_{\mathrm{\scriptscriptstyle{I\hspace{-.7pt}I}}}$ (basic odd superalgebra of type II)
-        
-        \item Look bellow for the example
-        
-        \item First with refinement, by hand
-        
-        \item Second with loop construction
-        
-        \item Them show isomorphism
-        
-        \item Theorem: every odd type II graded division algebra is $\mc O_{II} \tensor \D$, for even $\D$.
-        
-        \item Next: recall what we are missing from before (eg $V^*$ and $^* V$).
-        
-        \item Next: Fill what we have till now
-        
-        \item Next: Isomorphism of $\vphi$-gradings
-        
-        \item Next: The possible type II gradings on $A$, their relation with $\langle \pi, \tau\rangle$ and isomorphisms.
-        
-    \end{itemize}
-
-\section{After}
-
-
-    % \chapter{What do we need before $\vphi$-gradings}
-    
-    
-    
-    % \section{Supermodules and superlinear maps}\label{ssec:superlinear-maps}
-    
-    % Let $R$ be a superalgebra. A \emph{left (right) supermodule} over it (also called \emph{left (right) $R$-supermodule} is simply a left (right) $\ZZ_2$-graded module over it. But we have to be careful in to define the corresponding notion of linear map. It is usual in the theory of modules to write linear maps between left modules on the right and vice-versa. Sometimes, though, it is useful to keep the maps on the same side of the module (when dealing with bimodules, for example). This ``change of side'' is not direct when dealing with supermodules, since one must take the sign rule in consideration.
-    
-    % \begin{convention}%\label{conv:maps-left-right}
-    %     Whenever it is necessary, we will distinguish maps written on the left (called simply as \emph{maps on the left}) from maps writtenon the  right (\emph{maps on the right}) as different concepts.
-    % \end{convention}
-    
-    % \begin{defi}\label{def:side-of-the-map}
-    %     Let $R$ be a superalgebra and let $U$ and $V$ be left supermodules over it.
-    %     If $\vphi: U \to V$ is a map on the right, we say it is \emph{$R$-superlinear} if
-    %     \[
-    %         (r\cdot u) \vphi = r\cdot (u)\vphi.
-    %     \]
-    %     If $\psi: U \to V$ is a map on the left, we say it is \emph{$R$-superlinear} if
-    %     \[
-    %         \psi(r\cdot u) = \sign{r}{\psi} r\cdot \psi(u).
-    %     \]
-    %     The definition is analogous for right modules.
-    %     By an \emph{isomorphism} of (left or right) $R$-supermodules we mean an invertible $R$-superlinear map (on the left or on the right) which is homogeneous of degree $\bar 0$.
-    % \end{defi}
-    
-    % Unless stated otherwise, we will always consider the $R$-linear maps written on the opposite side of the of the $R$-action on the module, and these are the elements of the sets $\Hom_R (U,V)$ and $\End_R(U)$.
-    
-    % %Following Definition \ref{def:side-of-the-map}, if $R$ and $S$ are superalgebras and $U$ and $V$ are $(R,S)$-bisupermodulus, then
-    
-    % There is a natural identification between $R$-superlinear maps on the right and $R$-superlinear maps on the left. In the conditions of the definition above, we can define
-    % \[
-    %     \vphi^\circ (u) := \sign{\vphi}{u} (u)\vphi
-    % \]
-    % and
-    % \[
-    %     (u)^\circ\psi := \sign{\psi}{u} \psi (u).
-    % \]
-    % The maps $\vphi^\circ$ and $^\circ\psi$ are $R$-superlinear maps but written on the opposite side of $\vphi$ and $\psi$, respectively.
-    
-    
-    % \section{Short version of a $\widehat G$-actions section}
-    
-    % One of the important tools for dealing with gradings by abelian groups on (super)algebras is the well-known correspondence between  $G$-gradings and $\widehat G$-actions (see e.g. \cite[\S 1.4]{livromicha}), where $\widehat G$ is the algebraic group of characters of $G$, \ie, group homomorphisms $G \rightarrow \FF^{\times}$. The group $\widehat{G}$ acts on any $G$-graded (super)algebra $A = \bigoplus_{g\in G} A_g$ by $\chi \cdot a = \chi(g) a$ for all $a\in A_g$ (extended to arbitrary $a\in A$ by linearity). The map given by the action of a character $\chi \in \widehat{G}$ is an automorphism of $A$. If $\FF$ is algebraically closed and $\Char \FF = 0$, then $A_g = \{ a\in A \mid \chi \cdot a = \chi (g) a\}$, so the grading can be recovered from the action.
-    
-    % For example, if $A=A\even \oplus A\odd$ is a superalgebra, the action of the nontrivial character of $\ZZ_2$ yields the \emph{parity automorphism} $\upsilon$, which acts as the identity on $A\even$ and as the negative identity on $A\odd$. If $A$ is a $\ZZ$-graded algebra, we get a representation $\widehat \ZZ = \FF^\times \rightarrow \Aut (A)$ given by $\lambda \mapsto \upsilon_\lambda$ where $\upsilon_{\lambda} (x) = \lambda^i x$ for all $x\in A^i$, $i\in \ZZ$.
-    
-    % A grading on a (super)algebra over an algebraically closed field of characteristic $0$ is said to be \emph{inner} if it corresponds to an action by inner automorphisms. For example, the inner gradings on $\Sl(n)$ (also known as Type I gradings) are precisely the restrictions of gradings on the associative algebra $M_n(\FF)$.
-    
-    % \section{The Dual of a Superspace}
-    
-    % We will now discuss the concept of dual of a superspace. If $U = U\even \oplus U\odd$ is a superspace, then $U^*$ is also a superspace with the elementary grading.
-    % % If $L: U \to V$ is a homogeneous linear map between superspaces, we define the \emph{superadjoint of $L$} to be the map $L^*: V^* \to U^*$ defined by $L^*(f) = (-1)^{|L||f|} f \circ L$.
-    
-    % \begin{defi}
-    %     Let $L: U \to V$ be linear map between superspaces.
-    %     We define the \emph{superadjoint of $L$} to be the map $L^*: V^* \to U^*$ defined by $L^*(f) = (-1)^{|L||f|} f \circ L$ if $L$ is homogeneous and extend it by linearity.
-    % \end{defi}
-    
-    % In the case $U = V$, the map $\vphi: \End(U) \to \End(U^*)$ given by $\vphi(L) = L^*$ is a super-anti-isomorphism of superalgebras, i.e., $\vphi (LS) = (-1)^|L||S| \vphi(S) \vphi(L)$.
-    
-    % As in the case of finite dimensional vector spaces, we will identify a finite dimensional superspace $U$ with $U^{**}$, but not via the usual evaluation map.
-    
-    % \begin{defi}
-    %     Let $U$ be a superspace. By \emph{superevaluation} we mean any of the two following maps: $ \langle\, ,\rangle : U^* \times U$ defined by $\langle f, u\rangle = f(u)$ and  $ \langle\, ,\rangle : U \times U^*$ defined by $\langle u, f\rangle = (-1)^{|u||f|}f(u)$. 
-    % \end{defi}
-    
-    % With this definition, we have that $\langle T(x), y\rangle = (-1)^{|L||x|}\langle x, L^* (y)\rangle$.
-    
-    % The map $U \to U^{**}$ given by $u \mapsto  \langle u , \cdot \rangle$ is clearly linear, homogeneous of degree $\bar 0$ and injective. Hence, if $U$ is finite dimensional it is an isomorphism of superspaces, and we will use it to identify $U^{**}$ with $U$.
-    
-    % \begin{prop}\label{prop:superadjunction-is-involutive}
-    %     Let $L: U \to V$ be a linear map between finite dimensional superspaces. Then $L^{**} = L$.
-    % \end{prop}
-    
-    % \begin{proof}
-    %     WE REMIND THE AUTHOR TO NOT FORGET IT.
-    % \end{proof}
-    
-    % Differently from the case of usual vector spaces, things do not transfer smoothly to matrix realizations when we fix bases. To be precise, let $\mc B = \{e_1, \ldots, e_k\}$ be a homogeneous basis of a superspace $U$. Given $\lambda \in \FF$, we define the \emph{$\lambda$-superdual basis of $\mc B$} as being the set $\mc B^*_\lambda = \{e_1^*, \ldots, e_k^*\} \subseteq U^*$, where $e_i^*$ is the linear functional defined by $e_i^*(e_j) = \delta_{ij}$ if $e_j$ is even and $e_i^*(e_j) = \lambda \delta_{ij}$ if $e_j$ is odd. In the case $\lambda = 1$, we get the usual dual basis.
-    
-    % Let $\mc B$ and $\mc C$ be homogeneous bases of the finite dimensional superspaces $U$ and $V$, respectively. Suppose $L: U \to V$ is a linear map whose matrix in relation to the bases above is
-    % $\begin{pmatrix}
-    %         a & b\\
-    %         c & d
-    %     \end{pmatrix}$.
-    % Then, considering $\mc B^*_\lambda$ and $\mc C^*_\lambda$ on $U^*$ and $V^*$, the matrix of $L^*$ is
-    % $\begin{pmatrix}
-    %         a\transp & -\lambda c\transp\\
-    %         \lambda\inv b\transp & d\transp
-    %     \end{pmatrix}$.
-        
-    % \begin{defi}
-    %     Let $X = \begin{pmatrix}
-    %         a & b\\
-    %         c & d
-    %     \end{pmatrix}$ be the a $(n_1 | m_1)\times (n_2 | m_2)$ supermatrix and $\lambda \in \FF$. The \emph{$\lambda$-supertranspose of $X$} is the matrix
-    %     \[
-    %     \begin{pmatrix}
-    %         a\transp & -\lambda c\transp\\
-    %         \lambda\inv b\transp & d\transp
-    %     \end{pmatrix}. 
-    %     \]
-    %     %
-    %     If $\lambda = 1$, we call it simply the \emph{supertranspose of $X$} and denote it by $X\stransp$.
-    % \end{defi}
-    
-    % Note that the $\lambda$-supertranspose is not involutive in general. This happens because $(\mc B^*_\lambda)^*_\lambda$ and $(\mc B^*_\lambda)^*_\lambda$ do not correspond to the original bases $\mc B$ and $\mc C$ on $U = U^{**}$ and $V=V^{**}$. Actually, they correspond to $\nu (\mc B)$ and $\nu (\mc C)$, respectively, where $\nu$ denotes the parity automorphism.
-    
-    % \begin{remark}\label{rmk:which-supertranspose-to-use}
-    %     Unless stated otherwise and if the original space $U$ is clear from the context, we will use the convention of considering the $1$-superdual basis for passing from $U$ to $U^*$ and the $(-1)$-superdual basis for passing from $U^*$ to $U^{**}$. In particular, if for a fixed homogeneous basis $X$ is the matrix of an operator $L \in \End(U)$, then the supertranspose of $X$ is the matrix of $L^* \in \End(U^*)$; but if $X$ is the matrix of an operator $L\in \End(U^*)$, then the $(-1)$-supertranspose corresponds to $L^* \in \End(U) = \End(U^{**})$.
-    % \end{remark}
-    
-    % Despite of not being involutive, the $\lambda$-supertranspose is an anti-super-auto\-mor\-phism of $M(m,n)$, for every $\lambda \in \FF$. In the case $i = \sqrt{-1}\in \FF$, it may be convenient to use the $(-i)$-supertranspose, since it avoids confusion about where to put the signs: the $(-i)$-supertranspose of $\begin{pmatrix}
-    %         a & b\\
-    %         c & d
-    %     \end{pmatrix}$
-    % is $\begin{pmatrix}
-    %         a\transp & i c\transp\\
-    %         i b\transp & d\transp
-    %     \end{pmatrix}$.
-        
-    % \begin{prop}\label{prop:lambda-supertransp-are-isomorphic}
-    %     Let $R = M(m,n)$, $\vphi: R \to R$ be the $1$-supertranspose and $\vphi': R\to R$ be the $\lambda$-supertranspose, for some $\lambda \in \FF$. If $\sqrt{\lambda}\in \FF$, then $(R, \vphi) \iso (R, \vphi')$.
-    % \end{prop}
-    
-    % \begin{proof}
-    %     WE REMIND THE AUTHOR TO NOT FORGET
-    % \end{proof}
-    
-    
-    % %We define the \emph{first superdual basis} to be the set $\{ e_1^*, \ldots, e_k^* \}$ defined by $e_i^*(e_j) = \delta_{ij}$ (as the usual dual basis).
-    
-    % % \begin{defi}
-    % %     We define the \emph{supertranspose} of a matrix in $M(m,n)$ by
-    % %     \[
-    % %     \begin{pmatrix}
-    % %         a & b\\
-    % %         c & d
-    % %     \end{pmatrix}\stransp =
-    % %     \begin{pmatrix}
-    % %         a\transp & -c\transp\\
-    % %         b\transp & d\transp
-    % %     \end{pmatrix}.
-    % %     \]
-    % % \end{defi}
-    
-    % % DEFINITION ONLY FOR SQUARE MATRICES, WE NEED TO CORRECT.
-    
-    % % Let $U$ and $V$ be finite dimensional superspaces; fix bases for $U$ and $V$ and consider their first superdual bases on $U^*$ and $V^*$. If a matrix $A$ represents a linear map $L: U \to V$, then $A\stransp$ represents $L^*$.
-    
-    % % The supertranspose, though, is not involutive. This happens because if we start with a homogeneous basis $\mc B$ on $U$ and take first superdual basis twice, we end up with a basis different from $\mc B$ on $U = U^{**}$. WE THEN HAVE THE 2ND SUPERDUAL BASIS.
-    
-    % % WE HAVE A CONVENTION.
-    
-    % % If $i = \sqrt{-1} \in \FF$, one could take another approach.
-    
-    
-    % \section{Coarsening by homomorphism and Loop algebra}
-    % % -------------------------------------
-    
-    % \begin{defi}
-    % 	Let $G$ and $H$ be groups, $\alpha:G\to H$ be a group homomorphism and $\Gamma:\,A=\bigoplus_{g\in G} A_g$ be a $G$-grading. The \emph{coarsening of $\Gamma$ induced by $\alpha$} is the $H$-grading ${}^\alpha \Gamma: A= \bigoplus_{h\in H} B_h$ where
-    % 	$ B_h = \bigoplus_{g\in \alpha\inv (h)} A_g$. (This coarsening is not necessarily proper.)
-    % \end{defi}
-    
-\chapter{Old chapter on $\vphi$-gradings}
+\section{Old chapter on $\vphi$-gradings}
 
 The orthosymplectic and the parapletic superalgebras are defined using a nondegenerate bilinenar form. More specifically, if $\vphi$ is the superadjunction related to this form, then we consider the Lie subsuperalgebra of the skew elements with respect to $\vphi$ (see Subsection {\tt ??}). For the remainder of the chapter, $G$ is a fixed abelian group.
 
@@ -563,6 +239,7 @@ We summarize these considerations in the following result:
 	Thus, the composition $(\psi')\inv \, (-\vphi) \, \psi$ is an automorphism of the Lie superalgebra $M(m,n)^{(-)}$ sending $\Gamma$ to $\Gamma'$.
 \end{proof}
 
+\setcounter{chapter}{3}
 
 \chapter{Gradings on Associative Superalgebras with Superivolution}
 
@@ -573,7 +250,7 @@ More specifically, if $\vphi$ is the superadjunction related to this form, then 
 {\tt (More intro to come...)}
 
 
-{\tt Mention that we are developing the approach of Elduque (J. of Algebra 2010, see also Chapter 2 in Monograph) in the super setting.}
+{\tt Mention that we are developing the approach of Elduque (J. of \\Al\-ge\-bra 2010, see also Chapter 2 in Monograph) in the super setting.}
 % For the remainder of the chapter, $G$ is a fixed abelian group.
 
 % In this chapter we are going to describe 
@@ -615,20 +292,35 @@ In particular, the superalgebra $\End_R(\U\Star)$ should be understood as the se
 Also, since the action on the left, we will follow the convention of writing $R$-linear maps on the right.
 
 From Lemma \ref{lemma:U-star-R-sop}, it follows that $\U\Star$ is a simple graded left $R$-supermodule and that we can identify $\D\sop$ with $\End_R (\U\Star)$. 
-But from Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomorphism and shift, hence there is an invertible $R$-linear map $\vphi_1: \mc U \to \mc U\Star$ which is homogeneous of some degree $(g_0, \alpha)\in G^\#$. It should be noted that such map is not unique, though. 
+But from Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomorphism and shift, hence there is an invertible $R$-linear map $\vphi_1: \mc U \to \mc U\Star$ which is homogeneous of some degree $(g_0, \alpha)\in G^\#$. 
+It should be noted that such map is not unique, but we are going to fix one for now. 
 
-\begin{lemma}\label{lemma:all-possible-vphi1}
-    The homogeneous $R$-linear maps from $\U$ to $\U\Star$ are precisely the maps of the form $d\vphi_1$, for homogeneous $d\in \D=\End_R(\U)$, where juxtaposition denotes composition of maps on the right. \qed 
-\end{lemma}
+\begin{defi}\label{def:sesquilinear-form}
+    Let $\vphi_0: \D \to \D$ be a degree preserving su\-per\--an\-ti\--auto\-mor\-phism. We say that a map $B\colon \U \times \U \to \D$ is \emph{$\vphi_0$-sesquilinear} if it is $\FF$-bilinear, homogeneous if considered as a linear map $\U\tensor \U \to \D$ and, for all $u,v \in \U$ and $d\in \D$,
+    %
+    \begin{enumerate}[(i)]
+        \item $B(u,vd) = B(u,v)d$; \label{enum:linear-on-the-second}
+        \item $B(ud, v) = (-1)^ {(|B| + |u|)|d|}\vphi_0(d) B(u, v)$. \label{enum:vphi0-linear-on-the-first}
+    \end{enumerate}
+    
+    The \emph{radical} of $B$ is the set $\rad B \coloneqq \{u\in \U \mid B(u, v) = 0 \text{ for all } v\in \U\}$. We say that the form $B$ is \emph{nondegenerate} if $\rad B = 0$.
+\end{defi}
 
-Using the identifications $\D = \End_R(\U)$ and $\D\sop = \End_R(\U\Star)$ introduced above, we can define $\vphi_0: \D \to \D\sop$ by $\vphi_0(d) := \sign{d}{\vphi_1}\vphi_1\inv d \,\vphi_1$. %, where juxtaposition denotes composition of maps on the right. 
+% Condition \eqref{enum:linear-on-the-second} on the Definition above allows us to use $B$ to define a map $\U \to \U\Star$ by $u \mapsto B(u, \cdot)$. If this is invertible, we say that the form $B$ is \emph{nondegenerate}.
+
+% Note that a degree preserving super-anti-automorphism $\vphi_0: \D \to \D$ can be seen as an isomorphism between $\D$ and $\D\sop$ and, hence, one can use it to define a right $\D$-action on $\U\Star$ by $v$
+
+
+We are now going to use the $R$-linear map $\vphi_1$ to construct a super-anti-automorphism $\vphi_0$ on $\D$ and a nondegenerate $\vphi_0$-sesquilinear form $B$. 
+
+Using the identifications $\D = \End_R(\U)$ and $\D\sop = \End_R(\U\Star)$ introduced above, define $\vphi_0\colon \D \to \D\sop$ by $\vphi_0(d) \coloneqq \sign{d}{\vphi_1}\vphi_1\inv d \,\vphi_1$, where juxtaposition denotes composition of maps on the right. 
 It is straightforward to check that $\vphi_0$ is an isomorphism and, hence, we can consider it as a super-anti-automorphism of $\D$. 
-Note that, for all $u\in \U$ and $d\in \D$,
+Also, note that, for all $u\in \U$ and $d\in \D$,
 \begin{equation}\label{eq:sesquilinear-before-B}
     (ud)\vphi_1 = u (d\vphi_1) =  u(\vphi_1\vphi_1\inv d \vphi_1) = \sign{d}{\vphi_1}(u\,\vphi_1 )\vphi_0(d).
 \end{equation}
 
-The map $\vphi_0$ depends on the choice o f $\vphi_1$. Following Lemma \ref{lemma:all-possible-vphi1}, if we had started with $\vphi_1' \coloneqq d \vphi_1$ instead, we would have gotten the map $\vphi_0' \coloneqq \vphi_0 \circ \operatorname{sInt}_d$, where $\operatorname{sInt}_d: \D \to \D$ is defined by $\operatorname{sInt}_d(c) = \sign{d}{c} d\inv c d$.
+% The map $\vphi_0$ depends on the choice o f $\vphi_1$. Following Lemma \ref{lemma:all-possible-vphi1}, if we had started with $\vphi_1' \coloneqq d \vphi_1$ instead, we would have gotten the map $\vphi_0' \coloneqq \vphi_0 \circ \operatorname{sInt}_d$, where $\operatorname{sInt}_d: \D \to \D$ is defined by $\operatorname{sInt}_d(c) = \sign{d}{c} d\inv c d$.
 
 \begin{defi}\label{def:change-map-to-the-left}
     Let $V$ and $V'$ be left $R$-supermodules and let $\psi: V \to V'$ be a $R$-linear map. We define $\psi^\circ: V \to  V'$ to be the following map, written on the left:
@@ -638,8 +330,8 @@ The map $\vphi_0$ depends on the choice o f $\vphi_1$. Following Lemma \ref{lemm
 \end{defi}
 
 \begin{lemma}\label{lemma:change-of-side-properties}
-    In the conditions of Definition \ref{def:change-map-to-the-left}, we have that, for all $r\in R$ and $v\in V$,  $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$. 
-    Also, given another $R$-linear map $\theta: \V' \to \V''$, we have $(\psi\theta)^\circ = \sign{\psi}{\theta} \theta^\circ\psi^\circ$. \qed
+    In the conditions of Definition \ref{def:change-map-to-the-left}, we have that, for all $r\in R$ and $v\in V$,  $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$. \qed
+    % Also, given another $R$-linear map $\theta: \V' \to \V''$, we have $(\psi\theta)^\circ = \sign{\psi}{\theta} \theta^\circ\psi^\circ$. \qed
 \end{lemma}
 
 % \begin{remark}
@@ -665,11 +357,8 @@ Using the notation just introduced and Equation \eqref{eq:sesquilinear-before-B}
 \end{equation}
 %
 
-One should note that the $\vphi_0: \D \to \D\sop$ give $\U\Star$ a right $\D$-module structure by defining $f\cdot d = f\vphi_0(d)$, for all $f\in \U\Star$ and $d\in \D$. 
+We can use $\vphi_0\colon \D \to \D\sop$ to define a right $\D$-module structure on $\U\Star$ via $f\cdot d \coloneqq f\vphi_0(d)$, for all $f\in \U\Star$ and $d\in \D$. 
 Considering this action, Equation \eqref{eq:vphi1-circ-is-D-linear} tells us that $\vphi_1^\circ$ is $\D$-linear. 
-
-% In fact, given another invertible homogeneous $R$-linear map $\vphi_1': \U \to \U\Star$, one have that $\vphi_1' = d \vphi_1$ where $d = \vphi_1' \vphi\inv \in \End_R(\U) = \D$. Then $\vphi_0' := $  
-
 Recalling the definition of the right $\D\sop$-action on $\U\Star$, Equation \eqref{eq:vphi1-circ-is-D-linear} can be rewritten using the left $\D$-action as
 %
 \begin{equation}\label{eq:sesquilinear-with-vphi1-circ}
@@ -680,24 +369,22 @@ Recalling the definition of the right $\D\sop$-action on $\U\Star$, Equation \eq
 % We define $\vphi_1 := \tilde\vphi_1^\circ$ and $\vphi_0: \D \to \D$ by $\vphi_0(d): \sign{\vphi_1}{d} \vphi_1 d^\circ \vphi_1\inv$. 
 % Note that the left $\D$-action on $\U\Star$ is connected the right $\D\sop$-action by the formula $f\cdot d = d^\circ \cdot f$, hence $\vphi_0$ is an anti-super-automorphism of $\D$. Also, we have that $\vphi_1(ud) = \sign{u}{d} \vphi_1(d^\circ  $
 
-We define $B: \U\times \U \to \D$ to be the $\FF$-bilinear map given by $B(u, v) = \vphi_1^\circ (u)(v)$. 
-Considered as a $\FF$-linear map $B: \U\tensor \U \to \D$, it is homogeneous of the same parity and degree of $\vphi_1$.
+We define $B: \U\times \U \to \D$ by $B(u, v) = \vphi_1^\circ (u)(v)$. 
+Considered as a $\FF$-linear map $B: \U\tensor \U \to \D$, it is homogeneous of same parity and degree of $\vphi_1$. It is $\vphi_0$-sesquilinear: since $\vphi_1^\circ (u) \in \U\Star$, we have that $\vphi_1^\circ(u)(vd) = \vphi_1^\circ(u)(v)d$, which give us condition \eqref{enum:linear-on-the-second} of Definition \ref{def:sesquilinear-form};
+condition \eqref{enum:vphi0-linear-on-the-first} is a restatement of \eqref{eq:sesquilinear-with-vphi1-circ}. It is nondegenerate since $\rad B = \ker \vphi_1^\circ$, and $\vphi_1^\circ$ is a bijective $\D$-linear map.
 
-We will now see that, considering ``scalars'' on $\D$, the map $B$ is \emph{$\vphi_0$-sesquilinear}, \ie, for all $u,v \in \U$ and $d\in \D$, we have that
-\begin{equation}\label{eq:easy-one}
-    B(u,vd) = B(u,v)d
-\end{equation}
-and
-\begin{equation}\label{eq:hard-one}
-    B(ud, v) = (-1)^ {(|B| + |u|)|d|}\vphi_0(d) B(u, v).
-\end{equation}
-%
-Indeed, since $\vphi_1^\circ (u) \in \U\Star$, we have that $\vphi_1^\circ(u)(vd) = \vphi_1^\circ(u)(v)d$, which give us \eqref{eq:easy-one}.
-Equation \eqref{eq:hard-one} is a restatement of \eqref{eq:sesquilinear-with-vphi1-circ}.
 
-Note that given 
 
-Finally, using Lemma \ref{lemma:change-of-side-properties} and Equation \eqref{eq:R-action-back-on-the-right}, we have
+% \begin{lemma}
+%     Let $\vphi_0\colon \D\to \D$ be a fixed degree preserving su\-per\--an\-ti\--auto\-mor\-phism. 
+%     Given re is a bijective correspondence between the $\vphi_0$-sesquilinear maps $B$ is in bijection with the set of homogeneous maps $\theta\colon \U \to \U\Star$ such that $\theta (ud) = \theta(u) \vphi_0(d)$.
+% \end{lemma}
+
+% \begin{proof}
+%     Let $B\colon \U \times \U \to \D$ be a $\vphi_0$-sesquilinear form. Define $\theta(u)  \coloneqq B(u, \cdot)$. By condition \eqref{enum:linear-on-the-second} in Definition \ref{def:sesquilinear-form}, the map $\theta (u) \in \U\Star$ for all $u\in \U$. Note that $\theta$ have the same degree and parity of $B$. Hence, the condition \eqref{enum:vphi0-linear-on-the-first} tells us that $\theta(ud) = (-1)^ {(|\theta| + |u|)|d|} \vphi_0(d) \theta(u)$, which, by the Definition of the right $\D\sop$-action on $\U\Star$, becomes $\theta(ud) = \theta (u) \vphi_0 (d)$. 
+% \end{proof}
+
+Using Lemma \ref{lemma:change-of-side-properties} and Equation \eqref{eq:R-action-back-on-the-right}, we have
 %
 \begin{equation*}
     \begin{split}
