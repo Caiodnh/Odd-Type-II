@@ -293,7 +293,23 @@ Also, since the action on the left, we will follow the convention of writing $R$
 
 From Lemma \ref{lemma:U-star-R-sop}, it follows that $\U\Star$ is a simple graded left $R$-supermodule and that we can identify $\D\sop$ with $\End_R (\U\Star)$. 
 But from Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomorphism and shift, hence there is an invertible $R$-linear map $\vphi_1: \mc U \to \mc U\Star$ which is homogeneous of some degree $(g_0, \alpha)\in G^\#$. 
-It should be noted that such map is not unique, but we are going to fix one for now. 
+This map is not unique, but we are going to fix one for now. 
+
+\begin{lemma}\label{{lemma:nonuniqueness-of-vphi1}}
+    A map $\vphi_1' : \U \to \U\Star$ is $R$-linear and homogeneous with respect the $G^\#$-grading if, and only if, there is $d\in \D\sop$ homogeneous with the respect the $G^\#$-grading such that $ \vphi_1' = \vphi_1 d$.
+\end{lemma}
+
+\begin{proof}
+    It follows from the identification $\D\sop = \End_R(\U\Star)$.
+\end{proof}
+
+% \begin{proof}
+%     Let $\vphi_1'$ be an homogeneous $R$-linear map. Clearly, $\vphi_1\inv \vphi_1' \in \End_R(\U\Star)$ $ = \D\sop$ (note that we are composing functions written on the right). Then $\vphi_1' = \vphi_1 d$, for some homogeneous $d\in \D\sop$, and hence, by the definitions of the right $\D\sop$-action and the left $\D$-action, $\vphi' (u) = \sign{\vphi_1}{d} d\vphi(u)$ for all $u\in \U$. The converse is a direct computation.
+% \end{proof}
+
+We will use 
+the $R$-linear map 
+$\vphi_1$ to construct a super-anti-automorphism $\vphi_0$ on $\D$ and a nondegenerate $\vphi_0$-sesquilinear form $B$. 
 
 \begin{defi}\label{def:sesquilinear-form}
     Let $\vphi_0: \D \to \D$ be a degree preserving su\-per\--an\-ti\--auto\-mor\-phism. We say that a map $B\colon \U \times \U \to \D$ is \emph{$\vphi_0$-sesquilinear} if it is $\FF$-bilinear, homogeneous if considered as a linear map $\U\tensor \U \to \D$ and, for all $u,v \in \U$ and $d\in \D$,
@@ -306,14 +322,37 @@ It should be noted that such map is not unique, but we are going to fix one for 
     The \emph{radical} of $B$ is the set $\rad B \coloneqq \{u\in \U \mid B(u, v) = 0 \text{ for all } v\in \U\}$. We say that the form $B$ is \emph{nondegenerate} if $\rad B = 0$.
 \end{defi}
 
+A degree preserving su\-per\--an\-ti\--auto\-mor\-phism $\vphi_0: \D \to \D$ can be seen as an isomorphism from $\D$ to $\D\sop$ and, hence, we we can use $\vphi_0$ and the left $\D\sop$-action on $\U\Star$ to define a left $\D$-action: $f\cdot d \coloneqq f\vphi_0(d)$, for all $f \in \U\Star$ and all $d\in \D$. 
+Using this action, we have the following:
+
+\begin{lemma}\label{lemma:sesquilinear-form-iff-D-linear-map}
+    Let $\vphi_0\from \D \to \D$ be a degree preserving su\-per\--an\-ti\--auto\-mor\-phism. The $\vphi_0$-sesquilinear forms $B:\U\times\U \to \D$ are in a one-to-one correspondence with the homogeneous $\D$-linear maps $\theta\from \U \to \U\Star$ via $B \mapsto \theta$ where $\theta(u) \coloneqq B(u, \cdot)$, for all $u \in \U$ (or, reversely, via $\theta \mapsto B$ where $B(u,v) \coloneqq \theta(u)(v)$, for all $u, v\in \U$). Moreover, $B$ is nondegenerate if, and only if, $\theta$ is an isomorphism.
+\end{lemma}
+
+\begin{proof}
+    Suppose $B$ is given. Condition \eqref{enum:linear-on-the-second} of Definition \ref{def:sesquilinear-form} tells us that $\theta$ defined this way is, indeed, a map from $\U$ to $\U\Star$. 
+    Also, it is easy to check that $\theta$ is homogeneous of same parity and degree as $B$.
+    
+    Recalling the left $\D$-action on $\U\Star$, condition \eqref{enum:vphi0-linear-on-the-first} tells us that, for all $u\in \U$ and $d\in \D$,
+    \[
+        \theta (ud) = (-1)^{|d|(|\theta|+|u|)}\vphi_0 (d) \theta (u),
+    \]
+    which, by the definition of the right $\D\sop$-action, is equivalent to $\theta(ud) = \theta(u) \vphi_0(d)$, \ie, $\theta$ is, indeed, $\D$-linear considering the left $\D$-action on $\U\Star$ given by $\vphi_0$.
+    
+    To show that the correspondence is bijective, note that all the considerations above can be reversed: given $\theta: \U \to \U\Star$, we can define a $\vphi_0$-sesquilinear form by $B(u, v) \coloneqq \theta(u)(v)$.
+    
+    The ``moreover'' part follows from the fact that $\rad B = \ker \theta$, so the nondegeneracy of $B$ is equivalent to $\theta$ being injective. But $\U$ and $\U\Star$ have the same (finite) rank over $\D$, which is the same rank over $\D$, so by Proposition {\tt ??}, $\theta$ is injective if, and only if, it is bijective.
+\end{proof}
+
+\begin{lemma}\label{lemma:sesquilinear-form-iff-D-linear-map}
+    Consider $\U\Star$ as a left $\D$-supermodule by using $\vphi_0$ as above. Then there is a bijection between the $\D$-linear maps $\theta\from \U \to \U\Star$ and the $\vphi_0$-sesquilinear forms $B:\U\times\U \to \D$ via $\theta \mapsto B$ where $B(u,v) \coloneqq \theta(u)(v)$. Moreover, $\theta$ is an isomorphism if, and only if, $B$ is nondegenerate.
+\end{lemma}
+
 % Condition \eqref{enum:linear-on-the-second} on the Definition above allows us to use $B$ to define a map $\U \to \U\Star$ by $u \mapsto B(u, \cdot)$. If this is invertible, we say that the form $B$ is \emph{nondegenerate}.
 
 % Note that a degree preserving super-anti-automorphism $\vphi_0: \D \to \D$ can be seen as an isomorphism between $\D$ and $\D\sop$ and, hence, one can use it to define a right $\D$-action on $\U\Star$ by $v$
 
-
-We are now going to use the $R$-linear map $\vphi_1$ to construct a super-anti-automorphism $\vphi_0$ on $\D$ and a nondegenerate $\vphi_0$-sesquilinear form $B$. 
-
-Using the identifications $\D = \End_R(\U)$ and $\D\sop = \End_R(\U\Star)$ introduced above, define $\vphi_0\colon \D \to \D\sop$ by $\vphi_0(d) \coloneqq \sign{d}{\vphi_1}\vphi_1\inv d \,\vphi_1$, where juxtaposition denotes composition of maps on the right. 
+Using the identifications $\D = \End_R(\U)$ and $\D\sop = \End_R(\U\Star)$ introduced above, we define $\vphi_0\colon \D \to \D\sop$ by $\vphi_0(d) \coloneqq \sign{d}{\vphi_1}\vphi_1\inv d \,\vphi_1$, where juxtaposition denotes composition of maps on the right. 
 It is straightforward to check that $\vphi_0$ is an isomorphism and, hence, we can consider it as a super-anti-automorphism of $\D$. 
 Also, note that, for all $u\in \U$ and $d\in \D$,
 \begin{equation}\label{eq:sesquilinear-before-B}
@@ -352,13 +391,14 @@ Using the notation just introduced and Equation \eqref{eq:sesquilinear-before-B}
     \begin{split}
         \vphi_1^\circ (ud) &= (-1)^{|\vphi_1|(|u|+|d|)} (ud)\vphi_1 \\
         &=\sign{\vphi_1}{u}(u\,\vphi_1 )\vphi_0(d) = 
-        \vphi_1^\circ (u) \vphi_0 (d)
+        \vphi_1^\circ (u) \vphi_0 (d),
     \end{split}
 \end{equation}
 %
-
-We can use $\vphi_0\colon \D \to \D\sop$ to define a right $\D$-module structure on $\U\Star$ via $f\cdot d \coloneqq f\vphi_0(d)$, for all $f\in \U\Star$ and $d\in \D$. 
-Considering this action, Equation \eqref{eq:vphi1-circ-is-D-linear} tells us that $\vphi_1^\circ$ is $\D$-linear. 
+which means, considering the right $\D$-action defined via $\vphi_0$,
+% We can use $\vphi_0\colon \D \to \D\sop$ to define a right $\D$-module structure on $\U\Star$ via $f\cdot d \coloneqq f\vphi_0(d)$, for all $f\in \U\Star$ and $d\in \D$. 
+% Considering this action, Equation \eqref{eq:vphi1-circ-is-D-linear} tells us 
+that $\vphi_1^\circ$ is $\D$-linear. (Note, however, that Lemma \ref{lemma:change-of-side-properties} shows that $\vphi_1^\circ$ is not $R$-linear, in general.)
 
 
 % Also, recalling the definition of the right $\D\sop$-action on $\U\Star$, note that Equation \eqref{eq:vphi1-circ-is-D-linear} can be rewritten using the left $\D$-action as
@@ -370,33 +410,6 @@ Considering this action, Equation \eqref{eq:vphi1-circ-is-D-linear} tells us tha
 
 % We define $\vphi_1 := \tilde\vphi_1^\circ$ and $\vphi_0: \D \to \D$ by $\vphi_0(d): \sign{\vphi_1}{d} \vphi_1 d^\circ \vphi_1\inv$. 
 % Note that the left $\D$-action on $\U\Star$ is connected the right $\D\sop$-action by the formula $f\cdot d = d^\circ \cdot f$, hence $\vphi_0$ is an anti-super-automorphism of $\D$. Also, we have that $\vphi_1(ud) = \sign{u}{d} \vphi_1(d^\circ  $
-
-\begin{lemma}\label{lemma:sesquilinear-form-iff-D-linear-map}
-    The $\vphi_0$-sesquilinear forms $B:\U\times\U \to \D$ are in a one-to-one correspondence with the homogeneous $\D$-linear maps $\theta\from \U \to \U\Star$ via $B \mapsto \theta$ where $\theta(u) \coloneqq B(u, \cdot)$, for all $u \in \U$. Moreover, $B$ is nondegenerate if, and only if, $\theta$ is an isomorphism.
-\end{lemma}
-
-\begin{proof}
-    Condition \eqref{enum:linear-on-the-second} of Definition \ref{def:sesquilinear-form} tell us that $\theta$ defined this way is, indeed, a map from $\U$ to $\U\Star$. 
-    Also, it is easy to check that $\theta$ is homogeneous of same parity and degree of $B$.
-    
-    Recalling the left $\D$-action on $\U\Star$, condition \eqref{enum:vphi0-linear-on-the-first}, tell us   that, for all $u\in \U$ and $d\in \D$,
-    \[
-        \theta (ud) = (-1)^{|d|(|\theta|+|u|)}\vphi_0 (d) \theta (u),
-    \]
-    which, by the definition of the right $\D\sop$-action, is equivalent to $\theta(ud) = \theta(u) \vphi_0(d)$, \ie, $\theta$ is, indeed, $\D$-linear considering the left $\D$-action on $\U\Star$ given by $\vphi_0$.
-    
-    To show that the correspondence is bijective, note that all the considerations above can be reversed, hence, given $\theta: \U \to \U\Star$, we can define a $\vphi_0$-sesquilinear form by $B(u, v) \coloneqq \theta(u)(v)$ .
-    
-    The moreover part follows from the fact that $\rad B = \ker \theta$, so the nondegeneracy of $B$ is equivalent to $\theta$ being injective. But $\U$ has finite rank over $\D$, which is the same rank of $\U\Star$ over $\D$, so $\theta$ is injective if, and only if, it is bijective.
-\end{proof}
-
-\begin{lemma}\label{lemma:sesquilinear-form-iff-D-linear-map}
-    Consider $\U\Star$ as a left $\D$-supermodule by using $\vphi_0$ as above. Then there is a bijection between the $\D$-linear maps $\theta\from \U \to \U\Star$ and the $\vphi_0$-sesquilinear forms $B:\U\times\U \to \D$ via $\theta \mapsto B$ where $B(u,v) \coloneqq \theta(u)(v)$. Moreover, $\theta$ is an isomorphism if, and only if, $B$ is nondegenerate.
-\end{lemma}
-
-\begin{proof}
-    
-\end{proof}
 
 % \begin{lemma}
 %     Let $B: \U\times \U\Star$ be a nondegenerate $\vphi_0$-sesquilinear map. Then, given $r\in R$, there is a unique $s\in R$ such that \[
@@ -416,7 +429,7 @@ Considering this action, Equation \eqref{eq:vphi1-circ-is-D-linear} tells us tha
 %     \end{align*}
 % \end{proof}
 
-We define $B: \U\times \U \to \D$ by $B(u, v) = \vphi_1^\circ (u)(v)$. 
+Now we define $B: \U\times \U \to \D$ by $B(u, v) = \vphi_1^\circ (u)(v)$. 
 By Lemma \ref{lemma:sesquilinear-form-iff-D-linear-map}, we have that $B$ is a nondegenerate $\vphi_0$-sesquilinear map. 
 Using Lemma \ref{lemma:change-of-side-properties} and Equation \eqref{eq:R-action-back-on-the-right}, we have
 %
