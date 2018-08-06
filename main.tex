@@ -243,8 +243,8 @@ We summarize these considerations in the following result:
 
 \chapter{Gradings on Associative Superalgebras with Superivolution}
 
-The orthosymplectic and the paraplectic superalgebras are defined using a nondegenerate bilinenar form. 
-More specifically, if $\vphi$ is the superadjunction related to this form, then we consider the Lie subsuperalgebra of the skew elements with respect to $\vphi$ (see Subsection {\tt ??}). 
+The orthosymplectic and the paraplectic Lie superalgebras are defined using a nondegenerate bilinenar form on a superspace. 
+More specifically, if $\vphi$ is the superadjunction corresponding to this form, then we consider the subsuperalgebra of the general linear Lie superalgebra consisting of the skew elements with respect to $\vphi$ (see Subsection {\tt ??}). 
 
 \vspace{5mm}
 {\tt (More intro to come...)}
@@ -255,52 +255,59 @@ More specifically, if $\vphi$ is the superadjunction related to this form, then 
 
 % In this chapter we are going to describe 
 
-\section{Super-anti-automorphisms and sesquilinear forms}
+\section{Super-anti-automorphisms and sesquilinear forms}\label{sec:super-anti-auto-and-sesquilinear}
 
-Let $\D$ be a graded division superalgebra and let $\U\neq 0$ be a graded right $\D$-supermodule of finite rank. 
+Let $\D$ be a graded division superalgebra and let $\U$ be a nonzero graded right $\D$-supermodule of finite rank. 
 Consider the graded superalgebra $R := \End_\D(\mc U)$. 
 Then $\mc U$ is an $(R, \D)$-superbimodule. 
 By Proposition \ref{prop:converse-density-thm}, $\mc U$ is a simple graded left supermodule over $R$ and we have a natural identification between $\D$ and $\End_R(\mc U)$.
 
-Recall {\tt (Section ??)} that $\mc U\Star = \Hom_\D (\mc U, \D)$ is a graded left $\D$-supermodule or, equivalently, a graded right $\D\sop$-supermodule. 
-Analogously, we can make $\mc U\Star$ a graded right $R$-supermodule by defining $(f r) (u) := f(r u)$ for all $f\in \mc U\Star$, $r\in R$ and $u\in \mc U$ (i.e., $f r = f \circ r$, since $R = \End_\D(\mc U)$). 
-Hence, we can consider $\mc U\Star$ as a graded left $R\sop$-supermodule via $r\cdot f = (-1)^{|r||f|} f\cdot r$, % (i.e., $r\cdot f = r\Star (f)$)
-and $\mc U\Star$ becomes a $(R\sop, \D\sop)$-bisupermodule.
+Recall that for a superalgebra $S$, the superalgebra $S\sop$ is defined by $S\sop = S$ as superspaces, but with a different product. For every element $s\in S$, we denote it by $\bar s$ when regarded as an element of $S\sop$, and the product on $S\sop$ is defined by $\bar a \bar b = \sign{a}{b} \overline{ba}$ for all $a, b \in S$.
+% \begin{notation}
+%     Let  be . As sets, we have that $S = S\sop$, but given $s\in S$, we will it by $ \bar s$ when regarded as an element of $S\sop$.
+% \end{notation}
+
+As we saw on {\tt Section ??}, $\mc U\Star = \Hom_\D (\mc U, \D)$ is a graded left $\D$-supermodule through $(df)(u) = df(u)$, for all $d\in \D$, $f\in \U\Star$ and $u\in U$. 
+We can, then, regard $\U\Star$ as a graded right $\D\sop$-supermodule, through $f \bar d = \sign{f}{d} df$. 
+Also, we can make $\mc U\Star$ a graded right $R$-supermodule by defining $(f r) (u) := f(r u)$ for all $f\in \mc U\Star$, $r\in R$ and $u\in \mc U$ (i.e., $f r = f \circ r$, since $R = \End_\D(\mc U)$). 
+Hence, we can consider $\mc U\Star$ as a graded left $R\sop$-supermodule via $\bar r f = (-1)^{|r||f|} f r$, % (i.e., $r\cdot f = r\Star (f)$)
+and $\mc U\Star$ becomes a $(R\sop, \D\sop)$-superbimodule.
 
 \begin{lemma}\label{lemma:U-star-R-sop}
     The left $R\sop$-supermodule $\mc U\Star$ is graded simple, and the action of $\D\sop$ gives an isomorphism $\D\sop \to \End_{R\sop}(\mc U\Star)$.
 \end{lemma}
 
 \begin{proof}
-    By definition, the $R\sop$-action correspond to the representation $\rho: R\sop \to \End_{\D\sop} (\mc U\Star)$ given by $ \rho(r) = r\Star$, which is an isomorphism since $\U$ is of finite rank. 
+    By definition of superadjoint operator, the above $R\sop$-action corresponds to the representation $\rho\from R\sop \to \End_{\D\sop} (\mc U\Star)$ given by $ \rho(r) = r\Star$, which is an isomorphism since $\U$ is of finite rank. 
     If we use $\rho$ to identify $R\sop$ with $\End_{\D\sop} (\mc U\Star)$, the result follows from Proposition \ref{prop:converse-density-thm}.
 \end{proof}
 
 %Note that the $R\sop$-action correspond to the representation $\rho: R\sop \to \End_{\D\sop} (\mc U\Star)$ given by $ \rho(r) = r\Star$, which is an isomorphism. If we use it to identify $R\sop$ with $\End_{\D\sop} (\mc U\Star)$, we can then apply Proposition \ref{prop:converse-density-thm} again and conclude that $\mc U\Star$ is a graded simple left $R\sop$-module and that we naturally can identify $\D\sop$ with $\End_{R\sop}(\mc U\Star)$.
 
-Now let $\vphi: R\to R$ be a super-anti-automorphism that is homogeneous of degree $e$.
-We can see it as an isomorphism $\vphi: R\to R\sop$ and use it to identify $R$ with $R\sop$. 
-In particular, we will make the left $R\sop$-action on $\U\Star$ into a left $R$-action via $r\cdot f = \vphi(r)f$, for all $r\in R$ and all $f\in \U\Star$. 
-Note that this is the same as defining the left $R$-action using the right $R$-action by
+Now let $\vphi: R\to R$ be a super-anti-automorphism that preserves the $G$-degree (\ie, is homogeneous of degree $e$ with respect to the $G$-grading).
+We can see it as an isomorphism $R\to R\sop$, $r \mapsto \overline{ \vphi(r)}$, and use it to identify $R$ with $R\sop$. 
+In particular, we will make the left $R\sop$-action on $\U\Star$ into a left $R$-action via $r\cdot f = \overline{\vphi(r)}f$, for all $r\in R$ and all $f\in \U\Star$. 
+In other words,
 %
 \begin{equation}\label{eq:R-action-back-on-the-right}
     r\cdot f = \sign{r}{f} f \circ \vphi(r) .
 \end{equation}
 
 We will now consider $\U\Star$ as an $(R,\D\sop)$-superbimodule. 
-In particular, the superalgebra $\End_R(\U\Star)$ should be understood as the set of $R$-linear maps with respect to the $R$-action on the left. 
-Also, since the action on the left, we will follow the convention of writing $R$-linear maps on the right.
+In particular, the superalgebra $\End_R(\U\Star)$ should be understood as the set of $R$-linear maps with respect to the $R$-action on the left (which is the same set as $\End_{R\sop} (\U\Star)$). 
+Also, since the action is on the left, we will follow the convention of writing $R$-linear maps on the right.
 
-From Lemma \ref{lemma:U-star-R-sop}, it follows that $\U\Star$ is a simple graded left $R$-supermodule and that we can identify $\D\sop$ with $\End_R (\U\Star)$. 
+From Lemma \ref{lemma:U-star-R-sop}, it follows that $\U\Star$ is a simple graded left $R$-supermodule and that we can identify $\D\sop$ with $\End_R (\U\Star) = \End_{R\sop} (\U\Star)$. 
 But from Proposition {\tt ??}, $R$ has only one graded simple supermodule up to isomorphism and shift, hence there is an invertible $R$-linear map $\vphi_1: \mc U \to \mc U\Star$ which is homogeneous of some degree $(g_0, \alpha)\in G^\#$. 
-This map is not unique, but we are going to fix one for now. 
+Fix one such $\vphi_1$.
+% This map is not unique, but we are going to fix one for now. 
 
 \begin{lemma}\label{lemma:nonuniqueness-of-vphi1}
-    A map $\vphi_1' : \U \to \U\Star$ is $R$-linear and homogeneous with respect the $G^\#$-grading if, and only if, there is $d\in \D\sop$ homogeneous with the respect the $G^\#$-grading such that $ \vphi_1' = \vphi_1 d$.
+    A map $\vphi_1' : \U \to \U\Star$ is $R$-linear and homogeneous with respect the $G^\#$-grading if, and only if, there is an element $\bar d\in \D\sop = \End_R (\U\Star)$ homogeneous with the respect the $G^\#$-grading such that $ \vphi_1' = \vphi_1 \bar d$, where juxtaposition represents composition of maps written on the right.
 \end{lemma}
 
 \begin{proof}
-    It follows from the identification $\D\sop = \End_R(\U\Star)$.
+    This follows from the fact that $ \vphi_1\inv \vphi' \in  \D\sop = \End_R(\U\Star)$ if, and only if, $\vphi' \in \Hom_R(\U, \U\Star)$.
 \end{proof}
 
 % \begin{proof}
@@ -309,41 +316,48 @@ This map is not unique, but we are going to fix one for now.
 
 We will use 
 the $R$-linear map 
-$\vphi_1$ to construct a super-anti-automorphism $\vphi_0$ on $\D$ and a nondegenerate $\vphi_0$-sesquilinear form $B$. 
+$\vphi_1$ to construct a super-anti-automorphism $\vphi_0$ on $\D$ and a nondegenerate $\vphi_0$-sesquilinear form $B$ on $\U$. 
 
 \begin{defi}\label{def:sesquilinear-form}
-    Let $\vphi_0: \D \to \D$ be a degree preserving su\-per\--an\-ti\--auto\-mor\-phism. We say that a map $B\colon \U \times \U \to \D$ is \emph{$\vphi_0$-sesquilinear} if it is $\FF$-bilinear, homogeneous if considered as a linear map $\U\tensor \U \to \D$ and, for all $u,v \in \U$ and $d\in \D$,
+    Let $\vphi_0: \D \to \D$ be a degree preserving su\-per\--an\-ti\--auto\-mor\-phism. We say that a map $B\colon \U \times \U \to \D$ is a \emph{$\vphi_0$-sesquilinear form on $\U$} if it is $\FF$-bilinear, $G^\#$-homogeneous if considered as a linear map $\U\tensor \U \to \D$ and, for all $u,v \in \U$ and $d\in \D$, satisfies
     %
     \begin{enumerate}[(i)]
         \item $B(u,vd) = B(u,v)d$; \label{enum:linear-on-the-second}
         \item $B(ud, v) = (-1)^ {(|B| + |u|)|d|}\vphi_0(d) B(u, v)$. \label{enum:vphi0-linear-on-the-first}
     \end{enumerate}
     
-    The \emph{radical} of $B$ is the set $\rad B \coloneqq \{u\in \U \mid B(u, v) = 0 \text{ for all } v\in \U\}$. We say that the form $B$ is \emph{nondegenerate} if $\rad B = 0$.
+    The \emph{(left) radical} of $B$ is the set $\rad B \coloneqq \{u\in \U \mid B(u, v) = 0 \text{ for all } v\in \U\}$. We say that the form $B$ is \emph{nondegenerate} if $\rad B = 0$.
 \end{defi}
 
-Note that we can use a degree preserving su\-per\--an\-ti\--auto\-mor\-phism $\vphi_0: \D \to \D$ to define a right $\D$-action on $\U\Star$: we can interpret $\vphi_0$ as an isomorphism from $\D$ to $\D\sop$ and define $f\cdot d \coloneqq f\vphi_0(d)$, for all $f \in \U\Star$ and all $d\in \D$. 
-Using this action, we have the following:
+Suppose for now that a degree preserving su\-per\--an\-ti\--auto\-mor\-phism $\vphi_0: \D \to \D$ is given. 
+We can use it to define a right $\D$-action on $\U\Star$ by interpreting it as an isomorphism from $\D$ to $\D\sop$ and putting 
+%
+\begin{equation}\label{eq:right-D-action}
+    f\cdot d \coloneqq f \overline{\vphi_0(d)},
+\end{equation}
+%
+for all $f \in \U\Star$ and $d\in \D$. 
+Using this action, we have $\End_\D (\U\Star) = \End_{\D\sop} (\U\Star)$. We also have the following:
 
 \begin{prop}\label{prop:sesquilinear-form-iff-D-linear-map}
     Fix a degree preserving su\-per\--an\-ti\--auto\-mor\-phism $\vphi_0\from \D \to \D$. 
-    The $\vphi_0$-sesquilinear forms $B:\U\times\U \to \D$ are in a one-to-one correspondence with the homogeneous $\D$-linear maps $\theta\from \U \to \U\Star$ via $B \mapsto \theta$ where $\theta(u) \coloneqq B(u, \cdot)$, for all $u \in \U$ or, reversely, $\theta \mapsto B$ where $B(u,v) \coloneqq \theta(u)(v)$, for all $u, v\in \U$. 
+    The $\vphi_0$-sesquilinear forms $B:\U\times\U \to \D$ are in a one-to-one correspondence with the homogeneous $\D$-linear maps $\theta\from \U \to \U\Star$ via $B \mapsto \theta$ where $\theta(u) \coloneqq B(u, \cdot)$, for all $u \in \U$ or, inversely, $\theta \mapsto B$ where $B(u,v) \coloneqq \theta(u)(v)$, for all $u, v\in \U$. 
     Moreover, $B$ is nondegenerate if, and only if, $\theta$ is an isomorphism.
 \end{prop}
 
 \begin{proof}
     Suppose $B$ is given. Condition \eqref{enum:linear-on-the-second} of Definition \ref{def:sesquilinear-form} tells us that $\theta$ defined this way is, indeed, a map from $\U$ to $\U\Star$. 
-    Also, it is easy to check that $\theta$ is homogeneous of same parity and degree as $B$.
+    Also, it is easy to check that $\theta$ is homogeneous of the same parity and degree as $B$.
     
     Recalling the left $\D$-action on $\U\Star$, condition \eqref{enum:vphi0-linear-on-the-first} tells us that, for all $u\in \U$ and $d\in \D$,
     \[
         \theta (ud) = (-1)^{|d|(|\theta|+|u|)}\vphi_0 (d) \theta (u),
     \]
-    which, by the definition of the right $\D\sop$-action, is equivalent to $\theta(ud) = \theta(u) \vphi_0(d)$, \ie, $\theta$ is, indeed, $\D$-linear considering the left $\D$-action on $\U\Star$ given by $\vphi_0$.
+    which, by the definition of the right $\D\sop$-action on $\U\Star$, is equivalent to $\theta(ud) = \theta(u) \overline{\vphi_0(d)}$, \ie, $\theta$ is, indeed, $\D$-linear considering the left $\D$-action on $\U\Star$ given by Equation \eqref{eq:right-D-action}.
     
     To show that the correspondence is bijective, note that all the considerations above can be reversed when, given $\theta\from \U \to \U\Star$, we define  $B(u, v) \coloneqq \theta(u)(v)$.
     
-    The ``moreover'' part follows from the fact that $\rad B = \ker \theta$, so the nondegeneracy of $B$ is equivalent to $\theta$ being injective. But $\U$ and $\U\Star$ have the same (finite) rank over $\D$, which is the same rank over $\D$, so by Proposition {\tt ??}, $\theta$ is injective if, and only if, it is bijective.
+    The ``moreover'' part follows from the fact that $\rad B = \ker \theta$, so the nondegeneracy of $B$ is equivalent to $\theta$ being injective. But $\U$ and $\U\Star$ have the same (finite) rank over $\D$, so by Proposition {\tt ??}, $\theta$ is injective if, and only if, it is bijective.
 \end{proof}
 
 % \begin{lemma}\label{lemma:sesquilinear-form-iff-D-linear-map}
@@ -354,9 +368,10 @@ Using this action, we have the following:
 
 % Note that a degree preserving super-anti-automorphism $\vphi_0: \D \to \D$ can be seen as an isomorphism between $\D$ and $\D\sop$ and, hence, one can use it to define a right $\D$-action on $\U\Star$ by $v$
 
-Using the identifications $\D = \End_R(\U)$ and $\D\sop = \End_R(\U\Star)$ introduced above, we define $\vphi_0\colon \D \to \D\sop$ by $\vphi_0(d) \coloneqq \sign{d}{\vphi_1}\vphi_1\inv d \,\vphi_1$, where juxtaposition denotes composition of maps on the right. 
-It is straightforward to check that $\vphi_0$ is an isomorphism and, hence, we can consider it as a super-anti-automorphism of $\D$. 
-Also, note that, for all $u\in \U$ and $d\in \D$,
+Coming back to our map $\vphi_1\from \U \to \U\Star$ and using the identifications $\D = \End_R(\U)$ and $\D\sop = \End_R(\U\Star)$ introduced above, consider the map $\D \to \D\sop$ sending $d \mapsto \sign{d}{\vphi_1}\vphi_1\inv d \,\vphi_1$, where juxtaposition denotes composition of maps on the right. 
+It is straightforward to check that this map is an isomorphism and, hence, we can consider it as a super-anti-automorphism $\vphi_0 \from \D \to \D$. 
+Then, for all $u\in \U$ and $d\in \D$, we have
+%
 \begin{equation}\label{eq:sesquilinear-before-B}
     (ud)\vphi_1 = u (d\vphi_1) =  u(\vphi_1\vphi_1\inv d \vphi_1) = \sign{d}{\vphi_1}(u\,\vphi_1 )\vphi_0(d).
 \end{equation}
@@ -364,16 +379,18 @@ Also, note that, for all $u\in \U$ and $d\in \D$,
 % The map $\vphi_0$ depends on the choice o f $\vphi_1$. Following Lemma \ref{lemma:all-possible-vphi1}, if we had started with $\vphi_1' \coloneqq d \vphi_1$ instead, we would have gotten the map $\vphi_0' \coloneqq \vphi_0 \circ \operatorname{sInt}_d$, where $\operatorname{sInt}_d: \D \to \D$ is defined by $\operatorname{sInt}_d(c) = \sign{d}{c} d\inv c d$.
 
 \begin{defi}\label{def:change-map-to-the-left}
-    Let $V$ and $V'$ be left $R$-supermodules and let $\psi: V \to V'$ be a $R$-linear map. We define $\psi^\circ: V \to  V'$ to be the following map, written on the left:
+    Let $V$ and $V'$ be left $R$-supermodules and let $\psi: V \to V'$ be an $R$-linear map. We define $\psi^\circ: V \to  V'$ to be the following map, written on the left:
     \[
-        \psi^\circ(v) = \sign{\psi}{v} (v)\psi.
+        \psi^\circ(v) = \sign{\psi}{v} v\psi.
     \]
 \end{defi}
 
-\begin{prop}\label{prop:change-of-side-properties}
-    In the conditions of Definition \ref{def:change-map-to-the-left}, we have that, for all $r\in R$ and $v\in V$,  $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$. 
+For example, using the identification $\D\sop = \End_R (\U\Star)$ as before, the left $\D$-action on $\U\Star$ is given by $df = \bar d^\circ (f)$, for all $d\in \D$ and $f\in \U\Star$.
+
+\begin{lemma}\label{lemma:change-of-side-properties}
+    Under the conditions of Definition \ref{def:change-map-to-the-left}, we have that, for all $r\in R$ and $v\in V$,  $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$. 
     Further, given another $R$-linear map $\tau: V' \to V''$, we have $(\psi\tau)^\circ = \sign{\psi}{\tau} \tau^\circ\psi^\circ$. \qed
-\end{prop}
+\end{lemma}
 
 % \begin{remark}
 %     The map $\psi^\circ$ defined above is not, in general, $R$-linear. Instead, it satisfies $\psi^\circ (rv) = \sign{\psi}{v} r \psi^\circ (v)$, for all $r\in R$ and $v\in V$. 
@@ -387,20 +404,20 @@ Also, note that, for all $u\in \U$ and $d\in \D$,
     % \end{enumerate}
 % \end{remark}
 
-Using the notation just introduced and Equation \eqref{eq:sesquilinear-before-B}, we have that
+Using the notation just introduced, we can rewrite Equation \eqref{eq:sesquilinear-before-B} as follows:
 %
 \begin{equation}\label{eq:vphi1-circ-is-D-linear}
     \begin{split}
         \vphi_1^\circ (ud) &= (-1)^{|\vphi_1|(|u|+|d|)} (ud)\vphi_1 \\
-        &=\sign{\vphi_1}{u}(u\,\vphi_1 )\vphi_0(d) = 
-        \vphi_1^\circ (u) \vphi_0 (d),
+        &=\sign{\vphi_1}{u}(u\,\vphi_1) \overline{\vphi_0(d)} = 
+        \vphi_1^\circ (u) \overline{\vphi_0(d)},
     \end{split}
 \end{equation}
 %
-which means, considering the right $\D$-action defined via $\vphi_0$,
+which means, considering the right $\D$-action defined via Equation \eqref{eq:right-D-action},
 % We can use $\vphi_0\colon \D \to \D\sop$ to define a right $\D$-module structure on $\U\Star$ via $f\cdot d \coloneqq f\vphi_0(d)$, for all $f\in \U\Star$ and $d\in \D$. 
 % Considering this action, Equation \eqref{eq:vphi1-circ-is-D-linear} tells us 
-that $\vphi_1^\circ$ is $\D$-linear. (Note, however, that Proposition \ref{prop:change-of-side-properties} shows that $\vphi_1^\circ$ is not $R$-linear, in general.)
+that $\vphi_1^\circ$ is $\D$-linear. (Note, however, that Lemma \ref{lemma:change-of-side-properties} shows that $\vphi_1^\circ$ is not $R$-linear, in general.)
 
 
 % Also, recalling the definition of the right $\D\sop$-action on $\U\Star$, note that Equation \eqref{eq:vphi1-circ-is-D-linear} can be rewritten using the left $\D$-action as
@@ -433,7 +450,7 @@ that $\vphi_1^\circ$ is $\D$-linear. (Note, however, that Proposition \ref{prop:
 
 Now we define $B: \U\times \U \to \D$ by $B(u, v) = \vphi_1^\circ (u)(v)$. 
 By Proposition \ref{prop:sesquilinear-form-iff-D-linear-map}, we have that $B$ is a nondegenerate $\vphi_0$-sesquilinear map. 
-Using Proposition \ref{prop:change-of-side-properties} and Equation \eqref{eq:R-action-back-on-the-right}, we have
+Using Lemma \ref{lemma:change-of-side-properties} and Equation \eqref{eq:R-action-back-on-the-right}, we have
 %
 \begin{equation*}
     \begin{split}
@@ -441,14 +458,26 @@ Using Proposition \ref{prop:change-of-side-properties} and Equation \eqref{eq:R-
     \end{split}
 \end{equation*}
 %\ie, we have that $\vphi$ is the \emph{superadjunction} with respect to $B$.
+We have proved one direction of Theorem \ref{thm:vphi-iff-vphi0-and-B}, bellow. 
 
-This discussion until here proves one direction of Theorem \ref{thm:vphi-iff-vphi0-and-B}, bellow.
+% \begin{prop}
+%     Let $\vphi_0\from \D \to \D$ be a super-anti-automorphism and let $B\from \U\times \U \to \D$ be a nonzero $\vphi_0$-sesquilinear form. 
+%     We have that $B$ is nondegenerate if, and only if, there is a unique super-anti-automorphism $\vphi\from R \to R$ such that
+%     %
+%     \begin{equation}\label{eq:superadjunction}
+%         \forall u, v \in \U, \forall r\in R, \quad B(ru,v) = \sign{r}{u} B(u,\vphi(r)v).
+%     \end{equation}
+%     %
+%     Moreover, if $ $
+% \end{prop}
 
-Recall that, for a nonzero homogeneous element $d\in \D$, the inner automorphism $\operatorname{Int}_d$ is defined by $\operatorname{Int}_d (c) \coloneqq dcd\inv$ for all $c\in \D$.
+To state the theorem, it is convenient to introduce the following notation. 
+Recall that, any invertible element $d\in \D$ gives rise to the inner automorphism $\operatorname{Int}_d\from \D \to \D$ defined by $\operatorname{Int}_d (c) \coloneqq dcd\inv$, for all $c\in \D$. 
+If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\operatorname{Int}_d$ is an automorphism of $\D$ as a graded superalgebra.
 
 \begin{defi}
     Let $d\in \D$ be a nonzero homogeneous element. 
-    We define the \emph{superinner automorphism} $\operatorname{sInt}_d\from \D \to \D$ to be the isomorphism given by $\operatorname{sInt}_d (c) \coloneqq \sign{d}{c} dcd\inv$, for all $c\in \D$.
+    We define the \emph{superinner automorphism} $\operatorname{sInt}_d\from \D \to \D$ by $\operatorname{sInt}_d (c) \coloneqq \sign{c}{d} dcd\inv$, for all $c\in \D$.
 \end{defi}
 
 % Considered as a $\FF$-linear map $B: \U\tensor \U \to \D$, it is homogeneous of same parity and degree of $\vphi_1$. It is $\vphi_0$-sesquilinear: since $\vphi_1^\circ (u) \in \U\Star$, we have that $\vphi_1^\circ(u)(vd) = \vphi_1^\circ(u)(v)d$, which give us condition \eqref{enum:linear-on-the-second} of Definition \ref{def:sesquilinear-form};
@@ -474,41 +503,46 @@ Recall that, for a nonzero homogeneous element $d\in \D$, the inner automorphism
 % Clearly, the $\vphi_0$-sesquilinear form $B$ is \emph{nondegenerate} in the sense that the map $\U \to \U\Star$ given by $u \mapsto B(u, \cdot)$ is an isomorphism of right $\D$-modules. 
 
 \begin{thm}\label{thm:vphi-iff-vphi0-and-B}
-    Let $\D$ be a graded division superalgebra and let $\U$ be a right graded module of finite rank over $\D$. If $\vphi$ is degree preserving super-anti-automorphism on $R := \End_R(\U)$, then there is a pair $(\vphi_0, B)$, where $\vphi_0$ is a degree preserving super-anti-automorphism on $\D$ and $B: \U \times \U \to \D$ is a nondegenerate $\vphi_0$-sesquilinear form, such that
+    Let $\D$ be a graded division superalgebra and let $\U$ be a nonzero right graded module of finite rank over $\D$. 
+    If $\vphi$ is degree preserving super-anti-automorphism on $R \coloneqq \End_R(\U)$, then there is a pair $(\vphi_0, B)$, where $\vphi_0$ is a degree preserving super-anti-automorphism on $\D$ and $B\from \U \times \U \to \D$ is a nonzero $\vphi_0$-sesquilinear form, such that
     %
     \begin{equation}\label{eq:superadjunction}
-        \forall u, v \in \U, \forall r\in R, \quad B(ru,v) = \sign{r}{u} B(u,\vphi(r)v).
+        \forall r\in R,\,\forall u, v \in \U,  \quad B(ru,v) = \sign{r}{u} B(u,\vphi(r)v).
     \end{equation}
     %
-    Conversely, given a pair $(\vphi_0, B)$ as above, there is a unique degree preserving super-anti-automorphism on $\vphi$ on $R$ satisfying Equation \eqref{eq:superadjunction}. 
-    Moreover, another pair $(\vphi_0', B')$ determines the same super-anti-automorphism $\vphi$ if, and only if, there is $d\in \D$ such that $\vphi_0 = \operatorname{sInt}_d \circ \vphi_0$ and $B'(u, v) = dB (u, v)$ for all $u, v \in \U$.
+    Conversely, given a pair $(\vphi_0, B)$ as above, there is a unique degree preserving super-anti-automorphism $\vphi$ on $R$ satisfying Equation \eqref{eq:superadjunction}. 
+    Moreover, another pair $(\vphi_0', B')$ determines the same super-anti-automorphism $\vphi$ if, and only if, there is a nonzero homogeneous element $d\in \D$ such that $\vphi_0 = \operatorname{sInt}_d \circ \vphi_0$ and $B'(u, v) = dB (u, v)$ for all $u, v \in \U$.
 \end{thm}
 
 \begin{proof}
-    The first assertion is already proved. For the converse, let $\vphi_0$ be a degree preserving super-anti-automorphism on $\D$, let $B: \U \times \U \to \D$ be a nondegenerate $\vphi_0$-sesquilinear form and consider $\theta$ as in 
+    The first assertion is already proved. For the converse, let $\vphi_0$ be a degree preserving super-anti-automorphism on $\D$, let $B\from \U \times \U \to \D$ be a nondegenerate $\vphi_0$-sesquilinear form and consider $\theta$ as in 
     Proposition \ref{prop:sesquilinear-form-iff-D-linear-map}. Then Equation \eqref{eq:superadjunction} is equivalent to:
     %
-    \begin{alignat*}{1}
-        \theta (ru)(v) &= \sign{r}{u} \theta(u)(\vphi(r)v)
-        = \sign{r}{u} \big(\theta (u)\circ \vphi(r)\big)(v)\\
-        \intertext{for all $v \in \U$, so}
-        \theta (ru) &= \sign{r}{u} \theta(u) \circ \vphi(r), \addtocounter{equation}{1}\tag{\theequation}\label{eq:theta-is-almost-R-superlinear}\\
-        (\theta \circ r) (u) &= \sign{r}{u} (-1)^{(|\theta| + |u|)|r|} \big(\vphi(r)\big)\Star \big(\theta(u)\big) =  \sign{r}{\theta} \big(\big(\vphi(r)\big)\Star \circ \theta \big) (u) \\
-        \intertext{for all $u \in \U$, so}
-        \theta \circ r &= \sign{r}{\theta}  \big(\vphi(r)\big)\Star \circ \theta.
-    \end{alignat*}
+    \begin{alignat*}{2}
+        \forall r\in R,\,\forall u, v \in \U, &&\;\; \theta (ru)(v)&= \sign{r}{u} \theta(u)(\vphi(r)v)
+        \\&&&= \sign{r}{u} \big(\theta (u)\circ \vphi(r)\big)(v)\\
+        \intertext{and, hence, equivalent to}
+        \forall r\in R,\,\forall u \in \U,  && \theta (ru) &= \sign{r}{u} \theta(u) \circ \vphi(r). \addtocounter{equation}{1}\tag{\theequation}\label{eq:theta-is-almost-R-superlinear}\\
+        \intertext{Recalling the definition of superadjoint operator, Equation \eqref{eq:theta-is-almost-R-superlinear} becomes}
+        \forall r\in R,\,\forall u \in \U, && \;\;(\theta \circ r) (u) &= \sign{r}{u} (-1)^{(|\theta| + |u|)|r|} \big(\vphi(r)\big)\Star \big(\theta(u)\big) \\&&&=  \sign{r}{\theta} \big(\big(\vphi(r)\big)\Star \circ \theta \big) (u),
+        \intertext{which is the same as}
+        \forall r\in R, &&\theta \circ r &= \sign{r}{\theta}  \big(\vphi(r)\big)\Star \circ \theta.
+        \intertext{In other words, we have}
+        \forall r\in R, && \big(\vphi(r)\big)\Star &= \sign{r}{\theta}\, \theta \circ r \circ \theta\inv.\addtocounter{equation}{1}\tag{\theequation}\label{eq:vphi-r-Star-is-a-superconjugation}
+        \end{alignat*}
     %
-    We have shown that
+    % We have shown that
+    % %
+    % \begin{equation}
+    %   \big(\vphi(r)\big)\Star = \sign{r}{\theta}\, \theta \circ r \circ \theta\inv.
+    % \end{equation}
     %
-    \begin{equation}\label{eq:vphi-r-Star-is-a-superconjugation}
-       \big(\vphi(r)\big)\Star = \sign{r}{\theta}\, \theta \circ r \circ \theta\inv.
-    \end{equation}
-    %
-    Since $\U$ has finite rank over $\D$, the map $s \mapsto s\Star$ is invertible and, hence, $\vphi$ is uniquely determined.
-    Also, it is clear that it is, indeed, a super-anti-automorphism of $R$.
+    Since $\U$ has finite rank over $\D$, the superadjunction map $\End_\D (\U) \to \End_{\D\sop} (\U\Star)$ is invertible and, hence, $\vphi$ is uniquely determined.
+    Also, the properties of superadjunction imply that $\vphi$ is, indeed, a super-anti-automorphism of $R$.
     
     For the ``moreover'' part,
-    if $B' = dB$, then it is clear that $B'$ determines the same $\vphi$ as $B$. To prove the other direction, we consider, again, the left $R$-supermodule structure on $\U\Star$ by $r\cdot f = \vphi(r) f$ and let $\theta\from \U \to \U\Star$ be as above.
+    if $B' = dB$, then it is clear from Equation \eqref{eq:superadjunction} that $B'$ determines the same $\vphi$ as $B$. 
+    To prove the other direction, we consider, again, the left $R$-supermodule structure on $\U\Star$ give by Equation \eqref{eq:R-action-back-on-the-right} and let $\theta\from \U \to \U\Star$ be as above, \ie, $\theta(u) = B(u, \cdot)$. Similarly, let $\theta'\from \U \to \U\Star$ be defined by $\theta' \coloneqq B'(u, \cdot)$.
     
     Combining Equations \eqref{eq:R-action-back-on-the-right} and  \eqref{eq:theta-is-almost-R-superlinear}, we have that
     %
@@ -516,68 +550,105 @@ Recall that, for a nonzero homogeneous element $d\in \D$, the inner automorphism
         \theta(ru) = \sign{\theta}{r} r\cdot \theta(u).
     \end{equation}
     %
-    Define the map $\tilde \theta\from \U \to \U\Star$, written on the right, by $u\, \tilde\theta = \sign{u}{\theta} \theta(u)$, for all $u\in \U$. 
-    It is easy to see that that $\theta = (\tilde\theta)^\circ$, and Equation \ref{eq:theta-is-R-superlinear} becomes $(ru)\tilde\theta = r (u\,\tilde\theta)$.
+    Define the map $\tilde \theta\from \U \to \U\Star$, written on the right, by $u\, \tilde\theta = \sign{u}{\theta} \theta(u)$, for all $u\in \U$ (compare with Definition \ref{def:change-map-to-the-left} and note that $\theta = (\tilde \theta)^\circ$). 
+    Then Equation \eqref{eq:theta-is-R-superlinear} becomes $(ru)\tilde\theta = r \cdot (u\,\tilde\theta)$, \ie, $\tilde\theta$ is $R$-linear.
     
-    Now, given a pair $(\vphi_0', B')$, we have the corresponding map $\theta'(u) \coloneqq B'(u, \cdot)$, for all $u\in \U$. 
-    All the considerations above about $\theta$ are also valid for $\theta'$, so we define $\tilde\theta'\from \U \to \U\Star$ by $u\,\tilde\theta' \coloneqq \sign{u}{\theta'} \theta'(u)$ and we get another $R$-linear map from $\U$ to $\U\Star$.
-    By Lemma~\ref{lemma:nonuniqueness-of-vphi1}, there is $d\in \D\sop$ such that $\tilde\theta' = \tilde\theta d$.
-    By Proposition \ref{prop:change-of-side-properties}, this means that 
-    %
-    \begin{equation}
-        \theta' = \sign{\theta}{d} d^\circ \theta.
-    \end{equation}
-    %
-    But $(d^\circ \theta) (u) = d^\circ (\theta (u)) = (-1)^{|d|(|\theta| + |u|)} \theta(u)d = d\theta(u)$, where in the last term we use the left $\D$-action on $\U\Star$. 
-    We then have that $B'(u,v) = \theta'(u)(v) = d\theta(u)(v) = dB(u, v)$, for all $u,v \in \U$. 
+    % Now, given a pair $(\vphi_0', B')$, we have the corresponding map $\theta'(u) \coloneqq B'(u, \cdot)$, for all $u\in \U$. 
+    All these considerations about $\theta$ are also valid for $\theta'$, so we define $\tilde\theta'\from \U \to \U\Star$ by $u\,\tilde\theta' \coloneqq \sign{u}{\theta'} \theta'(u)$ and we get another $R$-linear map from $\U$ to $\U\Star$.
+    By Lemma~\ref{lemma:nonuniqueness-of-vphi1}, there is $\bar d\in \D\sop$ such that $\tilde\theta' = \tilde\theta \bar d$.
+    Applying Lemma \ref{lemma:change-of-side-properties}, this implies \[\theta' = \sign{\theta}{\bar d} \bar d^\circ \theta.\]
+    But $\bar d^\circ \theta (u) = d\theta(u)$, where in the last term we use the left $\D$-action on $\U\Star$. 
+    Therefore $B'(u,v) = \theta'(u)(v) = d\theta(u)(v) = \sign{\theta}{d} dB(u, v)$, for all $u,v \in \U$. 
+    Replacing $d$ by $\sign{\theta}{d} d$, we get $B' = dB$.
     
-    It remains to check that $\vphi_0' = \operatorname{sInt}_d \circ \vphi_0$. 
+    It remains to check that $\vphi_0' = \operatorname{sInt}_d \circ\, \vphi_0$. 
     Since $B'$ is nondegenerate, there are homogeneous $u,v\in \U$ with $B'(u,v)\neq 0$, so $B'(u,v)$ is invertible. 
     Now, for all $c\in \D$, 
     %
     \begin{align*}
-        \vphi_0' (c) B'(u, v) &= (-1)^{|c|( |B'| + |u| )}B'(uc, v) = (-1)^{|c|( |d| + |B| + |u| )} dB(uc, v) \\ &= \sign{d}{c} d\vphi_0(c) B(u,v) = \sign{d}{c} d\vphi_0(c)d\inv dB(u,v) \\ &= \sign{d}{c} d\vphi_0(c)d\inv B'(u,v),
+        \vphi_0' (c) B'(u, v) &= (-1)^{|c|( |B'| + |u| )}B'(uc, v) = (-1)^{|c|( |d| + |B| + |u| )} dB(uc, v) \\ &= \sign{c}{d} d\vphi_0(c) B(u,v) = \sign{c}{d} d\vphi_0(c)d\inv dB(u,v) \\ &= \sign{c}{d} d\vphi_0(c)d\inv B'(u,v),
     \end{align*}
     %
-    hence $\vphi_0'(c) = \sign{d}{c} d\vphi_0(c)d\inv$, as desired.
+    hence $\vphi_0'(c) = \sign{c}{d} d\vphi_0(c)d\inv$, as desired.
 \end{proof}
+
+\begin{remark}\label{rmk:we-only-need-B'-nonzero}
+    Note that in the proof of the ``moreover'' part of Theorem \ref{thm:vphi-iff-vphi0-and-B}, we do not need to assume $B'$ is nondegenerate, we only use that it is nonzero.
+\end{remark}
+
+% \begin{cor}[of the proof]
+%     Let $\vphi_0$ be a super-anti-automorphism on $\D$ and let $B$ be a nonzero $\vphi_0$-sesquilinear form on $\U$. If $\vphi\from R \to R$ be a parity preserving map satisfying Equation \eqref{eq:superadjunction}. 
+%     Then $B$ is nondegenerate if, and only if, $\vphi$ is a super-anti-automorphism.
+% \end{cor}
 
 \section{Superinvolutions and sesquilinear forms}
 
-We will now specialize the results of last section to the case $\vphi^2 = \id$.
+Our goal now is to specialize the results of the previous section to the case where $\vphi$ is a superinvolution. 
+To this end, let us investigate what super-anti-automorphism of $\D$ and what sesquilinear form on $\U$ determine the super-anti-automorphism $\vphi\inv$. 
+As before, we suppose $\D$ is a graded division superalgebra, $\U$ is a nonzero right graded module of finite rank over $\D$ and $\vphi$ is a super-anti-automorphism on $R$.
 
-\begin{lemma}
-    Let $B\from \U\times \U\Star \to \D$ be a $\vphi_0$-sesquilinear form. Suppose there is a super-anti-automorphism $\vphi$ on $\End_\D(U)$ such that Equation \eqref{eq:superadjunction} holds. If $B$ is nonzero, then it is nondegenerate.
-\end{lemma}
+Given a super-anti-automorphism $\vphi_0$ on $\D$ and a $\vphi_0$-sesquilinear form on $\U$,  
 
-\begin{prop}
-    Let $\vphi_0$ be a super-anti-automorphism on $\D$ and let $B\from \U\times \U\Star \to \D$ be a nonzero $\vphi_0$-sesquilinear form. Define $\bar B (u,v) \coloneqq \sign{u}{v} \vphi_0\inv (B(v, u))$. Then $\bar B$ is a nonzero $\vphi_0\inv$-sesquilinear form. Further, if $\vphi\from R \to R$ is a super-anti-automorphims such that
+\begin{defi}
+    Let $\vphi_0$ be a super-anti-automorphism on $\D$ and let $B$ be a $\vphi_0$-sesquilinear form on $\U$. We define 
+\end{defi}
+
+% \begin{lemma}
+%     Let $B\from \U\times \U\Star \to \D$ be a $\vphi_0$-sesquilinear form. Suppose there is a super-anti-automorphism $\vphi$ on $R = \End_\D(U)$ such that Equation \eqref{eq:superadjunction} holds. If $B$ is nonzero, then it is nondegenerate.
+% \end{lemma}
+
+\begin{prop}\label{prop:barB-determines-vphi-inv}
+    Let $\bar B (u,v) \coloneqq \sign{u}{v} \vphi_0\inv (B(v, u))$. 
+    Then $\bar B$ is a $\vphi_0\inv$-sesquilinear form of the same degree and parity as $B$ and 
+    %
+    \begin{equation}\label{eq:barB-superadjunction}
+        \forall r\in R,\,\forall u, v \in \U,  \quad \bar B(ru,v) = \sign{r}{u} \bar B(u,\vphi\inv (r)v).
+    \end{equation}
+    %
 \end{prop}
 
 \begin{proof}
-    Second component is $\D$-linear:
-
+    Since $B$ is $\FF$-bilinear, then $\bar B$ is $\FF$-bilinear. Also, since $\vphi_0$ preserves degree and parity, $\bar B$ is homogeneous of the same degree and parity as $B$. 
+    It remains to check the conditions of Definition \ref{def:sesquilinear-form} and Equation \eqref{eq:barB-superadjunction}.
+    \vspace{2mm}
     \begin{align*}
+       \intertext{ Condition \eqref{enum:linear-on-the-second}:}
         \bar B (u,vd) &= (-1)^{|u|( |v| + |d|)} \vphi_0\inv (B(vd, u))  \\
         & = (-1)^{|u|( |v| + |d|)} (-1)^{|d| (|B| + |v|)} \vphi_0\inv \big( \vphi_0(d) B(v, u) \big) \\
-        & = (-1)^{|u||v| + |u||d| + |d||B| + |d||v|} (-1)^{|d| (|B| + |u| + |v|) }  \vphi_0\inv \big(B(v, u)) d \\ &= \bar B(u, v) d .
-    \end{align*}
-    
-    First component:
-    
-    \begin{align*}
-        \bar B(ud, v) &= (-1)^{(|u| + |d|) |v|} \vphi_0\inv \big( B(v, ud) \big) \\ &= (-1)^{(|u| + |d|) |v|} \vphi_0\inv \big( B(v, u)d \big) \\ &= (-1)^{(|u| + |d|) |v|} (-1)^{|d| (|B| + |v| + |u|)} \vphi_0\inv (d) \vphi_0\inv\big( B(v, u) \big) \\ &= (-1)^{|u||v| + |d| |B| + |d||u|} \vphi_0\inv (d) \vphi_0\inv\big( B(v, u) \big) \\ &= (-1)^{|d| (|B| + |u|)} \vphi_0\inv (d) \bar B(u, v).
-    \end{align*}
-    
-    Superadjunction is $\vphi\inv$:
-    
-    \begin{align*}
+        & = (-1)^{|u||v| + |u||d| + |d||B| + |d||v|} (-1)^{|d| (|B| + |v| + |u|) }  \vphi_0\inv \big(B(v, u)) d \\ &= \sign{u}{v} \vphi_0\inv \big(B(v, u)) d = \bar B(u, v) d .
+    \intertext{Condition \eqref{enum:vphi0-linear-on-the-first}:}
+        \bar B(ud, v) &= (-1)^{(|u| + |d|) |v|} \vphi_0\inv \big( B(v, ud) \big) \\ &= (-1)^{(|u| + |d|) |v|} \vphi_0\inv \big( B(v, u)d \big) \\ &= (-1)^{(|u| + |d|) |v|} (-1)^{|d| (|B| + |v| + |u|)} \vphi_0\inv (d) \vphi_0\inv\big( B(v, u) \big) \\ &= (-1)^{|u||v| + |d| |B| + |d||u|} \vphi_0\inv (d) \vphi_0\inv\big( B(v, u) \big) \\ &= (-1)^{(|B| + |u|) |d|} \vphi_0\inv (d) \bar B(u, v).
+      \intertext{Finally, for Equation \eqref{eq:barB-superadjunction}, note that replacing $r$ for $\vphi(r)$ in Equation \eqref{eq:superadjunction} it becomes}
+        B(v, ru) &= \sign{r}{v} B(\vphi\inv(r)v,u),
+      \intertext{hence, we have that}
         \bar B(ru, v) &= (-1)^{(|r| + |u|) |v|} \vphi_0\inv \big( B(v, ru) \big)\\ &= (-1)^{(|r| + |u|) |v|} (-1)^{|r||v|} \vphi_0\inv \big( B(\vphi\inv (r)v, u) \big) \\ &= (-1)^{|u||v|} \vphi_0\inv \big( B(\vphi\inv (r)v, u) \big) \\ &= (-1)^{|u||v|} (-1)^{(|r| + |v|) |u|} \bar B(u, \vphi\inv (r)v) \\ &= \sign{r}{u} \bar B(u, \vphi\inv (r)v).
     \end{align*}
     
 \end{proof}
 
-In particular, if $\vphi^2 = \id$, the pairs $(\vphi_0, B)$ and $(\vphi_0\inv, \bar B)$ induce the same superadjunction. By Theorem {\tt ??}, there is $d\in \D$ such that $\vphi_0\inv = \operatorname{sInt}_d \circ \vphi_0$ and $\bar B = dB$. But both parity and degree of $B$ and $\bar B$ coincide, hence $d\in \D\even_e$. Using that $\FF$ is algebraically closed, $d\in \FF$. In particular, $\operatorname{sInt}_d = \id$ and, hence, $\vphi_0^2 = \id$. 
+Recall that $\vphi_0$ and $B$ are not uniquely determined. 
+Let $d\in \D$ and consider $\vphi_0' \coloneqq \operatorname{sInt}_d\circ\, \vphi_0$ and $B' \coloneqq d B$. 
+If we define $\bar B' \coloneqq \sign{u}{v} \vphi_0\inv (B(v, u))$ and let $\bar B$ be as in Proposition \ref{prop:barB-determines-vphi-inv}, then we have that
+\begin{align*}
+    \bar B' (u,v) &= \sign{u}{v} (\vphi_0\inv \circ \operatorname{sInt}_{d\inv})  (d B(u, v) ) \\
+    &= \sign{u}{v} \vphi_0\inv \big( (-1)^{|d| (|d| + |B| + |u| + |v|)}\,  d\inv d B (u, v) d \big) \\ &= \sign{u}{v} (-1)^{|d|}\, \vphi_0\inv (d) \vphi_0\inv(B(v, u)) =  (-1)^{|d|}\,\vphi_0\inv (d) \bar B (u, v).
+\end{align*}
+
+
+\begin{cor}
+    Suppose $\vphi^2 = \id$ and that $\FF$ is algebraically closed. Then $\vphi_0^2 = \id$.
+\end{cor}
+
+\begin{proof}
+    First note that, since $B$ is nonzero and $\vphi_0$ is a bijection, $\bar B$ is nonzero. 
+    Since $\vphi\inv = \vphi\inv$, using Equation \eqref{eq:barB-superadjunction}, Theorem \ref{thm:vphi-iff-vphi0-and-B} and Remark \ref{rmk:we-only-need-B'-nonzero}, we conclude that there is $d\in \D$ such that $\vphi_0\inv = \operatorname{sInt}_d \circ \,\vphi_0$ and $\bar B = dB$.
+    
+    Since both parity and degree of $B$ and $\bar B$ coincide, hence $d\in \D\even_e$. 
+    Using that $\FF$ is algebraically closed, $d\in \FF$. 
+    In particular, $\operatorname{sInt}_d = \id$ and, hence, $\vphi_0^2 = \id$.
+\end{proof}
+
+
 
 % it is clear that $B(u,vd) = B(u,v)d$. By Equation \eqref{eq:sesquilinear-before-B}, the map $B: \U \times \U \to \D$ is a \emph{$\vphi_0$-sesquilinear form}, \ie,
 % \[
