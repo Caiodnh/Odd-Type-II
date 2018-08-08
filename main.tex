@@ -511,7 +511,7 @@ If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\o
     \end{equation}
     %
     Conversely, given a pair $(\vphi_0, B)$ as above, there is a unique degree preserving super-anti-automorphism $\vphi$ on $R$ satisfying Equation \eqref{eq:superadjunction}. 
-    Moreover, another pair $(\vphi_0', B')$ determines the same super-anti-automorphism $\vphi$ if, and only if, there is a nonzero homogeneous element $d\in \D$ such that $\vphi_0 = \operatorname{sInt}_d \circ \vphi_0$ and $B'(u, v) = dB (u, v)$ for all $u, v \in \U$.
+    Moreover, another pair $(\vphi_0', B')$ determines the same super-anti-automorphism $\vphi$ if, and only if, there is a nonzero $G^\#$-homogeneous element $d\in \D$ such that $\vphi_0 = \operatorname{sInt}_d \circ \vphi_0$ and $B'(u, v) = dB (u, v)$ for all $u, v \in \U$.
 \end{thm}
 
 \begin{proof}
@@ -519,16 +519,16 @@ If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\o
     Proposition \ref{prop:sesquilinear-form-iff-D-linear-map}. Then Equation \eqref{eq:superadjunction} is equivalent to:
     %
     \begin{alignat*}{2}
-        \forall r\in R,\,\forall u, v \in \U, &&\;\; \theta (ru)(v)&= \sign{r}{u} \theta(u)(\vphi(r)v)
+        \forall r\in R\even \cup R\odd,\,\forall u, v \in \U\even \cup \U\odd, &&\;\; \theta (ru)(v)&= \sign{r}{u} \theta(u)(\vphi(r)v)
         \\&&&= \sign{r}{u} \big(\theta (u)\circ \vphi(r)\big)(v)\\
         \intertext{and, hence, equivalent to}
-        \forall r\in R,\,\forall u \in \U,  && \theta (ru) &= \sign{r}{u} \theta(u) \circ \vphi(r). \addtocounter{equation}{1}\tag{\theequation}\label{eq:theta-is-almost-R-superlinear}\\
+        \forall r\in R\even \cup R\odd,\,\forall u \in \U\even \cup \U\odd,  && \theta (ru) &= \sign{r}{u} \theta(u) \circ \vphi(r). \addtocounter{equation}{1}\tag{\theequation}\label{eq:theta-is-almost-R-superlinear}\\
         \intertext{Recalling the definition of superadjoint operator, Equation \eqref{eq:theta-is-almost-R-superlinear} becomes}
-        \forall r\in R,\,\forall u \in \U, && \;\;(\theta \circ r) (u) &= \sign{r}{u} (-1)^{(|\theta| + |u|)|r|} \big(\vphi(r)\big)\Star \big(\theta(u)\big) \\&&&=  \sign{r}{\theta} \big(\big(\vphi(r)\big)\Star \circ \theta \big) (u),
+        \forall r\in R\even \cup R\odd,\,\forall u \in \U\even \cup \U\odd, && \;\;(\theta \circ r) (u) &= \sign{r}{u} (-1)^{(|\theta| + |u|)|r|} \big(\vphi(r)\big)\Star \big(\theta(u)\big) \\&&&=  \sign{r}{\theta} \big(\big(\vphi(r)\big)\Star \circ \theta \big) (u),
         \intertext{which is the same as}
-        \forall r\in R, &&\theta \circ r &= \sign{r}{\theta}  \big(\vphi(r)\big)\Star \circ \theta.
+        \forall r\in R\even \cup R\odd, &&\theta \circ r &= \sign{r}{\theta}  \big(\vphi(r)\big)\Star \circ \theta.
         \intertext{In other words, we have}
-        \forall r\in R, && \big(\vphi(r)\big)\Star &= \sign{r}{\theta}\, \theta \circ r \circ \theta\inv.\addtocounter{equation}{1}\tag{\theequation}\label{eq:vphi-r-Star-is-a-superconjugation}
+        \forall r\in R\even \cup R\odd, && \big(\vphi(r)\big)\Star &= \sign{r}{\theta}\, \theta \circ r \circ \theta\inv.\addtocounter{equation}{1}\tag{\theequation}\label{eq:vphi-r-Star-is-a-superconjugation}
         \end{alignat*}
     %
     % We have shown that
@@ -540,9 +540,23 @@ If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\o
     Since $\U$ has finite rank over $\D$, the superadjunction map $\End_\D (\U) \to \End_{\D\sop} (\U\Star)$ is invertible and, hence, $\vphi$ is uniquely determined.
     Also, the properties of superadjunction imply that $\vphi$ is, indeed, a super-anti-automorphism of $R$.
     
-    For the ``moreover'' part,
-    if $B' = dB$, then it is clear from Equation \eqref{eq:superadjunction} that $B'$ determines the same $\vphi$ as $B$. 
-    To prove the other direction, we consider, again, the left $R$-supermodule structure on $\U\Star$ give by Equation \eqref{eq:R-action-back-on-the-right} and let $\theta\from \U \to \U\Star$ be as above, \ie, $\theta(u) = B(u, \cdot)$. Similarly, let $\theta'\from \U \to \U\Star$ be defined by $\theta' \coloneqq B'(u, \cdot)$.
+    For the ``moreover'' part, let $d$ be a nonzero $G^\#$-homogeneous element of $\D$ and consider $\vphi_0' = \operatorname{sInt}_d \circ \, \vphi_0$ and $B' = dB$. 
+    We have that $B'$ is $\vphi_0'$-sesquilinear since, for all $c\in \D\even \cup \D\odd$ and $u,v \in \U\even \cup \U\odd$,
+    %
+    \begin{align*}
+        B' (uc, v) &= dB (uc, v) = (-1)^{(|B| + |u| ) |c|} d\vphi_0(c) B(u,v) \addtocounter{equation}{1}\tag{\theequation}\label{eq:dB-is-sesquilinear}\\
+        &= (-1)^{(|B| + |u| ) |c|} d\vphi_0(c) d\inv d B(u,v) \\
+        &=  (-1)^{(|B| + |u| ) |c|} \sign{c}{d} (\operatorname{sInt}_d \circ\, \vphi_0) (c)\, dB(u,v)\\
+        &= (-1)^{(|B'| + |u|) |c|} (\operatorname{sInt}_d \circ\, \vphi_0) (c)\, B'(u,v).
+    \end{align*}
+    %
+    To show $B'$ is nondegenerate, note that $dB(u,v) = 0$ implies $B(u,v) =0$, hence  $\rad B' \subseteq \rad B$. 
+    Finally, it is straightforward that Equation \eqref{eq:superadjunction} is still true if we replace $B$ for $B'$. 
+    
+    %and let $\vphi_0'$ be a super-anti-automorphism on $\D$. 
+    % we will first check that $B'$ is, indeed, $\vphi_0'$-sesquilinear.
+    
+    To prove the other direction, we consider, again, the left $R$-supermodule structure on $\U\Star$ given by Equation \eqref{eq:R-action-back-on-the-right} and let $\theta\from \U \to \U\Star$ be as above, \ie, $\theta(u) = B(u, \cdot)$. Similarly, let $\theta'\from \U \to \U\Star$ be defined by $\theta' \coloneqq B'(u, \cdot)$.
     
     Combining Equations \eqref{eq:R-action-back-on-the-right} and  \eqref{eq:theta-is-almost-R-superlinear}, we have that
     %
@@ -559,17 +573,15 @@ If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\o
     Applying Lemma \ref{lemma:change-of-side-properties}, this implies \[\theta' = \sign{\theta}{\bar d} \bar d^\circ \theta.\]
     But $\bar d^\circ \theta (u) = d\theta(u)$, where in the last term we use the left $\D$-action on $\U\Star$. 
     Therefore $B'(u,v) = \theta'(u)(v) = d\theta(u)(v) = \sign{\theta}{d} dB(u, v)$, for all $u,v \in \U$. 
-    Replacing $d$ by $\sign{\theta}{d} d$, we get $B' = dB$.
+    Replacing $d$ by $\sign{\theta}{d} d$, we get $B' = dB$. 
     
     It remains to check that $\vphi_0' = \operatorname{sInt}_d \circ\, \vphi_0$. 
-    Since $B'$ is nondegenerate, there are homogeneous $u,v\in \U$ with $B'(u,v)\neq 0$, so $B'(u,v)$ is invertible. 
-    Now, for all $c\in \D$, 
-    %
-    \begin{align*}
-        \vphi_0' (c) B'(u, v) &= (-1)^{|c|( |B'| + |u| )}B'(uc, v) = (-1)^{|c|( |d| + |B| + |u| )} dB(uc, v) \\ &= \sign{c}{d} d\vphi_0(c) B(u,v) = \sign{c}{d} d\vphi_0(c)d\inv dB(u,v) \\ &= \sign{c}{d} d\vphi_0(c)d\inv B'(u,v),
-    \end{align*}
-    %
-    hence $\vphi_0'(c) = \sign{c}{d} d\vphi_0(c)d\inv$, as desired.
+    Since $B' = dB$, Equation \eqref{eq:dB-is-sesquilinear} is valid, hence $B'$ is $(\operatorname{sInt_d \circ \vphi_0})$-sesquilinenar.
+    We then have, for all $c\in \D\even \cup \D\odd$ and $u,v \in \U\even \cup \U\odd$,
+    \[
+        \vphi_0'(c)\, B'(u,v) = (-1)^{(|B'| + |u|) |c|} B'(uc,v) = (\operatorname{sInt_d \circ\, \vphi_0}) (c)\, B'(u,v).
+    \]
+    The form $B'$ is nondegenerate, so we can choose homogeneous $u,v\in \U$ with $B'(u,v)\neq 0$. Then $B'(u,v)$ is invertible, hence $\vphi_0' (c) = (\operatorname{sInt}_d \circ\, \vphi_0) (c)$, concluding the proof.
 \end{proof}
 
 \begin{remark}\label{rmk:we-only-need-B'-nonzero}
