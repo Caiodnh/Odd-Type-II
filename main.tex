@@ -584,9 +584,11 @@ If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\o
     The form $B'$ is nondegenerate, so we can choose homogeneous $u,v\in \U$ with $B'(u,v)\neq 0$. Then $B'(u,v)$ is invertible, hence $\vphi_0' (c) = (\operatorname{sInt}_d \circ\, \vphi_0) (c)$, concluding the proof.
 \end{proof}
 
-\begin{remark}\label{rmk:we-only-need-B'-nonzero}
-    Note that in the proof of the ``moreover'' part of Theorem \ref{thm:vphi-iff-vphi0-and-B}, we do not need to assume $B'$ is nondegenerate, we only use that it is nonzero.
-\end{remark}
+% \begin{remark}\label{rmk:we-only-need-B'-nonzero}
+%     Note that in the proof of the ``moreover'' part of Theorem \ref{thm:vphi-iff-vphi0-and-B}, we do not need to assume $B'$ is nondegenerate, we only use that it is nonzero.
+% \end{remark}
+
+\section{Matrix representation of a super-anti-automorphism}
 
 We will now describe $\vphi$ in terms of matrices with entries in $\D$. 
 One could do that by following Equation \eqref{eq:vphi-r-Star-is-a-superconjugation}, but we are following a different path. 
@@ -611,7 +613,7 @@ We can, then, rewrite Equation \ref{eq:superadjunction} as
 
 \section{Superinvolutions and sesquilinear forms}
 
-Our goal now is to specialize the results of the previous section to the case where $\vphi$ is a superinvolution. 
+Our goal now is to specialize the results of Section \ref{sec:super-anti-auto-and-sesquilinear} to the case where $\vphi$ is a superinvolution. 
 To this end, let us investigate what super-anti-automorphism of $\D$ and what sesquilinear form on $\U$ determine the super-anti-automorphism $\vphi\inv$. 
 As before, we suppose $\D$ is a graded division superalgebra, $\U$ is a nonzero right graded module of finite rank over $\D$ and put $R = \End_\D (\U)$.
 
@@ -625,17 +627,18 @@ As before, we suppose $\D$ is a graded division superalgebra, $\U$ is a nonzero 
 
 \begin{prop}\label{prop:barB-determines-vphi-inv}
     Under the conditions of Definition \ref{def:barB}, we have that $\overline {B}$ is a $\vphi_0\inv$-sesquilinear form of the same degree and parity as $B$. 
-    Further, if $B$ is nondegenerate and $\vphi$ is the super-anti-automorphism on $R$ determined by $(\vphi_0, B)$ via Theorem \ref{thm:vphi-iff-vphi0-and-B}, then 
+    Further, if $B$ is nondegenerate and $\vphi$ is the super-anti-automorphism on $R$ determined by $(\vphi_0, B)$ as in Theorem \ref{thm:vphi-iff-vphi0-and-B}, then $\overline{B}$ is nondegenerate and $\vphi\inv$ is determined by $(\vphi_0\inv, \overline B)$, \ie, 
     %
     \begin{equation}\label{eq:barB-superadjunction}
-        \forall r\in R,\,\forall u, v \in \U,  \quad \overline {B}(ru,v) = \sign{r}{u} \overline {B}(u,\vphi\inv (r)v).
+        \forall r\in R\even \cup R\odd ,\,\forall u, v \in \U\even \cup \U\odd,  \quad \overline {B}(ru,v) = \sign{r}{u} \overline {B}(u,\vphi\inv (r)v).
     \end{equation}
     %
 \end{prop}
 
 \begin{proof}
-    Since $B$ is $\FF$-bilinear, then $\overline {B}$ is $\FF$-bilinear. Also, since $\vphi_0$ preserves degree and parity, $\overline {B}$ is homogeneous of the same degree and parity as $B$. 
-    It remains to check the conditions of Definition \ref{def:sesquilinear-form} and Equation \eqref{eq:barB-superadjunction}.
+    Since $B$ is $\FF$-bilinear, so is $\overline {B}$. 
+    Also, since $\vphi_0$ preserves degree and parity, $\overline {B}$ is homogeneous of the same degree and parity as $B$. 
+    Let us check the conditions of Definition \ref{def:sesquilinear-form} and Equation \eqref{eq:barB-superadjunction}.
     \vspace{2mm}
     \begin{align*}
        \intertext{ Condition \eqref{enum:linear-on-the-second}:}
@@ -644,53 +647,67 @@ As before, we suppose $\D$ is a graded division superalgebra, $\U$ is a nonzero 
         & = (-1)^{|u||v| + |u||d| + |d||B| + |d||v|} (-1)^{|d| (|B| + |v| + |u|) }  \vphi_0\inv \big(B(v, u)) d \\ &= \sign{u}{v} \vphi_0\inv \big(B(v, u)) d = \overline {B}(u, v) d .
     \intertext{Condition \eqref{enum:vphi0-linear-on-the-first}:}
         \overline {B}(ud, v) &= (-1)^{(|u| + |d|) |v|} \vphi_0\inv \big( B(v, ud) \big) \\ &= (-1)^{(|u| + |d|) |v|} \vphi_0\inv \big( B(v, u)d \big) \\ &= (-1)^{(|u| + |d|) |v|} (-1)^{|d| (|B| + |v| + |u|)} \vphi_0\inv (d) \vphi_0\inv\big( B(v, u) \big) \\ &= (-1)^{|u||v| + |d| |B| + |d||u|} \vphi_0\inv (d) \vphi_0\inv\big( B(v, u) \big) \\ &= (-1)^{(|B| + |u|) |d|} \vphi_0\inv (d) \overline {B}(u, v).
-      \intertext{Finally, for Equation \eqref{eq:barB-superadjunction}, note that replacing $r$ for $\vphi(r)$ in Equation \eqref{eq:superadjunction}, it can be rewritten as}
+      \intertext{For Equation \eqref{eq:barB-superadjunction}, note that replacing $r$ for $\vphi(r)$ in Equation \eqref{eq:superadjunction}, it can be rewritten as}
         B(v, ru) &= \sign{r}{v} B(\vphi\inv(r)v,u).
       \intertext{Hence, we have that}
         \overline {B}(ru, v) &= (-1)^{(|r| + |u|) |v|} \vphi_0\inv \big( B(v, ru) \big)\\ &= (-1)^{(|r| + |u|) |v|} (-1)^{|r||v|} \vphi_0\inv \big( B(\vphi\inv (r)v, u) \big) \\ &= (-1)^{|u||v|} \vphi_0\inv \big( B(\vphi\inv (r)v, u) \big) \\ &= (-1)^{|u||v|} (-1)^{(|r| + |v|) |u|} \overline {B}(u, \vphi\inv (r)v) \\ &= \sign{r}{u} \overline {B}(u, \vphi\inv (r)v).
     \end{align*}
+    
+    Finally, Equation \eqref{eq:barB-superadjunction} together with $B$ being nondegenerate implies that $\overline{B}$ is nondegenerate. 
+    To see that, let $u$ be a nonzero homogeneous element in $\rad \overline{B}$. 
+    Then for for every $r\in R\even \cup R\odd$ and $v\in \U\even \cup \U\odd$, we have that $\overline{B}(u, \vphi\inv (r) v) = 0$, hence $\overline{B}(ru, v) = 0$. 
+    Since $r \in R\even \cup R\odd$ and $v\in \U\even \cup \U\odd$ were arbitrary, this implies $\overline{B} (Ru, \U) = 0$. 
+    But $\U$ is simple as a graded $R$-supermodule, so we would have $\overline{B}(\U, \U) = 0$ and then, using that $\vphi_0$ is bijective, $B (\U, \U) = 0$, a contradiction.
 \end{proof}
 
 \begin{lemma}\label{lemma:bar-dB}
-    Under the conditions of Definition \ref{def:barB}, let $d\in \D$ and consider $\vphi_0' \coloneqq \operatorname{sInt}_d\circ\, \vphi_0$ and $B' \coloneqq d B$. 
+    Under the conditions of Definition \ref{def:barB}, let $d$ be a nonzero $G^\#$-homogeneous element of $\D$ and consider $\vphi_0' \coloneqq \operatorname{sInt}_d\circ\, \vphi_0$ and $B' \coloneqq d B$. 
     Then $\overline {B'} = (-1)^{|d|} \vphi_0\inv (d) \overline B$.
 \end{lemma}
 
 \begin{proof}
     Note that $(\vphi_0')\inv = \vphi_0\inv \circ \operatorname{sInt}_{d}\inv = \vphi_0\inv \circ \operatorname{sInt}_{d\inv}$. 
-    Hence, for all $u, v \in \U$,
+    Hence, for all $u, v \in \U\even \cup \U\odd$,
     %
     \begin{align*}
-        \overline {B'} (u,v) &= \sign{u}{v} (\vphi_0\inv \circ \operatorname{sInt}_{d\inv})  (d B(u, v) ) \\
-        &= \sign{u}{v} \vphi_0\inv \big( (-1)^{|d| (|d| + |B| + |u| + |v|)}\,  d\inv d B (u, v) d \big) \\ &= \sign{u}{v} (-1)^{|d|}\, \vphi_0\inv (d) \vphi_0\inv(B(v, u)) =  (-1)^{|d|}\,\vphi_0\inv (d) \overline {B} (u, v).
+        \overline {B'} (u,v) &= \sign{u}{v} (\vphi_0\inv \circ \operatorname{sInt}_{d\inv})  (d B(v, u) ) \\
+        &= \sign{u}{v} \vphi_0\inv \big( (-1)^{|d| (|d| + |B| + |u| + |v|)}\,  d\inv d B (v, u) d \big) \\ &= \sign{u}{v} (-1)^{|d|}\, \vphi_0\inv (d) \vphi_0\inv(B(v, u)) =  (-1)^{|d|}\,\vphi_0\inv (d) \overline {B} (u, v).
     \end{align*}
 \end{proof}
 
+We are primarily interested in the case $\FF$ is an algebraically closed field and $\D$ is finite dimensional. 
+In this case, we have that $\D\even_e = \FF 1$, so we are under the hypothesis of the following theorem:
+
 \begin{thm}
-    Suppose $\FF$ is an  algebraically closed field. 
-    % Let $\D$ be a graded division superalgebra and let $\U$ be a nonzero right graded module of finite rank over $\D$. 
-    Let $\vphi_0$ be a super-anti-automorphism  on $\D$, let $B$ be a nondegenerate $\vphi_0$-sesqui\-li\-near form on $\U$ and let $\vphi$ be a super-anti-automorphism  on $R$ determined by $(\vphi_0, B)$ by Theorem \ref{thm:vphi-iff-vphi0-and-B}. 
+    % Suppose $\FF$ is an  algebraically closed field. 
+    Let $\D$ be a graded division superalgebra such that $\D\even_e = \FF 1$ and let $\U$ be a nonzero right graded module of finite rank over $\D$. 
+    Consider a super-anti-automorphism $\vphi_0$ on $\D$ and a nondegenerate $\vphi_0$-sesqui\-li\-near form $B$ on $\U$, and let $\vphi$ be the super-anti-automorphism on $R \coloneqq \End_\D (\U)$ determined by $(\vphi_0, B)$ as in Theorem \ref{thm:vphi-iff-vphi0-and-B}. 
     Then $\vphi$ is a superinvolution if, and only if, $\vphi_0$ is a superinvolution and $B = \pm \overline B$. 
 \end{thm}
 
 \begin{proof}
     First of all, note that, since $B$ is nonzero and $\vphi_0$ is a bijection, $\overline {B}$ is nonzero.
-    Using Equation \eqref{eq:barB-superadjunction}, Theorem \ref{thm:vphi-iff-vphi0-and-B} and Remark \ref{rmk:we-only-need-B'-nonzero}, we conclude that $\vphi = \vphi\inv$ if, and only if, there is $\delta \in \D$ such that $\vphi_0\inv = \operatorname{sInt}_\delta \circ \,\vphi_0$ and $\overline {B} = \delta B$.
-    We will now prove that we always have $\delta = \pm 1$.
-    % Assume that $\vphi^2 =\id_R$. 
-     
-    % Since $\vphi = \vphi\inv$,  there is $\delta \in \D$ such that $\vphi_0\inv = \operatorname{sInt}_\delta \circ \,\vphi_0$ and $\overline {B} = \delta B$.
+    Using Proposition \ref{prop:barB-determines-vphi-inv} and Theorem \ref{thm:vphi-iff-vphi0-and-B}, we conclude that $\vphi = \vphi\inv$ if, and only if, there is $\delta \in \D$ such that (i) $\vphi_0\inv = \operatorname{sInt}_\delta \circ \,\vphi_0$ and (ii) $\overline {B} = \delta B$. 
+    % If $\vphi_0^2 =\id_\D$ and $B = \pm \overline{B}$, we have conditions (i) and (ii) sati
+    % To prove the ``if'' part of the statement, we take $\delta \in \{\pm 1\}$, since then (i) becomes $\vphi_0 = \vphi_0\inv$ and (ii), $B = \pm \overline{B}$.
     
-    Both parity and degree of $B$ and $\overline {B}$ coincide, hence $\delta \in \D\even_e$. 
-    Using that $\FF$ is algebraically closed, we have that $\D\even_e = \FF 1$, hence $\delta \in \FF 1$ and $\vphi_0\inv(\delta) = \delta$. 
-    In particular, $\operatorname{sInt}_\delta = \id_\D$ and, therefore, $\vphi_0\inv = \vphi_0$. 
-    Also, using Lemma \ref{lemma:bar-dB}, we have that
+    If $\vphi^2 =\id_\D$ and $B = \delta \overline{B}$ with $\delta \in \{\pm 1\}$, conditions (i) and (ii) are satisfied, proving the ``if'' part of the statement. 
+
+    For the ``only if'' part, since both parity and degree of $B$ and $\overline {B}$ coincide, (ii) implies $\delta \in \D\even_e$. 
+    We are assuming $\D\even_e = \FF 1$, so $\operatorname{sInt}_\delta = \id_\D$ and (i) becomes $\vphi_0 = \vphi_0\inv$, \ie, $\vphi_0$ is a superinvolution. 
+    Also from $\delta \in \FF 1$, $\vphi_0\inv(\delta) = \delta$ and, hence, using Lemma \ref{lemma:bar-dB}, we have that
     \[
         B = \overline {\overline B} = \overline {\delta B} = (-1)^{|\delta|} \vphi_0\inv(\delta) \overline B= \delta \overline B = \delta^2 B.
     \]
-    Since $B$ is nonzero, $\delta^2 = 1$ and, hence, $\delta = \pm 1$, as desired. 
+    Using that $B$ is nonzero, this implies $\delta^2 = 1$. 
+    Therefore $\delta \in \{ \pm 1 \}$, so $B = \pm \overline{B}$, concluding the proof. 
 \end{proof}
 
+We will investigate one last question...
+
+\begin{remark}\label{rmk:delta-equals-1}
+    If $\vphi$ is a superinvolution, we can actually From Lemma...
+\end{remark}
 
 % it is clear that $B(u,vd) = B(u,v)d$. By Equation \eqref{eq:sesquilinear-before-B}, the map $B: \U \times \U \to \D$ is a \emph{$\vphi_0$-sesquilinear form}, \ie,
 % \[
