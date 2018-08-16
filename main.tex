@@ -504,7 +504,7 @@ If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\o
 
 \begin{thm}\label{thm:vphi-iff-vphi0-and-B}
     Let $\D$ be a graded division superalgebra and let $\U$ be a nonzero right graded module of finite rank over $\D$. 
-    If $\vphi$ is degree preserving super-anti-automorphism on $R \coloneqq \End_R(\U)$, then there is a pair $(\vphi_0, B)$, where $\vphi_0$ is a degree preserving super-anti-automorphism on $\D$ and $B\from \U \times \U \to \D$ is a nonzero $\vphi_0$-sesquilinear form, such that
+    If $\vphi$ is degree preserving super-anti-automorphism on $R \coloneqq \End_R(\U)$, then there is a pair $(\vphi_0, B)$, where $\vphi_0$ is a degree preserving super-anti-automorphism on $\D$ and $B\from \U \times \U \to \D$ is a nondegenerate $\vphi_0$-sesquilinear form, such that
     %
     \begin{equation}\label{eq:superadjunction}
         \forall r\in R\even \cup R\odd,\,\forall u, v \in \U\even \cup \U\odd,  \quad B(ru,v) = \sign{r}{u} B(u,\vphi(r)v).
@@ -519,16 +519,16 @@ If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\o
     Proposition \ref{prop:sesquilinear-form-iff-D-linear-map}. Then Equation \eqref{eq:superadjunction} is equivalent to:
     %
     \begin{alignat*}{2}
-        \forall r\in R\even \cup R\odd,\,\forall u, v \in \U\even \cup \U\odd, &&\;\; \theta (ru)(v)&= \sign{r}{u} \theta(u)(\vphi(r)v)
+        \forall r\in R\even \cup R\odd,\,\forall u, v &\in \U\even \cup \U\odd,& \theta (ru)(v)&= \sign{r}{u} \theta(u)(\vphi(r)v)
         \\&&&= \sign{r}{u} \big(\theta (u)\circ \vphi(r)\big)(v)\\
         \intertext{and, hence, equivalent to}
-        \forall r\in R\even \cup R\odd,\,\forall u \in \U\even \cup \U\odd,  && \theta (ru) &= \sign{r}{u} \theta(u) \circ \vphi(r). \addtocounter{equation}{1}\tag{\theequation}\label{eq:theta-is-almost-R-superlinear}\\
+        \forall r\in R\even \cup R\odd,\,\forall u &\in \U\even \cup  \U\odd,&   \theta (ru) &= \sign{r}{u} \theta(u) \circ \vphi(r). \addtocounter{equation}{1}\tag{\theequation}\label{eq:theta-is-almost-R-superlinear}\\
         \intertext{Recalling the definition of superadjoint operator, Equation \eqref{eq:theta-is-almost-R-superlinear} becomes}
-        \forall r\in R\even \cup R\odd,\,\forall u \in \U\even \cup \U\odd, && \;\;(\theta \circ r) (u) &= \sign{r}{u} (-1)^{(|\theta| + |u|)|r|} \big(\vphi(r)\big)\Star \big(\theta(u)\big) \\&&&=  \sign{r}{\theta} \big(\big(\vphi(r)\big)\Star \circ \theta \big) (u),
+        \forall r\in R\even \cup R\odd,\,\forall u &\in \U\even \cup \U\odd, & (\theta \circ r) (u) &= \sign{r}{u} (-1)^{(|\theta| + |u|)|r|} \big(\vphi(r)\big)\Star \big(\theta(u)\big) \\&&&=  \sign{r}{\theta} \big(\big(\vphi(r)\big)\Star \circ \theta \big) (u),
         \intertext{which is the same as}
-        \forall r\in R\even \cup R\odd, &&\theta \circ r &= \sign{r}{\theta}  \big(\vphi(r)\big)\Star \circ \theta.
+        \forall r&\in R\even \cup R\odd, &\theta \circ r &= \sign{r}{\theta}  \big(\vphi(r)\big)\Star \circ \theta.
         \intertext{In other words, we have}
-        \forall r\in R\even \cup R\odd, && \big(\vphi(r)\big)\Star &= \sign{r}{\theta}\, \theta \circ r \circ \theta\inv.\addtocounter{equation}{1}\tag{\theequation}\label{eq:vphi-r-Star-is-a-superconjugation}
+        \forall r&\in R\even \cup R\odd, & \big(\vphi(r)\big)\Star &= \sign{r}{\theta}\, \theta \circ r \circ \theta\inv.\addtocounter{equation}{1}\tag{\theequation}\label{eq:vphi-r-Star-is-a-superconjugation}
         \end{alignat*}
     %
     % We have shown that
@@ -550,8 +550,8 @@ If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\o
         &= (-1)^{(|B'| + |u|) |c|} (\operatorname{sInt}_d \circ\, \vphi_0) (c)\, B'(u,v).
     \end{align*}
     %
-    To show $B'$ is nondegenerate, note that $dB(u,v) = 0$ implies $B(u,v) =0$, hence  $\rad B' \subseteq \rad B$. 
-    Finally, it is straightforward that Equation \eqref{eq:superadjunction} is still true if we replace $B$ for $B'$. 
+    To show $B'$ that is nondegenerate, note that $dB(u,v) = 0$ implies $B(u,v) =0$, hence  $\rad B' \subseteq \rad B$. 
+    Finally, it is straightforward that Equation \eqref{eq:superadjunction} is still true if we replace $B$ by $B'$. 
     
     %and let $\vphi_0'$ be a super-anti-automorphism on $\D$. 
     % we will first check that $B'$ is, indeed, $\vphi_0'$-sesquilinear.
@@ -581,7 +581,7 @@ If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\o
     \[
         \vphi_0'(c)\, B'(u,v) = (-1)^{(|B'| + |u|) |c|} B'(uc,v) = (\operatorname{sInt_d \circ\, \vphi_0}) (c)\, B'(u,v).
     \]
-    The form $B'$ is nondegenerate, so we can choose homogeneous $u,v\in \U$ with $B'(u,v)\neq 0$. Then $B'(u,v)$ is invertible, hence $\vphi_0' (c) = (\operatorname{sInt}_d \circ\, \vphi_0) (c)$, concluding the proof.
+    The form $B'$ is nondegenerate, so we can choose $G^\#$-homogeneous $u,v\in \U$ with $B'(u,v)\neq 0$. Then $B'(u,v)$ is invertible, hence $\vphi_0' (c) = (\operatorname{sInt}_d \circ\, \vphi_0) (c)$, concluding the proof.
 \end{proof}
 
 % \begin{remark}\label{rmk:we-only-need-B'-nonzero}
@@ -590,21 +590,91 @@ If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\o
 
 \section{Matrix representation of a super-anti-automorphism}
 
-We will now describe $\vphi$ in terms of matrices with entries in $\D$. 
-One could do that by following Equation \eqref{eq:vphi-r-Star-is-a-superconjugation}, but we are following a different path. 
-Let $\{e_1, \ldots, e_k\}$ be a homogeneous $\D$-basis of $\U$ and let $\Phi = (\Phi_{ij}) \in M_k(\D)$ be the matrix such that $\Phi_{ij} = B(e_i, e_j)$. 
-Given $r\in R$, suppose $r$ has matrix $X = (x_{ij})$ and $\vphi(r)$ has matrix $Y = (y_{ij})$. 
-We can, then, rewrite Equation \ref{eq:superadjunction} as
-%
-\begin{align*}
-    B(Xe_i, e_j) &= \sign{X}{e_i} B(e_i, Ye_j),
-\intertext{which means}
-    B\left(\sum_{\ell=1}^k e_\ell x_{\ell i}, e_j\right) &= \sign{X}{e_i} B\left(e_i, \sum_{\ell=1}^k e_\ell y_{\ell j}\right)\\
-    \sum_{\ell=1}^k (-1)^{(|B| + |e_\ell|) |x_{\ell i}|} \vphi_0 (x_{\ell i}) B(e_\ell, e_j) &= \sum_{\ell=1}^k
-\end{align*}
+In this section, we are going to express the super-anti-automorphism $\vphi$ in terms of matrices with entries in $\D$. 
+One could do that by following Equation \eqref{eq:vphi-r-Star-is-a-superconjugation}, but we will take a different path. 
 
+As before, we suppose $\D$ is a graded division superalgebra, $\U$ is a nonzero right graded module of finite rank over $\D$, $R = \End_\D (\U)$ and $\vphi$ is a degree preserving super-anti-automorphism on $R$. 
+Also, let $\vphi_0$ be a super-anti-automorphism on $\D$ and $B$ be a nondegenerate $\vphi_0$-sesquilinear form on $\U$ determing $\vphi$ as in Theorem \ref{thm:vphi-iff-vphi0-and-B}.
 
+From now on, let $\mc B = \{e_1, \ldots, e_k\}$ be a fixed homogeneous $\D$-basis of $\U$. 
+% We will assume that the even elements precede the odd ones. 
+If $\D$ is odd (\ie, $\D\odd \neq 0$), we will assume that all elements of $\mc B$ are even, since we can multiply the odd ones by a nonzero homogeneous odd element in $\D$. 
+We will use $\mc B$ to identify $R = \End_\D (\U)$ with $M_k (\D)$. 
+Also, we will denote $|e_i|$ simply by $|i|$ for all $i \in \{1, \ldots, k\}$. 
 
+\begin{defi}
+    Let $X = (x_{ij})$ be a matrix in $M_k (\D)$. 
+    We define $\vphi_0 (X)$ to be the matrix obtained by applying $\vphi_0$ in each entry, \ie, $\vphi_0 (X) = (\vphi_0(x_{ij}))$. 
+    We also extend the definition \emph{supertranspose} {(\tt see ??)} to matrices over $\D$ by putting $X\stransp \coloneqq \big((-1)^{(|i| + |j|) |i|} x_{ji} \big)$. 
+    Note that, with our choice of $\mc B$ in the case of odd $\D$, we have that $X\stransp = X\transp$, the ordinary transpose.
+\end{defi}
+
+\begin{prop}\label{prop:matrix-vphi}
+    Let $\Phi = (\Phi_{ij}) \in M_k(\D)$ be the matrix representing $B$, \ie, $\Phi_{ij} = B(e_i, e_j)$. For every $r\in  R\even \cup R\odd$, let $X \in M_k(\D)$ be the matrix representing $r$ and let $Y \in M_k(\D)$ be the matrix representing $\vphi(r)$.
+    Then, if $\D$ is even, we have that
+    %
+    \begin{align}
+        Y &= \Phi\inv\, \vphi_0( X\stransp )\, \Phi \addtocounter{equation}{1}\tag{\theequation}\label{eq:matrix-vphi-D-even}
+        \intertext{and, if $\D$ is odd, we have that}
+        Y &= \sign{B}{r}\,\Phi\inv\, \vphi_0( X\stransp )\, \Phi.\addtocounter{equation}{1}\tag{\theequation}\label{eq:matrix-vphi-D-odd}
+    \end{align}
+\end{prop}
+
+\begin{proof}
+    First of all, note that Equation \ref{eq:superadjunction} is equivalent to, for all $e_i, e_j \in \mc B$,
+    %
+    \begin{align*}
+        B(re_i, e_j) &= \sign{r}{i} B(e_i, \vphi(r) e_j),
+    \intertext{which, by the definitions of $X$, $Y$ and $\Phi$, becomes}
+        B\bigg(\sum_{\ell=1}^k e_\ell x_{\ell i}, e_j\bigg) &= \sign{r}{i} B\bigg(e_i, \sum_{\ell=1}^k e_\ell y_{\ell j}\bigg) \addtocounter{equation}{1}\tag{\theequation}\label{eq:superadjunction-matrix}\\
+        &= \sign{r}{i} \sum_{\ell=1}^k B(e_i, e_\ell) y_{\ell j}\\
+        &= \sign{r}{i} \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}. 
+    \end{align*}
+    %
+    
+    Let $p,q \in \{1, \ldots, k\}$, and suppose $X$ is such that $x_{pq}$ is a nonzero $G^\#$-homogeneous element of $\D$ and $x_{ij} = 0$ elsewhere, \ie, $X$ represents the map $r \in \End_\D(\U)$ defined by $r e_i = \delta_{iq} e_p x_{pq}$. 
+    By the $\FF$-linearity of Equations \eqref{eq:matrix-vphi-D-even} and \eqref{eq:matrix-vphi-D-odd}, it suffices to consider such $X$. 
+    Note that $|r| = |e_q| + |x_{pq}| - |e_p| = |p| + |q| + |x_{pq}|$. 
+    Then
+    %
+    \begin{align*}
+        B\bigg(\sum_{\ell=1}^k e_\ell x_{\ell i}, e_j\bigg) = B (e_p x_{pi}, e_j) &= (-1)^{ (|B| + |p|) |x_{pi}|} \vphi_0(x_{pi}) B(e_p, e_j)
+        \\&= (-1)^{ (|B| + |p|) |x_{pi}|} \vphi_0(x_{pi}) \Phi_{pj},
+    \end{align*}
+    %
+    which is only nonzero if $i = q$. 
+    Combining this with Equation \eqref{eq:superadjunction-matrix}, we get
+    %
+    \begin{align*}
+        (-1)^{ (|B| + |p|) |x_{pi}|} \vphi_0(x_{pi}) \Phi_{pj} &= \sign{r}{i} \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}\\
+        &= (-1)^{ (|p| + |q| + |x_{pq}|) |i| } \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}.
+    \end{align*}
+    %
+    If $\D$ is even, then $|x_{pi}| = 0$ and this expression reduces to
+    \[              \vphi_0(x_{pi}) \Phi_{pj} = (-1)^{ (|p| + |q|) |i| } \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}
+    \]
+    or, reordering it, 
+    \[
+        \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j} = (-1)^{ (|p| + |q|) |i| } \vphi_0(x_{pi}) \Phi_{pj}.
+    \]
+    The left-hand side is the entry $ij$ of $\Phi\, Y$. 
+    The right-hand side is only nonzero if $i = q$, so it can be rewritten as 
+    $(-1)^{ (|p| + |i|) |i| } \vphi_0(x_{pi}) \Phi_{pj}$. 
+    Also, recalling our choice of $X$, it is equal to $\sum_{\ell =1}^k (-1)^{ (|\ell| + |i|) |i| } \vphi_0(x_{\ell i}) \Phi_{\ell j}$, since $x_{\ell i}$ is only nonzero if $\ell = p$. Hence the right-hand side is the $ij$ entry of $\vphi_0 (X\stransp) \Phi$, and Equation \eqref{eq:matrix-vphi-D-even} follows. 
+    
+
+    
+    If $\D$ is odd, by our choice of basis, the expression reduces to
+    \[
+        (-1)^{|B| |x_{pi}|} \vphi_0(x_{pi}) \Phi_{pj} =  \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j},
+    \]
+    which implies $(-1)^{|B||r|} \phi_0(X\stransp) \Phi = \Phi Y$.
+\end{proof}
+
+\begin{remark}
+    Note that if $\D$ is odd, changing $B$ for $dB$ with an odd $d$ if necessary, we can guarantee that $B$ is even. 
+    In this case, Equation \eqref{eq:matrix-vphi-D-odd} reduces to \eqref{eq:matrix-vphi-D-even}.
+\end{remark}
 
 % \begin{cor}[of the proof]
 %     Let $\vphi_0$ be a super-anti-automorphism on $\D$ and let $B$ be a nonzero $\vphi_0$-sesquilinear form on $\U$. If $\vphi\from R \to R$ be a parity preserving map satisfying Equation \eqref{eq:superadjunction}. 
@@ -615,7 +685,7 @@ We can, then, rewrite Equation \ref{eq:superadjunction} as
 
 Our goal now is to specialize the results of Section \ref{sec:super-anti-auto-and-sesquilinear} to the case where $\vphi$ is a superinvolution. 
 To this end, let us investigate what super-anti-automorphism of $\D$ and what sesquilinear form on $\U$ determine the super-anti-automorphism $\vphi\inv$. 
-As before, we suppose $\D$ is a graded division superalgebra, $\U$ is a nonzero right graded module of finite rank over $\D$ and put $R = \End_\D (\U)$.
+Again, we suppose $\D$ is a graded division superalgebra, $\U$ is a nonzero right graded module of finite rank over $\D$ and put $R = \End_\D (\U)$.
 
 \begin{defi}\label{def:barB}
     Given a super-anti-automorphism $\vphi_0$ on $\D$ and a $\vphi_0$-sesqui\-li\-near form $B$ on $\U$,  we define $\overline {B}\from \U\times \U \to \D$ by $\overline {B} (u,v) \coloneqq \sign{u}{v} \vphi_0\inv (B(v, u))$ for all $u, v \in \U$.
@@ -647,7 +717,7 @@ As before, we suppose $\D$ is a graded division superalgebra, $\U$ is a nonzero 
         & = (-1)^{|u||v| + |u||d| + |d||B| + |d||v|} (-1)^{|d| (|B| + |v| + |u|) }  \vphi_0\inv \big(B(v, u)) d \\ &= \sign{u}{v} \vphi_0\inv \big(B(v, u)) d = \overline {B}(u, v) d .
     \intertext{Condition \eqref{enum:vphi0-linear-on-the-first}:}
         \overline {B}(ud, v) &= (-1)^{(|u| + |d|) |v|} \vphi_0\inv \big( B(v, ud) \big) \\ &= (-1)^{(|u| + |d|) |v|} \vphi_0\inv \big( B(v, u)d \big) \\ &= (-1)^{(|u| + |d|) |v|} (-1)^{|d| (|B| + |v| + |u|)} \vphi_0\inv (d) \vphi_0\inv\big( B(v, u) \big) \\ &= (-1)^{|u||v| + |d| |B| + |d||u|} \vphi_0\inv (d) \vphi_0\inv\big( B(v, u) \big) \\ &= (-1)^{(|B| + |u|) |d|} \vphi_0\inv (d) \overline {B}(u, v).
-      \intertext{For Equation \eqref{eq:barB-superadjunction}, note that replacing $r$ for $\vphi(r)$ in Equation \eqref{eq:superadjunction}, it can be rewritten as}
+      \intertext{For Equation \eqref{eq:barB-superadjunction}, note that replacing $r$ for $\vphi\inv(r)$, Equation \eqref{eq:superadjunction} can be rewritten as}
         B(v, ru) &= \sign{r}{v} B(\vphi\inv(r)v,u).
       \intertext{Hence, we have that}
         \overline {B}(ru, v) &= (-1)^{(|r| + |u|) |v|} \vphi_0\inv \big( B(v, ru) \big)\\ &= (-1)^{(|r| + |u|) |v|} (-1)^{|r||v|} \vphi_0\inv \big( B(\vphi\inv (r)v, u) \big) \\ &= (-1)^{|u||v|} \vphi_0\inv \big( B(\vphi\inv (r)v, u) \big) \\ &= (-1)^{|u||v|} (-1)^{(|r| + |v|) |u|} \overline {B}(u, \vphi\inv (r)v) \\ &= \sign{r}{u} \overline {B}(u, \vphi\inv (r)v).
@@ -678,11 +748,11 @@ As before, we suppose $\D$ is a graded division superalgebra, $\U$ is a nonzero 
 We are primarily interested in the case $\FF$ is an algebraically closed field and $\D$ is finite dimensional. 
 In this case, we have that $\D\even_e = \FF 1$, so we are under the hypothesis of the following theorem:
 
-\begin{thm}
+\begin{thm}\label{thm:vphi-involution-iff-delta-pm-1}
     % Suppose $\FF$ is an  algebraically closed field. 
-    Let $\D$ be a graded division superalgebra such that $\D\even_e = \FF 1$ and let $\U$ be a nonzero right graded module of finite rank over $\D$. 
-    Consider a super-anti-automorphism $\vphi_0$ on $\D$ and a nondegenerate $\vphi_0$-sesqui\-li\-near form $B$ on $\U$, and let $\vphi$ be the super-anti-automorphism on $R \coloneqq \End_\D (\U)$ determined by $(\vphi_0, B)$ as in Theorem \ref{thm:vphi-iff-vphi0-and-B}. 
-    Then $\vphi$ is a superinvolution if, and only if, $\vphi_0$ is a superinvolution and $B = \pm \overline B$. 
+    Let $\D$ be a graded division superalgebra such that $\D\even_e = \FF 1$, let $\U$ be a nonzero right graded module of finite rank over $\D$ and let $\vphi$ be a super-anti-automorphism on $R \coloneqq \End_\D (\U)$. 
+    Consider a super-anti-automorphism $\vphi_0$ on $\D$ and a nondegenerate $\vphi_0$-sesqui\-li\-near form $B$ on $\U$ determining $\vphi$ as in Theorem \ref{thm:vphi-iff-vphi0-and-B}.
+    Then $\vphi$ is a superinvolution if, and only if, $\vphi_0$ is a superinvolution and $\overline B = \pm B$. 
 \end{thm}
 
 \begin{proof}
@@ -700,14 +770,20 @@ In this case, we have that $\D\even_e = \FF 1$, so we are under the hypothesis o
         B = \overline {\overline B} = \overline {\delta B} = (-1)^{|\delta|} \vphi_0\inv(\delta) \overline B= \delta \overline B = \delta^2 B.
     \]
     Using that $B$ is nonzero, this implies $\delta^2 = 1$. 
-    Therefore $\delta \in \{ \pm 1 \}$, so $B = \pm \overline{B}$, concluding the proof. 
+    Therefore $\delta \in \{ \pm 1 \}$, so $\overline B = \pm B$, concluding the proof. 
 \end{proof}
 
 We will investigate one last question...
 
-\begin{remark}\label{rmk:delta-equals-1}
-    If $\vphi$ is a superinvolution, we can actually From Lemma...
-\end{remark}
+\begin{cor}
+    Under the conditions of Theorem \ref{thm:vphi-involution-iff-delta-pm-1}, assume further that $\D$ is not an even 
+\end{cor}
+
+We have that $\overline B = \delta B $ where $\delta \in \{\pm 1\}$. 
+Changing $B$ for $B' \coloneqq dB$, by Lemma \ref{lemma:bar-dB}, we get $\overline{B'} = (-1)^{|d|} \vphi_0\inv (d) \overline B = (-1)^{|d|} \vphi_0\inv (d) \delta B = (-1)^{|d|} \vphi_0\inv (d) \delta d\inv d B = (-1)^{|d|} \vphi_0\inv (d) \delta d\inv \overline B = (-1)^{|d|} \vphi_0\inv (d) d\inv \delta \overline B$.
+So we want to make the scalar $(-1)^{|d|} \vphi_0\inv (d) d\inv$ be $-1$. 
+Note that $(-1)^{|d|} \vphi_0\inv (d) d\inv = -1$ iff $\vphi_0\inv (d) = - (-1)^{|d|} d$. 
+We cannot find such delta iff $ (-1)^{|d|} \vphi_0 = \id$ (see 1st Prop in next section), which implies $\D$ supercommutative. But not odd graded division superalgebra can be supercommutative (since it implies $x^2 = -x^2$ for odd $x$, hence we cannot have invertible odd elements). So the only problem is when $\D$ is even and commutative. 
 
 % it is clear that $B(u,vd) = B(u,v)d$. By Equation \eqref{eq:sesquilinear-before-B}, the map $B: \U \times \U \to \D$ is a \emph{$\vphi_0$-sesquilinear form}, \ie,
 % \[
