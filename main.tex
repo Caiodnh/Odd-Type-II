@@ -251,6 +251,15 @@ More specifically, if $\vphi$ is the superadjunction corresponding to this form,
 
 
 {\tt Mention that we are developing the approach of Elduque (J. of \\Al\-ge\-bra 2010, see also Chapter 2 in Monograph) in the super setting.}
+
+\begin{itemize}
+    \item Cite Bahturin and Tvaladze; maybe Tvaladze and Tvaladze;
+    \item Cite Bahturin and Shestakov;
+    \item Also Carlos G\'omes Ambrose ``On the Lie Structure of the Skew Elements of a simple Superalgebra with Superinvolution''
+    \item And Racine's paper on superinvolution simple superalgebras.
+    \item How what we are doing is different?
+    \item Analogous to Lie over $\RR$ (Adri\'an); not literally using results, but using ideas.
+\end{itemize}
 % For the remainder of the chapter, $G$ is a fixed abelian group.
 
 % In this chapter we are going to describe 
@@ -604,75 +613,134 @@ Also, we will denote $|e_i|$ simply by $|i|$ for all $i \in \{1, \ldots, k\}$.
 
 \begin{defi}
     Let $X = (x_{ij})$ be a matrix in $M_k (\D)$. 
-    We define $\vphi_0 (X)$ to be the matrix obtained by applying $\vphi_0$ in each entry, \ie, $\vphi_0 (X) = (\vphi_0(x_{ij}))$. 
+    We define $\vphi_0 (X)$ to be the matrix obtained by applying $\vphi_0$ in each entry, \ie, $\vphi_0 (X) \coloneqq (\vphi_0(x_{ij}))$. 
     We also extend the definition \emph{supertranspose} {(\tt see ??)} to matrices over $\D$ by putting $X\stransp \coloneqq \big((-1)^{(|i| + |j|) |i|} x_{ji} \big)$. 
     Note that, with our choice of $\mc B$ in the case of odd $\D$, we have that $X\stransp = X\transp$, the ordinary transpose.
 \end{defi}
 
 \begin{prop}\label{prop:matrix-vphi}
     Let $\Phi = (\Phi_{ij}) \in M_k(\D)$ be the matrix representing $B$, \ie, $\Phi_{ij} = B(e_i, e_j)$. For every $r\in  R\even \cup R\odd$, let $X \in M_k(\D)$ be the matrix representing $r$ and let $Y \in M_k(\D)$ be the matrix representing $\vphi(r)$.
-    Then, if $\D$ is even, we have that
+    Then, if $\D$ is even, we have
     %
     \begin{align}
         Y &= \Phi\inv\, \vphi_0( X\stransp )\, \Phi \addtocounter{equation}{1}\tag{\theequation}\label{eq:matrix-vphi-D-even}
-        \intertext{and, if $\D$ is odd, we have that}
+        \intertext{and, if $\D$ is odd, we have}
         Y &= \sign{B}{r}\,\Phi\inv\, \vphi_0( X\stransp )\, \Phi.\addtocounter{equation}{1}\tag{\theequation}\label{eq:matrix-vphi-D-odd}
     \end{align}
 \end{prop}
 
 \begin{proof}
-    First of all, note that Equation \ref{eq:superadjunction} is equivalent to, for all $e_i, e_j \in \mc B$,
+    First of all, note that Equation \eqref{eq:superadjunction} is equivalent to the following:
     %
-    \begin{align*}
-        B(re_i, e_j) &= \sign{r}{i} B(e_i, \vphi(r) e_j),
+    \begin{alignat*}{2}
+        \forall e_i, e_j \in \mc B, && B(re_i, e_j) &= \sign{r}{i} B(e_i, \vphi(r) e_j),
     \intertext{which, by the definitions of $X$, $Y$ and $\Phi$, becomes}
-        B\bigg(\sum_{\ell=1}^k e_\ell x_{\ell i}, e_j\bigg) &= \sign{r}{i} B\bigg(e_i, \sum_{\ell=1}^k e_\ell y_{\ell j}\bigg) \addtocounter{equation}{1}\tag{\theequation}\label{eq:superadjunction-matrix}\\
-        &= \sign{r}{i} \sum_{\ell=1}^k B(e_i, e_\ell) y_{\ell j}\\
-        &= \sign{r}{i} \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}. 
-    \end{align*}
+        \forall e_i, e_j \in \mc B, && \quad B\bigg(\sum_{\ell=1}^k e_\ell x_{\ell i}, e_j\bigg) &= \sign{r}{i} B\bigg(e_i, \sum_{\ell=1}^k e_\ell y_{\ell j}\bigg) \addtocounter{equation}{1}\tag{\theequation}\label{eq:superadjunction-matrix}.
+    \end{alignat*}
     %
     
-    Let $p,q \in \{1, \ldots, k\}$, and suppose $X$ is such that $x_{pq}$ is a nonzero $G^\#$-homogeneous element of $\D$ and $x_{ij} = 0$ elsewhere, \ie, $X$ represents the map $r \in \End_\D(\U)$ defined by $r e_i = \delta_{iq} e_p x_{pq}$. 
+    Fix arbitrary $p,q \in \{1, \ldots, k\}$ and suppose that the $(p,q)$-entry of $X$ is a nonzero $G^\#$-homogeneous element of $\D$ and $x_{ij} = 0$ elsewhere, \ie, $X$ represents the map $r \in \End_\D(\U)$ defined by $r e_i = \delta_{iq} e_p x_{pq}$. 
     By the $\FF$-linearity of Equations \eqref{eq:matrix-vphi-D-even} and \eqref{eq:matrix-vphi-D-odd}, it suffices to consider such $X$. 
-    Note that $|r| = |e_q| + |x_{pq}| - |e_p| = |p| + |q| + |x_{pq}|$. 
-    Then
+    Note that $|r| = |e_p| + |x_{pq}| - |e_q| = |p| + |q| + |x_{pq}|$. 
+    Then, on the one hand,
     %
     \begin{align*}
         B\bigg(\sum_{\ell=1}^k e_\ell x_{\ell i}, e_j\bigg) = B (e_p x_{pi}, e_j) &= (-1)^{ (|B| + |p|) |x_{pi}|} \vphi_0(x_{pi}) B(e_p, e_j)
         \\&= (-1)^{ (|B| + |p|) |x_{pi}|} \vphi_0(x_{pi}) \Phi_{pj},
+    %\end{align*}
+    %
+    \intertext{which is only nonzero if $i = q$. On the other hand,}
+    %
+    %\begin{align*}
+        \sign{r}{i} B\bigg(e_i, \sum_{\ell=1}^k e_\ell y_{\ell j}\bigg)
+        &= \sign{r}{i} \sum_{\ell=1}^k B(e_i, e_\ell) y_{\ell j}\\
+        &= (-1)^{ (|p| + |q| + |x_{pq}|) |i| } \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}. 
+    %\end{align*}
+    %
+    \intertext{Therefore, Equation \eqref{eq:superadjunction-matrix} is equivalent to, for all $i,j \in \{1, \ldots, k\}$,}
+    %
+    %\begin{align*}
+        (-1)^{ (|B| + |p|) |x_{pi}|} \vphi_0(x_{pi}) \Phi_{pj} %&= \sign{r}{i} \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}\\
+        &= (-1)^{ (|p| + |q| + |x_{pq}|) |i| } \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}. \addtocounter{equation}{1}\tag{\theequation}\label{eq:expression}
     \end{align*}
     %
-    which is only nonzero if $i = q$. 
-    Combining this with Equation \eqref{eq:superadjunction-matrix}, we get
-    %
-    \begin{align*}
-        (-1)^{ (|B| + |p|) |x_{pi}|} \vphi_0(x_{pi}) \Phi_{pj} &= \sign{r}{i} \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}\\
-        &= (-1)^{ (|p| + |q| + |x_{pq}|) |i| } \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}.
-    \end{align*}
-    %
-    If $\D$ is even, then $|x_{pi}| = 0$ and this expression reduces to
+
+    If $\D$ is even, then $|x_{pi}| = 0$ and this equation reduces to
     \[              \vphi_0(x_{pi}) \Phi_{pj} = (-1)^{ (|p| + |q|) |i| } \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}
     \]
-    or, reordering it, 
+    or, equivalently, 
     \[
         \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j} = (-1)^{ (|p| + |q|) |i| } \vphi_0(x_{pi}) \Phi_{pj}.
     \]
-    The left-hand side is the entry $ij$ of $\Phi\, Y$. 
+    The left-hand side is the $(i,j)$-entry of $\Phi\, Y$. 
     The right-hand side is only nonzero if $i = q$, so it can be rewritten as 
     $(-1)^{ (|p| + |i|) |i| } \vphi_0(x_{pi}) \Phi_{pj}$. 
-    Also, recalling our choice of $X$, it is equal to $\sum_{\ell =1}^k (-1)^{ (|\ell| + |i|) |i| } \vphi_0(x_{\ell i}) \Phi_{\ell j}$, since $x_{\ell i}$ is only nonzero if $\ell = p$. Hence the right-hand side is the $ij$ entry of $\vphi_0 (X\stransp) \Phi$, and Equation \eqref{eq:matrix-vphi-D-even} follows. 
+    Recalling our choice of $X$, this is equal to $\sum_{\ell =1}^k (-1)^{ (|\ell| + |i|) |i| } \vphi_0(x_{\ell i}) \Phi_{\ell j}$, since $x_{\ell i}$ is only nonzero if $\ell = p$. 
+    Hence the right-hand side is the $(i,j)$-entry of $\vphi_0 (X\stransp) \Phi$, and Equation \eqref{eq:matrix-vphi-D-even} follows. 
     
-
-    
-    If $\D$ is odd, by our choice of basis, the expression reduces to
+    If $\D$ is odd, by our choice of basis, Equation \eqref{eq:expression} reduces to
     \[
         (-1)^{|B| |x_{pi}|} \vphi_0(x_{pi}) \Phi_{pj} =  \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j},
     \]
-    which implies $(-1)^{|B||r|} \phi_0(X\stransp) \Phi = \Phi Y$.
+    which, by the same reasoning as above, implies $(-1)^{|B||r|} \vphi_0(X\stransp) \Phi = \Phi Y$.
 \end{proof}
 
+% \begin{proof}
+%     First of all, note that Equation \ref{eq:superadjunction} is equivalent to, for all $e_i, e_j \in \mc B$,
+%     %
+%     \[
+%         B(re_i, e_j) = \sign{r}{i} B(e_i, \vphi(r) e_j).
+%     \]
+%     By the definitions of $X$, $Y$ and $\Phi$, we have that
+%     %
+%     \begin{align*}
+%         B\bigg(\sum_{\ell=1}^k e_\ell x_{\ell i}, e_j\bigg) &= \sum_{\ell=1}^k (-1)^{( |B| + |\ell|) |x_{\ell i}|} \vphi_0( x_{\ell i} ) B (e_\ell x_{\ell i}, e_j)\\ &= \sum_{\ell=1}^k (-1)^{( |B| + |\ell|) |x_{\ell i}|} \vphi_0( x_{\ell i} ) \Phi_{\ell j}
+%         \intertext{and}
+%         \sign{r}{i} B\bigg(e_i, \sum_{\ell=1}^k e_\ell y_{\ell j}\bigg) 
+%         &= \sign{r}{i} \sum_{\ell=1}^k B(e_i, e_\ell) y_{\ell j}\\
+%         &= \sign{r}{i} \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}. 
+%     \end{align*}
+%     %
+    
+%     Let $p,q \in \{1, \ldots, k\}$, and suppose $X$ is such that $x_{pq}$ is a nonzero $G^\#$-homogeneous element of $\D$ and $x_{ij} = 0$ elsewhere, \ie, $X$ represents the map $r \in \End_\D(\U)$ defined by $r e_i = \delta_{iq} e_p x_{pq}$. 
+%     By the $\FF$-linearity of Equations \eqref{eq:matrix-vphi-D-even} and \eqref{eq:matrix-vphi-D-odd}, it suffices to consider such $X$. 
+%     Note that $|r| = |e_q| + |x_{pq}| - |e_p| = |p| + |q| + |x_{pq}|$. 
+%     Then
+%     %
+%     \begin{align*}
+%         B\bigg(\sum_{\ell=1}^k e_\ell x_{\ell i}, e_j\bigg) = B (e_p x_{pi}, e_j) &= (-1)^{ (|B| + |p|) |x_{pi}|} \vphi_0(x_{pi}) B(e_p, e_j)
+%         \\&= (-1)^{ (|B| + |p|) |x_{pi}|} \vphi_0(x_{pi}) \Phi_{pj},
+%     \end{align*}
+%     %
+%     which is only nonzero if $i = q$. 
+%     Combining this with Equation \eqref{eq:superadjunction-matrix}, we get
+%     %
+%     \begin{align*}
+%         (-1)^{ (|B| + |p|) |x_{pi}|} \vphi_0(x_{pi}) \Phi_{pj} &= \sign{r}{i} \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}\\
+%         &= (-1)^{ (|p| + |q| + |x_{pq}|) |i| } \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}. \addtocounter{equation}{1}\tag{\theequation}\label{eq:expression}
+%     \end{align*}
+%     %
+%     If $\D$ is even, then $|x_{pi}| = 0$ and this expression reduces to
+%     \[              \vphi_0(x_{pi}) \Phi_{pj} = (-1)^{ (|p| + |q|) |i| } \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}
+%     \]
+%     or, reordering it, 
+%     \[
+%         \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j} = (-1)^{ (|p| + |q|) |i| } \vphi_0(x_{pi}) \Phi_{pj}.
+%     \]
+%     The left-hand side is the entry $ij$ of $\Phi\, Y$. 
+%     The right-hand side is only nonzero if $i = q$, so it can be rewritten as 
+%     $(-1)^{ (|p| + |i|) |i| } \vphi_0(x_{pi}) \Phi_{pj}$. 
+%     Also, recalling our choice of $X$, it is equal to $\sum_{\ell =1}^k (-1)^{ (|\ell| + |i|) |i| } \vphi_0(x_{\ell i}) \Phi_{\ell j}$, since $x_{\ell i}$ is only nonzero if $\ell = p$. Hence the right-hand side is the $ij$ entry of $\vphi_0 (X\stransp) \Phi$, and Equation \eqref{eq:matrix-vphi-D-even} follows. 
+    
+%     If $\D$ is odd, by our choice of basis, Equation \eqref{eq:expression} reduces to
+%     \[
+%         (-1)^{|B| |x_{pi}|} \vphi_0(x_{pi}) \Phi_{pj} =  \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j},
+%     \]
+%     which implies $(-1)^{|B||r|} \phi_0(X\stransp) \Phi = \Phi Y$.
+% \end{proof}
+
 \begin{remark}
-    Note that if $\D$ is odd, changing $B$ for $dB$ with an odd $d$ if necessary, we can guarantee that $B$ is even. 
+    Note that if $\D$ is odd, replacing $B$ by $dB$ with an odd $d$ if necessary, we can guarantee that $B$ is even. 
     In this case, Equation \eqref{eq:matrix-vphi-D-odd} reduces to \eqref{eq:matrix-vphi-D-even}.
 \end{remark}
 
@@ -750,18 +818,17 @@ In this case, we have that $\D\even_e = \FF 1$, so we are under the hypothesis o
 
 \begin{thm}\label{thm:vphi-involution-iff-delta-pm-1}
     % Suppose $\FF$ is an  algebraically closed field. 
-    Let $\D$ be a graded division superalgebra such that $\D\even_e = \FF 1$, let $\U$ be a nonzero right graded module of finite rank over $\D$ and let $\vphi$ be a super-anti-automorphism on $R \coloneqq \End_\D (\U)$. 
+    Let $\D$ be a graded division superalgebra such that $\D\even_e = \FF 1$, let $\U$ be a nonzero right graded module of finite rank over $\D$ and let $\vphi$ be a degree preserving super-anti-automorphism on $R \coloneqq \End_\D (\U)$. 
     Consider a super-anti-automorphism $\vphi_0$ on $\D$ and a nondegenerate $\vphi_0$-sesqui\-li\-near form $B$ on $\U$ determining $\vphi$ as in Theorem \ref{thm:vphi-iff-vphi0-and-B}.
     Then $\vphi$ is a superinvolution if, and only if, $\vphi_0$ is a superinvolution and $\overline B = \pm B$. 
 \end{thm}
 
 \begin{proof}
-    First of all, note that, since $B$ is nonzero and $\vphi_0$ is a bijection, $\overline {B}$ is nonzero.
     Using Proposition \ref{prop:barB-determines-vphi-inv} and Theorem \ref{thm:vphi-iff-vphi0-and-B}, we conclude that $\vphi = \vphi\inv$ if, and only if, there is $\delta \in \D$ such that (i) $\vphi_0\inv = \operatorname{sInt}_\delta \circ \,\vphi_0$ and (ii) $\overline {B} = \delta B$. 
     % If $\vphi_0^2 =\id_\D$ and $B = \pm \overline{B}$, we have conditions (i) and (ii) sati
     % To prove the ``if'' part of the statement, we take $\delta \in \{\pm 1\}$, since then (i) becomes $\vphi_0 = \vphi_0\inv$ and (ii), $B = \pm \overline{B}$.
     
-    If $\vphi^2 =\id_\D$ and $B = \delta \overline{B}$ with $\delta \in \{\pm 1\}$, conditions (i) and (ii) are satisfied, proving the ``if'' part of the statement. 
+    If $\vphi_0^2 =\id_\D$ and $\overline{B} = \delta B$ with $\delta \in \{\pm 1\}$, conditions (i) and (ii) are satisfied, proving the ``if'' part of the statement. 
 
     For the ``only if'' part, since both parity and degree of $B$ and $\overline {B}$ coincide, (ii) implies $\delta \in \D\even_e$. 
     We are assuming $\D\even_e = \FF 1$, so $\operatorname{sInt}_\delta = \id_\D$ and (i) becomes $\vphi_0 = \vphi_0\inv$, \ie, $\vphi_0$ is a superinvolution. 
@@ -769,21 +836,9 @@ In this case, we have that $\D\even_e = \FF 1$, so we are under the hypothesis o
     \[
         B = \overline {\overline B} = \overline {\delta B} = (-1)^{|\delta|} \vphi_0\inv(\delta) \overline B= \delta \overline B = \delta^2 B.
     \]
-    Using that $B$ is nonzero, this implies $\delta^2 = 1$. 
+    This implies $\delta^2 = 1$. 
     Therefore $\delta \in \{ \pm 1 \}$, so $\overline B = \pm B$, concluding the proof. 
 \end{proof}
-
-We will investigate one last question...
-
-\begin{cor}
-    Under the conditions of Theorem \ref{thm:vphi-involution-iff-delta-pm-1}, assume further that $\D$ is not an even 
-\end{cor}
-
-We have that $\overline B = \delta B $ where $\delta \in \{\pm 1\}$. 
-Changing $B$ for $B' \coloneqq dB$, by Lemma \ref{lemma:bar-dB}, we get $\overline{B'} = (-1)^{|d|} \vphi_0\inv (d) \overline B = (-1)^{|d|} \vphi_0\inv (d) \delta B = (-1)^{|d|} \vphi_0\inv (d) \delta d\inv d B = (-1)^{|d|} \vphi_0\inv (d) \delta d\inv \overline B = (-1)^{|d|} \vphi_0\inv (d) d\inv \delta \overline B$.
-So we want to make the scalar $(-1)^{|d|} \vphi_0\inv (d) d\inv$ be $-1$. 
-Note that $(-1)^{|d|} \vphi_0\inv (d) d\inv = -1$ iff $\vphi_0\inv (d) = - (-1)^{|d|} d$. 
-We cannot find such delta iff $ (-1)^{|d|} \vphi_0 = \id$ (see 1st Prop in next section), which implies $\D$ supercommutative. But not odd graded division superalgebra can be supercommutative (since it implies $x^2 = -x^2$ for odd $x$, hence we cannot have invertible odd elements). So the only problem is when $\D$ is even and commutative. 
 
 % it is clear that $B(u,vd) = B(u,v)d$. By Equation \eqref{eq:sesquilinear-before-B}, the map $B: \U \times \U \to \D$ is a \emph{$\vphi_0$-sesquilinear form}, \ie,
 % \[
@@ -857,15 +912,20 @@ We cannot find such delta iff $ (-1)^{|d|} \vphi_0 = \id$ (see 1st Prop in next 
 \section{Graded division superalgebras with super-anti-automorphism}
 % -----------------------------------------
 
+Our goal now is to investigate the finite dimensional graded division superalgebras that admit a superinvolution. 
+We will assume that $\FF$ is algebraically closed throughout this section. 
 
-Let $\D$ be a $G$-graded division superalgebra, associated to the pair $(T, \beta)$ and with parity map $| \cdot |: T \to \ZZ_2$.
+Recall that a graded division superalgebra is the same as a graded division algebra if we consider the $G^\#$-grading. 
+In particular, the isomorphism class of a finite dimensional graded division superalgebra $\D$ is determined by a pair $(T, \beta)$ where $T \coloneqq \supp \D \subseteq G^\#$ is a finite group and $\beta\from T\times T \to \FF^\times$ is a bicharacter {\tt (see ??)}. 
+Instead of writing subscripts for the $G$-grading and superscripts for the canonical $\ZZ_2$-grading, it will be convenient to write $\D = \bigoplus_{t\in T} \D_t$ and recover the parity via the map $| \cdot |\from T \to \ZZ_2$ which is the restriction of projection $G^\# = G\times \ZZ_2 \to \ZZ_2$.
 
-Since each component of $\D$ is one-dimensional, an invertible homogeneous map $\vphi: \D \to \D$ is completely determined by a map $\eta: T \to \FF^\times$ such that $\vphi(X_t) = \eta(t) X_t$ for all $t\in T$ and $X_t\in \D_t$.
-The map $\vphi$ is a super-anti-automorphism if, and only if,
+Since each component $\D_t$ of $\D$ is one-dimensional, an invertible degree preserving map $\vphi_0: \D \to \D$ is completely determined by a map $\eta: T \to \FF^\times$ such that $\vphi(X_t) = \eta(t) X_t$ for all $t\in T$ and $X_t\in \D_t$.
+The map $\vphi_0$ is a super-anti-automorphism if, and only if, for all $a,b \in T$, $X_a \in \D_a$ and $X_b\in \D_b$,
 %
 \begin{align*}
-    &\vphi(X_a X_b) = (-1)^{|a||b|} \vphi(X_b) \vphi(X_a)\\ \iff& \eta(ab)X_a X_b = (-1)^{|a||b|} \eta(a) \eta(b) X_b X_a\\ \iff& \eta(ab)X_a X_b = (-1)^{|a||b|} \eta(a) \eta(b) \beta(b,a) X_a X_b\\ \iff& \eta(ab) = (-1)^{|a||b|} \eta(a) \eta(b) \beta(b,a). \numberthis \label{eq:eta-super-anti-auto}
+    &\vphi_0(X_a X_b) = (-1)^{|a||b|} \vphi_0(X_b) \vphi_0(X_a)\\ \iff& \eta(ab)X_a X_b = (-1)^{|a||b|} \eta(a) \eta(b) X_b X_a\\ \iff& \eta(ab)X_a X_b = (-1)^{|a||b|} \eta(a) \eta(b) \beta(b,a) X_a X_b\\ \iff& \eta(ab) = (-1)^{|a||b|} \eta(a) \eta(b) \beta(b,a), \numberthis \label{eq:eta-super-anti-auto}
 \end{align*}
+%
 
 \begin{prop}
     If $\D$ admits a super-anti-automorphism, then $\beta$ can only take values $\pm 1$.
@@ -875,7 +935,7 @@ The map $\vphi$ is a super-anti-automorphism if, and only if,
 \begin{proof}
     Let $X_a\in \D_a$ and $X_b\in \D_b$, $a,b\in T$, be nonzero.
     By definition of $\beta$, $X_a X_b = \beta(a,b) X_b X_a$.
-    Applying a super-anti-automorphism $\vphi$, we get \[(-1)^{|a||b|} \eta(a) \eta(b) X_b X_a = \beta(a,b) (-1)^{|a||b|} \eta(a) \eta(b) X_a X_b,\] hence $X_b X_a = \beta(a,b) X_a X_b = \beta(a,b)^2 X_b X_a$.
+    Applying a super-anti-automorphism $\vphi_0$, we get \[(-1)^{|a||b|} \eta(a) \eta(b) X_b X_a = \beta(a,b) (-1)^{|a||b|} \eta(a) \eta(b) X_a X_b,\] hence $X_b X_a = \beta(a,b) X_a X_b = \beta(a,b)^2 X_b X_a$.
     It follows that $\beta(a,b)^2 = 1$, proving the first assertion.
     
     We now assume $\D$ simple as algebra, i.e., $\beta$ nondegenerate.
@@ -889,7 +949,7 @@ The map $\vphi$ is a super-anti-automorphism if, and only if,
 \end{cor}
 
 \begin{proof}
-    Let $a\in T$ and $0 \neq X_a \in \D_a$. If $a$ is even, Equation \eqref{eq:eta-super-anti-auto} implies $\eta(e) = \eta (a^2) = \eta(a)^2$, hence $\eta(e) = 1$ (case $a=e$) and, then,  $\eta(a) \in \{ \pm 1 \}$. If $\D\odd = 0$, this means $\vphi^2 = \id$. Now, if $a$ is odd, Equation \eqref{eq:eta-super-anti-auto} implies $1 = \eta(e) = \eta (a^2) = - \eta(a)^2$, hence $\eta(a) \in \{ \pm i \}$, where $i = \sqrt{-1}$. This implies $\vphi$ has order $4$.
+    Let $a\in T$ and $0 \neq X_a \in \D_a$. If $a$ is even, Equation \eqref{eq:eta-super-anti-auto} implies $\eta(e) = \eta (a^2) = \eta(a)^2$, hence $\eta(e) = 1$ (case $a=e$) and, then,  $\eta(a) \in \{ \pm 1 \}$. If $\D\odd = 0$, this means $\vphi_0^2 = \id$. Now, if $a$ is odd, Equation \eqref{eq:eta-super-anti-auto} implies $1 = \eta(e) = \eta (a^2) = - \eta(a)^2$, hence $\eta(a) \in \{ \pm i \}$, where $i = \sqrt{-1}$. This implies $\vphi_0$ has order $4$.
 \end{proof}
 
 As a consequence of Corollary \ref{cor:super-anti-order-4}, all Type I gradings on the superalgebras in the series $B$, $C$, $D$ and $P$ are even.
@@ -994,8 +1054,22 @@ We will now construct a different model of the same superalgebra. This new const
 \end{prop}
 
 
+\section{Lost and found}
 
-\bibliographystyle{amsalpha}
-\bibliography{bibliography}
+We will investigate one last question...
+
+\begin{cor}
+    Under the conditions of Theorem \ref{thm:vphi-involution-iff-delta-pm-1}, assume further that $\D$ is not an even 
+\end{cor}
+
+We have that $\overline B = \delta B $ where $\delta \in \{\pm 1\}$. 
+Changing $B$ for $B' \coloneqq dB$, by Lemma \ref{lemma:bar-dB}, we get $\overline{B'} = (-1)^{|d|} \vphi_0\inv (d) \overline B = (-1)^{|d|} \vphi_0\inv (d) \delta B = (-1)^{|d|} \vphi_0\inv (d) \delta d\inv d B = (-1)^{|d|} \vphi_0\inv (d) \delta d\inv \overline B = (-1)^{|d|} \vphi_0\inv (d) d\inv \delta \overline B$.
+So we want to make the scalar $(-1)^{|d|} \vphi_0\inv (d) d\inv$ be $-1$. 
+Note that $(-1)^{|d|} \vphi_0\inv (d) d\inv = -1$ iff $\vphi_0\inv (d) = - (-1)^{|d|} d$. 
+We cannot find such delta iff $ (-1)^{|d|} \vphi_0 = \id$ (see 1st Prop in next section), which implies $\D$ supercommutative. But not odd graded division superalgebra can be supercommutative (since it implies $x^2 = -x^2$ for odd $x$, hence we cannot have invertible odd elements). So the only problem is when $\D$ is even and commutative. 
+
+
+% \bibliographystyle{amsalpha}
+% \bibliography{bibliography}
 
 \end{document}
