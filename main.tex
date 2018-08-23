@@ -528,17 +528,28 @@ If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\o
     Proposition \ref{prop:sesquilinear-form-iff-D-linear-map}. Then Equation \eqref{eq:superadjunction} is equivalent to:
     %
     \begin{alignat*}{2}
-        \forall r\in R\even \cup R\odd,\,\forall u, v &\in \U\even \cup \U\odd,& \theta (ru)(v)&= \sign{r}{u} \theta(u)(\vphi(r)v)
-        \\&&&= \sign{r}{u} \big(\theta (u)\circ \vphi(r)\big)(v)\\
+        \forall r\in R\even \cup R\odd,\,\forall u, v &\in \U\even \cup \U\odd,& \theta (ru)(v)&= \sign{r}{u} \theta(u)(\vphi(r)v)\\
+        &&&= \sign{r}{u} \big(\theta (u)\circ \vphi(r)\big)(v)\\
+        %
         \intertext{and, hence, equivalent to}
-        \forall r\in R\even \cup R\odd,\,\forall u &\in \U\even \cup  \U\odd,&   \theta (ru) &= \sign{r}{u} \theta(u) \circ \vphi(r). \addtocounter{equation}{1}\tag{\theequation}\label{eq:theta-is-almost-R-superlinear}\\
+        %
+        \forall r\in R\even \cup R\odd,\,&\forall u \in \U\even \cup  \U\odd,&   \theta (ru) &= \sign{r}{u} \theta(u) \circ \vphi(r).
+        %
+        \addtocounter{equation}{1}\tag{\theequation}\label{eq:theta-is-almost-R-superlinear}\\
+        %
         \intertext{Recalling the definition of superadjoint operator, Equation \eqref{eq:theta-is-almost-R-superlinear} becomes}
-        \forall r\in R\even \cup R\odd,\,\forall u &\in \U\even \cup \U\odd, & (\theta \circ r) (u) &= \sign{r}{u} (-1)^{(|\theta| + |u|)|r|} \big(\vphi(r)\big)\Star \big(\theta(u)\big) \\&&&=  \sign{r}{\theta} \big(\big(\vphi(r)\big)\Star \circ \theta \big) (u),
+        %
+        \forall r\in R\even \cup R\odd,\,\forall u &\in \U\even \cup \U\odd, & (\theta \circ r) (u) &= \sign{r}{u} (-1)^{(|\theta| + |u|)|r|} \big(\vphi(r)\big)\Star \big(\theta(u)\big) \\
+        &&&=  \sign{r}{\theta} \big(\big(\vphi(r)\big)\Star \circ \theta \big) (u),
+        %
         \intertext{which is the same as}
+        %
         \forall r&\in R\even \cup R\odd, &\theta \circ r &= \sign{r}{\theta}  \big(\vphi(r)\big)\Star \circ \theta.
         \intertext{In other words, we have}
-        \forall r&\in R\even \cup R\odd, & \big(\vphi(r)\big)\Star &= \sign{r}{\theta}\, \theta \circ r \circ \theta\inv.\addtocounter{equation}{1}\tag{\theequation}\label{eq:vphi-r-Star-is-a-superconjugation}
-        \end{alignat*}
+        \forall r&\in R\even \cup R\odd, & \big(\vphi(r)\big)\Star &= \sign{r}{\theta}\, \theta \circ r \circ \theta\inv.
+        %
+        \addtocounter{equation}{1}\tag{\theequation}\label{eq:vphi-r-Star-is-a-superconjugation}
+    \end{alignat*}
     %
     % We have shown that
     % %
@@ -593,6 +604,19 @@ If we require $d$ to be homogeneous with respect to the $G^\#$-grading, then $\o
     The form $B'$ is nondegenerate, so we can choose $G^\#$-homogeneous $u,v\in \U$ with $B'(u,v)\neq 0$. Then $B'(u,v)$ is invertible, hence $\vphi_0' (c) = (\operatorname{sInt}_d \circ\, \vphi_0) (c)$, concluding the proof.
 \end{proof}
 
+\begin{convention}\label{conv:pick-B-even}
+    Under the conditions of Theorem \ref{thm:vphi-iff-vphi0-and-B}, if $\D$ is an odd graded division superalgebra (\ie, $\D\odd \neq 0$), then we will choose the form $B$ to be even. 
+    This is possible since, by the ``moreover'' part, we can substitute an odd form $B$ by $dB$, for some $d\in \D\odd$.
+\end{convention}
+
+\section{Lost and Found}
+
+Recall that the center of an algebra $h$
+
+\begin{prop}
+    
+\end{prop}
+
 % \begin{remark}\label{rmk:we-only-need-B'-nonzero}
 %     Note that in the proof of the ``moreover'' part of Theorem \ref{thm:vphi-iff-vphi0-and-B}, we do not need to assume $B'$ is nondegenerate, we only use that it is nonzero.
 % \end{remark}
@@ -620,12 +644,12 @@ Also, we will denote $|e_i|$ simply by $|i|$ for all $i \in \{1, \ldots, k\}$.
 
 \begin{prop}\label{prop:matrix-vphi}
     Let $\Phi = (\Phi_{ij}) \in M_k(\D)$ be the matrix representing $B$, \ie, $\Phi_{ij} = B(e_i, e_j)$. For every $r\in  R\even \cup R\odd$, let $X \in M_k(\D)$ be the matrix representing $r$ and let $Y \in M_k(\D)$ be the matrix representing $\vphi(r)$.
-    Then, if $\D$ is even, we have
+    Then, following the Convention \ref{conv:pick-B-even} if $\D$ is odd, we have
     %
     \begin{align}
-        Y &= \Phi\inv\, \vphi_0( X\stransp )\, \Phi \addtocounter{equation}{1}\tag{\theequation}\label{eq:matrix-vphi-D-even}
-        \intertext{and, if $\D$ is odd, we have}
-        Y &= \sign{B}{r}\,\Phi\inv\, \vphi_0( X\stransp )\, \Phi.\addtocounter{equation}{1}\tag{\theequation}\label{eq:matrix-vphi-D-odd}
+        Y &= \Phi\inv\, \vphi_0( X\stransp )\, \Phi. \addtocounter{equation}{1}\tag{\theequation}\label{eq:matrix-vphi-D-even}
+        % \intertext{and, if $\D$ is odd, we have}
+        % Y &= \sign{B}{r}\,\Phi\inv\, \vphi_0( X\stransp )\, \Phi.\addtocounter{equation}{1}\tag{\theequation}\label{eq:matrix-vphi-D-odd}
     \end{align}
 \end{prop}
 
@@ -665,7 +689,7 @@ Also, we will denote $|e_i|$ simply by $|i|$ for all $i \in \{1, \ldots, k\}$.
     \end{align*}
     %
 
-    If $\D$ is even, then $|x_{pi}| = 0$ and this equation reduces to
+    If $\D$ is even, then $|x_{pi}| = \bar 0$ and this equation reduces to
     \[              \vphi_0(x_{pi}) \Phi_{pj} = (-1)^{ (|p| + |q|) |i| } \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j}
     \]
     or, equivalently, 
@@ -682,7 +706,8 @@ Also, we will denote $|e_i|$ simply by $|i|$ for all $i \in \{1, \ldots, k\}$.
     \[
         (-1)^{|B| |x_{pi}|} \vphi_0(x_{pi}) \Phi_{pj} =  \sum_{\ell=1}^k \Phi_{i \ell} y_{\ell j},
     \]
-    which, by the same reasoning as above, implies $(-1)^{|B||r|} \vphi_0(X\stransp) \Phi = \Phi Y$.
+    which, by the same reasoning as above, implies $(-1)^{|B||r|} \vphi_0(X\stransp) \Phi = \Phi Y$. 
+    But we are following Convention \ref{conv:pick-B-even}, hence $|B| = \bar 0$ and,therefore, we have the desired result.
 \end{proof}
 
 % \begin{proof}
@@ -739,10 +764,10 @@ Also, we will denote $|e_i|$ simply by $|i|$ for all $i \in \{1, \ldots, k\}$.
 %     which implies $(-1)^{|B||r|} \phi_0(X\stransp) \Phi = \Phi Y$.
 % \end{proof}
 
-\begin{remark}
-    Note that if $\D$ is odd, replacing $B$ by $dB$ with an odd $d$ if necessary, we can guarantee that $B$ is even. 
-    In this case, Equation \eqref{eq:matrix-vphi-D-odd} reduces to \eqref{eq:matrix-vphi-D-even}.
-\end{remark}
+% \begin{remark}
+%     Note that if $\D$ is odd, replacing $B$ by $dB$ with an odd $d$ if necessary, we can guarantee that $B$ is even. 
+%     In this case, Equation \eqref{eq:matrix-vphi-D-odd} reduces to \eqref{eq:matrix-vphi-D-even}.
+% \end{remark}
 
 % \begin{cor}[of the proof]
 %     Let $\vphi_0$ be a super-anti-automorphism on $\D$ and let $B$ be a nonzero $\vphi_0$-sesquilinear form on $\U$. If $\vphi\from R \to R$ be a parity preserving map satisfying Equation \eqref{eq:superadjunction}. 
@@ -912,35 +937,94 @@ In this case, we have that $\D\even_e = \FF 1$, so we are under the hypothesis o
 \section{Graded division superalgebras with super-anti-automorphism}
 % -----------------------------------------
 
-Our goal now is to investigate the finite dimensional graded division superalgebras that admit a superinvolution. 
-We will assume that $\FF$ is algebraically closed throughout this section. 
-
+We are now going is to investigate the finite dimensional graded division superalgebras that admit a super-anti-automorphism. 
+Throughout this section, we will assume that $\FF$ is an algebraically closed field.
+In this case, because of Theorem \ref{thm:vphi-involution-iff-delta-pm-1}, we are primarily interested in the case the graded division superalgebra admits a superinvolution.
+Our final goal is to classify the division gradings on finite dimensional superinvolution-simple associative superalgebras.
+ 
 Recall that a graded division superalgebra is the same as a graded division algebra if we consider the $G^\#$-grading. 
-In particular, the isomorphism class of a finite dimensional graded division superalgebra $\D$ is determined by a pair $(T, \beta)$ where $T \coloneqq \supp \D \subseteq G^\#$ is a finite group and $\beta\from T\times T \to \FF^\times$ is a bicharacter {\tt (see ??)}. 
-Instead of writing subscripts for the $G$-grading and superscripts for the canonical $\ZZ_2$-grading, it will be convenient to write $\D = \bigoplus_{t\in T} \D_t$ and recover the parity via the map $| \cdot |\from T \to \ZZ_2$ which is the restriction of projection $G^\# = G\times \ZZ_2 \to \ZZ_2$.
+In particular, the isomorphism class of a finite dimensional graded division superalgebra $\D$ is determined by a pair $(T, \beta)$ where $T \coloneqq \supp \D \subseteq G^\#$ is a finite abelian group and $\beta\from T\times T \to \FF^\times$ is an alternating bicharacter {\tt (see ??)}. 
+Instead of writing subscripts for the $G$-grading and superscripts for the canonical $\ZZ_2$-grading, it will be convenient to write $\D = \bigoplus_{t\in T} \D_t$ and recover the parity via the map $| \cdot |\from T \to \ZZ_2$ which is the restriction of the projection $G^\# = G\times \ZZ_2 \to \ZZ_2$.
 
-Since each component $\D_t$ of $\D$ is one-dimensional, an invertible degree preserving map $\vphi_0: \D \to \D$ is completely determined by a map $\eta: T \to \FF^\times$ such that $\vphi(X_t) = \eta(t) X_t$ for all $t\in T$ and $X_t\in \D_t$.
-The map $\vphi_0$ is a super-anti-automorphism if, and only if, for all $a,b \in T$, $X_a \in \D_a$ and $X_b\in \D_b$,
-%
-\begin{align*}
-    &\vphi_0(X_a X_b) = (-1)^{|a||b|} \vphi_0(X_b) \vphi_0(X_a)\\ \iff& \eta(ab)X_a X_b = (-1)^{|a||b|} \eta(a) \eta(b) X_b X_a\\ \iff& \eta(ab)X_a X_b = (-1)^{|a||b|} \eta(a) \eta(b) \beta(b,a) X_a X_b\\ \iff& \eta(ab) = (-1)^{|a||b|} \eta(a) \eta(b) \beta(b,a), \numberthis \label{eq:eta-super-anti-auto}
-\end{align*}
-%
+Since each component $\D_t$ of $\D$ is one-dimensional, an invertible degree preserving map $\vphi_0\from \D \to \D$ is completely determined by a map $\eta\from T \to \FF^\times$ such that $\vphi_0(X_t) = \eta(t) X_t$ for all $t\in T$ and $X_t\in \D_t$.
 
-\begin{prop}
-    If $\D$ admits a super-anti-automorphism, then $\beta$ can only take values $\pm 1$.
-    Moreover, if $\D$ is simple as an algebra, then $T$ is an elementary $2$-group.
+\begin{prop}\label{prop:superpolarization}
+    Let $\vphi_0\from \D \to \D$ be the invertible degree preserving map determined by $\eta\from T \to \FF^\times$ as above. 
+    Then $\vphi_0$ is a super-anti-automorphism if, and only if,
+    %
+    \begin{equation}\label{eq:superpolarization}
+        \forall a,b\in \D, \quad \beta(a,b) = (-1)^{|a||b|} \eta(ab) \eta(a)\inv \eta(b)\inv.
+    \end{equation}
+    %
+    Moreover, if $\D$ admits a super-anti-automorphism, then $\beta$ can only take values $\pm 1$.
 \end{prop}
 
 \begin{proof}
-    Let $X_a\in \D_a$ and $X_b\in \D_b$, $a,b\in T$, be nonzero.
-    By definition of $\beta$, $X_a X_b = \beta(a,b) X_b X_a$.
-    Applying a super-anti-automorphism $\vphi_0$, we get \[(-1)^{|a||b|} \eta(a) \eta(b) X_b X_a = \beta(a,b) (-1)^{|a||b|} \eta(a) \eta(b) X_a X_b,\] hence $X_b X_a = \beta(a,b) X_a X_b = \beta(a,b)^2 X_b X_a$.
-    It follows that $\beta(a,b)^2 = 1$, proving the first assertion.
+    For all $a,b \in T$, let $X_a \in \D_a$ and $X_b\in \D_b$. Then:
+    %
+    \begin{alignat*}{2}
+        &&\vphi_0(X_a X_b) &= (-1)^{|a||b|} \vphi_0(X_b) \vphi_0(X_a)\\
+        \iff&&\,\, \eta(ab)X_a X_b &= (-1)^{|a||b|} \eta(a) \eta(b) X_b X_a\\
+        \iff&&\, \eta(ab)X_a X_b &= (-1)^{|a||b|} \eta(a) \eta(b) \beta(b,a) X_a X_b\\
+        \iff&& \eta(ab) &= (-1)^{|a||b|} \eta(a) \eta(b) \beta(b,a)
+        \\
+        \iff&& \beta(b, a) &= (-1)^{|a||b|} \eta(ab) \eta(a)\inv \eta(b)\inv.
+    \end{alignat*}
+    The right-hand side of this last equation does not depend on the order of $a$ and $b$, hence $\beta(b,a) = \beta(a,b)$. 
+    Since $\beta$ is alternating, $\beta(b, a) = \beta (a, b)\inv$, therefore $\beta(a,b)^2 = 1$, from where we conclude that $\beta(a,b) = \pm 1$.
+\end{proof}
+
+Note that, for the map $\vphi_0$ be involutive, we need $\eta(t)^2 = 1$, for every $t\in T$. 
+If we put $a = b = t$ in Equation \eqref{eq:superpolarization}, since $\beta (t, t) = 1$, we get
+%
+\begin{equation}\label{eq:eta-t-square}
+    \eta (t)^2 = (-1)^{|t|} \eta(t^2).
+\end{equation}
+%
+As we are going to see, this implies that we cannot have superinvolutions on a finite dimensional graded division superalgebra that is odd and simple as superalgebra.%  allow us to have In particular, if we want $\vphi_0$ to be a superinvolution, we need $\eta (t^2) = (-1)^{|t|}$, for every $t\in T$.
+
+\begin{lemma}
+    Suppose $T = \supp \D$ is an elementary $2$-group and let $\vphi_0\from \D \to \D$ be a super-anti-automorphism. 
+    If $\D$ is even, then $\vphi_0$ is a superinvolution, but
+    if $\D$ is odd, $\vphi_0$ has order $4$.
+\end{lemma}
+
+\begin{proof}
+    First of all, note that $\eta (e) = 1$. 
+    Let $t\in T$.  
+    If $t$ is even, Equation \eqref{eq:eta-t-square} implies $\eta(t)^2 = \eta (t^2) = \eta(e) = 1$, so  $\eta(t) \in \{ \pm 1 \}$. 
+    If $\D\odd = 0$, this means $\vphi_0^2 = \id$. 
+    Now, if $t$ is odd, Equation \eqref{eq:eta-t-square} implies $\eta(t)^2 = -\eta (t^2) 1 = -1$, hence $\eta(t) \in \{ \pm \sqrt{-1} \}$. 
+    Therefore, if $\D\odd \neq 0$, $\vphi_0$ has order $4$.
+\end{proof}
+
+The next result can be found in ??, but we will deduce it from the theory we have developed.
+
+\begin{prop}
+    The associative superalgebra $Q(n)$ does not admit a superinvolution.
+\end{prop}
+
+\begin{proof}
     
-    We now assume $\D$ simple as algebra, i.e., $\beta$ nondegenerate.
-    If $a\in T$ has order $n>2$, then $\beta(a, \cdot)\in \widehat T$ would had order $n$.
-    But $\beta(a, \cdot )^2 =1$, as we just saw.
+\end{proof}
+
+% The map $\vphi_0$ is a super-anti-automorphism if, and only if, for all $a,b \in T$, $X_a \in \D_a$ and $X_b\in \D_b$,
+%
+% \begin{align*}
+%     &\vphi_0(X_a X_b) = (-1)^{|a||b|} \vphi_0(X_b) \vphi_0(X_a)\\ \iff& \eta(ab)X_a X_b = (-1)^{|a||b|} \eta(a) \eta(b) X_b X_a\\ \iff& \eta(ab)X_a X_b = (-1)^{|a||b|} \eta(a) \eta(b) \beta(b,a) X_a X_b\\ \iff& \eta(ab) = (-1)^{|a||b|} \eta(a) \eta(b) \beta(b,a), \numberthis \label{eq:eta-super-anti-auto}
+% \end{align*}
+%
+
+We are now going to consider the cases where $(\D, \vphi_0)$ is a simple algebra with super-anti-automorphism.
+
+\begin{prop}
+    If $\D$ is simple as an algebra, then $T$ is an elementary $2$-group.
+\end{prop}
+
+\begin{proof}
+    If $\D$ simple as algebra, then $\beta$ nondegenerate, so the map $T \to \widehat T$ given by $t \mapsto \beta(t, \cdot)$ is a group isomorphism.
+    In particular, if $t\in T$ has order $n>2$, then $\beta(t, \cdot)\in \widehat T$ also has order $n$.
+    But, by Proposition \ref{prop:}, $\beta$ only takes values on $\{ \pm 1\}$, so  $\beta(t, \cdot )^2 =1$ and, hence, the order of $t$ is at most $2$.
 \end{proof}
 
 \begin{cor}\label{cor:super-anti-order-4}
@@ -948,9 +1032,12 @@ The map $\vphi_0$ is a super-anti-automorphism if, and only if, for all $a,b \in
     If $\D\odd = 0$, every super-anti-automorphism is a superinvolution, but if $\D\odd \neq 0$, every super-anti-automorphism has order $4$.
 \end{cor}
 
-\begin{proof}
-    Let $a\in T$ and $0 \neq X_a \in \D_a$. If $a$ is even, Equation \eqref{eq:eta-super-anti-auto} implies $\eta(e) = \eta (a^2) = \eta(a)^2$, hence $\eta(e) = 1$ (case $a=e$) and, then,  $\eta(a) \in \{ \pm 1 \}$. If $\D\odd = 0$, this means $\vphi_0^2 = \id$. Now, if $a$ is odd, Equation \eqref{eq:eta-super-anti-auto} implies $1 = \eta(e) = \eta (a^2) = - \eta(a)^2$, hence $\eta(a) \in \{ \pm i \}$, where $i = \sqrt{-1}$. This implies $\vphi_0$ has order $4$.
-\end{proof}
+\begin{prop}
+    Suppose $T = \supp \D$ is an elementary $2$-group. If $\D$ is even, then every super-anti-automorphism is a superinvolution, but
+    if $\D$ is odd, then every super-anti-automorphism has order $4$.
+\end{prop}
+
+
 
 As a consequence of Corollary \ref{cor:super-anti-order-4}, all Type I gradings on the superalgebras in the series $B$, $C$, $D$ and $P$ are even.
 
