@@ -829,7 +829,7 @@ It should be noted that, if $S$ admits a super-anti-isomorphism $\psi\from S \to
 
 \begin{ex}\label{ex:FZ2xFZ2sop-iso-FZ4}
     Consider $S = Q(1)$, so $S\even = \FF 1$ and $S\odd = \FF u$ where $u^2 =1$. 
-    Note that $S$ is isomorphic to $\FF\ZZ_2$, but this time with the nontrivial $\ZZ_2$-grading.
+    Note that $S$ is isomorphic to $\FF\ZZ_2$, but this time with its natural $\ZZ_2$-grading.
     % we are the group algebra $S = \FF \langle u \rangle$, where $u$ has order $2$, as a superalgebra by declaring  (in other words, $S \iso Q(1)$).
     % We claim that $S\times S\sop$ is isomorphic to $\FF\langle \omega \rangle$, where $\omega$ has order $4$.
     If $\Char \FF \neq 2$, we claim that $R \coloneqq S\times S\sop$ is isomorphic to $F\ZZ_4$. 
@@ -1021,11 +1021,13 @@ Indeed, for all $r\in R = \End_\D(\U)$ and all $u\in \U$, we have $r (r_c(u)) = 
     Assume that $\vphi$ is a superinvolution and that $R$ is $\vphi$-simple.
     %
      \begin{enumerate}[(i)]
-        \item If $R\iso M(m,n)$, then there are $m', n'\in \ZZ^+$ such that $\D \iso M(m', n')$;
-        \item If $R\iso M(m,n)\times M(m,n)\sop$ with exchange superinvolution, then there are $m', n'\in \ZZ^+$ such that $(\D, \vphi_0)$ is isomorphic to $M(m', n')\times M(m', n')\sop$ with exchange superinvolution;
-        \item If $R\iso Q(n)\times Q(n)\sop$ with exchange superinvolution, then there is $n' \in \ZZ^+$ such that $(\D, \vphi_0)$ is isomorphic to $Q(n')\times Q(n')\sop$ with exchange superinvolution.\qed
+        \item If $R\iso M(m,n)$, then there are $m', n'\geq 0$ such that $\D \iso M(m', n')$;
+        \item If $R\iso M(m,n)\times M(m,n)\sop$ with exchange superinvolution, then there are $m', n'\geq 0$ such that $(\D, \vphi_0)$ is isomorphic to $M(m', n')\times M(m', n')\sop$ with exchange superinvolution;
+        \item If $R\iso Q(n)\times Q(n)\sop$ with exchange superinvolution, then there is $n' \geq 0$ such that $(\D, \vphi_0)$ is isomorphic to $Q(n')\times Q(n')\sop$ with exchange superinvolution.\qed
     \end{enumerate}
 \end{cor}
+
+We will obtain more precise information about $\D$ in the next section.
 
 % As a consequence of this last Corollary, we can only put a $G$-grading on $M(m,n)\times $Em particular, em MxM precisamos de um elemento par de ordem 2 e em QxQ precisamos de um elemento impar de ordem 4 (comparar com resultado no paper sobre Q).
 
@@ -1044,19 +1046,20 @@ Our final goal is to classify the division gradings on finite dimensional superi
  
 Recall that a graded division superalgebra is the same as a graded division algebra if we consider the $G^\#$-grading. 
 In particular, the isomorphism class of a finite dimensional graded division superalgebra $\D$ is determined by a pair $(T, \beta)$ where $T \coloneqq \supp \D \subseteq G^\#$ is a finite abelian group and $\beta\from T\times T \to \FF^\times$ is an alternating bicharacter {\tt (see ??)}. 
+\marginpar{\tt (for the ``see'' part: [EK] $D_4$ and [BK] gradings on classical \\lie algebras)}
 Instead of writing subscripts for the $G$-grading and superscripts for the canonical $\ZZ_2$-grading, it will be convenient to write $\D = \bigoplus_{t\in T} \D_t$ and recover the parity via the map $p\from T \to \ZZ_2$ which is the restriction of the projection $G^\# = G\times \ZZ_2 \to \ZZ_2$.
 
-Since each component $\D_t$ of $\D$ is one-dimensional, an invertible degree preserving map $\vphi_0\from \D \to \D$ is completely determined by a map $\eta\from T \to \FF^\times$ such that $\vphi_0(X_t) = \eta(t) X_t$ for all $t\in T$ and $X_t\in \D_t$.
+Since each component $\D_t$ of $\D$ is one-dimensional, an invertible degree preserving map $\vphi_0\from \D \to \D$ is completely determined by a map $\eta\from T \to \FF^\times$.
 
 \begin{prop}\label{prop:superpolarization}
-    Let $\vphi_0\from \D \to \D$ be the invertible degree preserving map determined by $\eta\from T \to \FF^\times$ as above. 
+    Let $\vphi_0\from \D \to \D$ be the invertible degree preserving map determined by $\eta\from T \to \FF^\times$  such that $\vphi_0(X_t) = \eta(t) X_t$ for all $t\in T$ and $X_t\in \D_t$. 
     Then $\vphi_0$ is a super-anti-automorphism if, and only if,
     %
     \begin{equation}\label{eq:superpolarization}
         \forall a,b\in T, \quad \beta(a,b) = (-1)^{p(a) p(b)} \eta(ab) \eta(a)\inv \eta(b)\inv.
     \end{equation}
     %
-    Moreover, if $\D$ admits a super-anti-automorphism, then $\beta$ can only take values $\pm 1$.
+    Moreover, $\D$ admits a super-anti-automorphism if, and only if, $\beta$ only takes values $\pm 1$.
 \end{prop}
 
 \begin{proof}
@@ -1071,28 +1074,71 @@ Since each component $\D_t$ of $\D$ is one-dimensional, an invertible degree pre
         \iff&& \beta(b, a) &= (-1)^{p(a) p(b)} \eta(ab) \eta(a)\inv \eta(b)\inv.
     \end{alignat*}
     The right-hand side of this last equation does not change if $a$ and $b$ are switched, hence $\beta(b,a) = \beta(a,b)$. 
-    Since $\beta$ is alternating, $\beta(b, a) = \beta (a, b)\inv$, therefore $\beta(a,b)^2 = 1$, from where we conclude that $\beta(a,b) = \pm 1$.
+    
+    Since $\beta$ is alternating, $\beta(b, a) = \beta (a, b)\inv$, therefore $\beta(a,b)^2 = 1$, which proves one direction of the ``moreover'' part.
+    %from where we conclude that $\beta(a,b) = \pm 1$. 
+    The converse follows from the fact that the isomorphism class of $\D\sop$ is determined by $(T, \beta\inv)$, so if $\beta$ takes only values in $\{ \pm 1 \}$, there must be an isomorphism from $\D$ to $\D\sop$, which can be seen as a super-anti-isomorphism on $\D$.
 \end{proof}
 
-With this we translate our task to the level of abelian groups. 
-Instead of considering the graded superalgebra with super-anti-automorphism $(\D, \vphi_0)$, we can focus, instead, on the data $(T, \beta, p, \eta)$, where $T$ is an abelian group, $\beta$ is an alternating bicharacter on $T$, $p\from T \to \ZZ_2$ is a group homomorphism and $\eta\from T \to \FF^\times$ satisfies Equation \eqref{eq:superpolarization}. 
-Also, the condition of $\vphi_0$ being superinvolution clearly corresponds to $\eta(t)^2 =1$ for all $t\in T$.
+With this we can translate our task to the level of abelian groups. 
+Instead of considering the graded superalgebra with super-anti-automorphism $(\D, \vphi_0)$, we can focus, instead, on the data $(T, \beta, p, \eta)$, where $T$ is a finite abelian group, $\beta$ is an alternating bicharacter on $T$, $p\from T \to \ZZ_2$ is a group homomorphism and $\eta\from T \to \FF^\times$ satisfies Equation \eqref{eq:superpolarization}. 
+Also, the condition of $\vphi_0$ being a superinvolution clearly corresponds to $\eta(t) \in \{ \pm 1 \}$ for all $t\in T$.
 
-\begin{cor}\label{cor:beta-nondeg-elem-2-grp}
-    If $\beta$ is nondegenerate, then $T$ is an elementary $2$-group.
-\end{cor}
+Sometimes it will be useful to consider the superalgebra $\D$ as a regular algebra and look to antiautomorphisms on it. 
+It is worth recalling that super-anti-automorphisms are in bijection with antiautomorphisms (see ??). 
+Note that, as a particular case of Proposition \ref{prop:superpolarization}, a map  $\psi\from \D \to \D$ defined by $\psi(X_t) = \mu(t) X_t$, %for all $t\in T$ and $X_t \in \D_t$.
+where $\mu\from T \to \FF^\times$ is an antiautomorphism if and only if 
+%
+\begin{equation}\label{eq:polarization}
+    \forall a,b\in T, \quad \beta(a,b) = \mu(ab) \mu(a)\inv \mu(b)\inv.
+\end{equation}
+%
+In other words, $\mu$ is a quadratic form defined on $T$ with values in $\FF$ and its polarization is the bicharacter $\beta$. 
+Note that, if $\beta$ takes values $\pm 1$, we cannot guarantee that $\D$ admits a superinvolution, as seen in the case $Q(1) \iso \FF\ZZ_2$, but it always admits an involution, as we will see in Proposition \ref{prop:D-has-involution}. %, in the usual sense. 
+% Let $\mu\from T \to \FF^\times$ be any map and consider $\psi\from \D \to \D$ defined by $\psi(X_t) = \mu(t) X_t$ for all $t\in T$ and $X_t \in \D_t$. 
+% By Proposition \ref{prop:superpolarization}, considering $p$ being always zero, we get that $\psi$ is an antiautomorphism if, and only if,
+% %
+% \begin{equation}\label{eq:polarization}
+%     \forall a,b\in T, \quad \beta(a,b) = \mu(ab) \mu(a)\inv \mu(b)\inv.
+% \end{equation}
+
+% will be useful for us to consider involutions on $\D$, in the usual sense (see Prop ??). 
+
+\begin{lemma}\label{lemma:beta-nondeg-elem-2-grp}
+    If $\beta$ takes values in $\{ \pm 1 \}$ and is nondegenerate, then $T$ is an elementary $2$-group.
+\end{lemma}
 
 \begin{proof}
     Since $\beta$ nondegenerate, the map $T \to \widehat T$ given by $t \mapsto \beta(t, \cdot)$ is a group isomorphism.
-    In particular, if $t\in T$ has order $n>2$, then $\beta(t, \cdot)\in \widehat T$ also has order $n$.
-    But, by Proposition \ref{prop:superpolarization}, $\beta$ only takes values on $\{ \pm 1\}$, so  $\beta(t, \cdot )^2 =1$ and, hence, the order of $t$ is at most $2$.
+    In particular, if $t\in T$ has order $n$, then $\beta(t, \cdot)\in \widehat T$ also has order $n$.
+    But, by Proposition \ref{prop:superpolarization}, $\beta$ only takes values in $\{ \pm 1\}$, so  $\beta(t, \cdot )^2 =1$ and, hence, $ n \leq 2$.
 \end{proof}
 
-\begin{cor}\label{cor:odd-cant-have-order-2}
-    Suppose %$\vphi_0$ is a superinvolution. 
-    $\eta(t)^2 =1$ for all $t\in T$. 
-    Then every odd element in $T$ must have order at least $4$.
-\end{cor}
+\begin{prop}\label{prop:D-has-involution}
+    If $\beta$ takes values in $\{ \pm 1 \}$, then $\D$ admits an involution.
+\end{prop}
+
+\begin{proof}
+    Consider the group $\barr T \coloneqq \frac{T}{\rad \beta}$ and let $\barr \beta\from \barr T \times \barr T \to \FF^\times$ be the bicharacter induced by $\beta$. 
+    Since $\barr \beta$ is nondegenerate and takes values $\pm 1$, by Lemma \ref{lemma:beta-nondeg-elem-2-grp}, $\barr T$ is an elementary $2$-group. 
+    Using again that $\barr \beta$ takes values $\pm 1$, there is an antiautomorphism on the graded division algebra associated to the pair $(\barr T, \barr \beta)$. 
+    Let $\bar \mu$ be the quadratic form associated to it. 
+    Putting $t = a = b$ on Equation \eqref{eq:polarization} and using that $\barr \beta$ is alternating, we get $\bar \mu (t)^2 = \bar \mu(t^2) = \bar \mu (e) = 1$, for all $t\in \barr T$. 
+    
+    Take $q\from T \to \barr T$ to be quotient projection and define $\mu\from T\to \FF^\times$ by $\mu (t) = \barr \mu (q(t))$ for all $t\in T$. 
+    Then $\beta(a, b) = \barr \beta (q(a), q(b)) = \barr \mu(q(a)q(b)) \barr \mu(q(a))\inv \barr \mu(q(b))\inv = \mu(ab) \mu(a)\inv \mu(b)\inv$, so $\mu$ determines an antiautomorphism on $\D$. 
+    Since $\mu$ takes values in $\{ \pm 1 \}$, it determines an involution on $\D$.
+\end{proof}
+
+As a consequence of Proposition \ref{prop:D-has-involution}, if $\D$ is odd, we always have that $\D$ admits a super-anti-automorphism of order $4$. 
+But it is harder to get superinvolutions: 
+% Now let us go back to discuss superinvolutions:
+
+\begin{prop}\label{prop:odd-cant-have-order-2}
+    If $\D$ admits a superinvolution, %$\vphi_0$ is a superinvolution. 
+    % $\eta(t) \in \{ \pm 1 \}$ for all $t\in T$. 
+    then every odd element in $T$ must have order at least $4$.
+\end{prop}
 
 \begin{proof}
     The bicharacter $\beta$ is alternating, so if we put $a = b = t$ in Equation \eqref{eq:superpolarization}, we get
@@ -1104,17 +1150,18 @@ Also, the condition of $\vphi_0$ being superinvolution clearly corresponds to $\
     % Also, since $\vphi_0^2 = \id$, $\eta(t)^2 = 1$ for all $t\in T$.
     
     Now let $t\in T^-$. 
-    Every odd power of it is also an odd element, so $t$ cannot have an odd order. 
+    Every odd power of $t$ is also an odd element, so $t$ cannot have an odd order. 
     By Equation \eqref{eq:eta-t-square}, $\eta (t^2) = - \eta(t)^2 = -1$, hence $t^2 \neq e$.
 \end{proof}
 
-Combining Corollaries \ref{cor:beta-nondeg-elem-2-grp} and \ref{cor:odd-cant-have-order-2} and translating back to $(\D, \vphi_0)$, we get:
+
+Combining Proposition \ref{prop:odd-cant-have-order-2} and Lemma \ref{lemma:beta-nondeg-elem-2-grp}, we get:
 
 \begin{cor}\label{cor:no-odd-M-vphi}
-    If $\D \iso M(m,n)$ and $\vphi_0$ is a superinvolution, then $\D = \D\even$, \ie, either $m=0$ or $n=0$. \qed
+    If $\D$ is simple as an algebra and admits a superinvolution, then $\D = \D\even$. \qed
 \end{cor}
 
-As we will see in Chapter ??, this implies that all Type I gradings on the Lie superalgebras in the series $B$, $C$, $D$ and $P$ are even.
+As we will see in Chapter ??, this implies that all gradings on the Lie superalgebras in the series $B$, $C$, $D$ and $P$ are even.
 
 % If we put $a = b = t$ in Equation \eqref{eq:superpolarization}, since $\beta (t, t) = 1$, we get
 % %
@@ -1140,15 +1187,64 @@ As we will see in Chapter ??, this implies that all Type I gradings on the Lie s
 % \end{proof}
 
 \begin{remark}
-    Corollary \ref{cor:odd-cant-have-order-2} also gives us another proof for the fact that the associative superalgebra $Q(n)$ does not admit a superinvolution (Corollary \ref{cor:Q-no-spuerinv-center}). 
-    Recall that $Q(n) \iso \End_\D (\U)$ (prop ??), where $\D= \FF\ZZ_2$ with nontrivial canonical grading and $\U$ is a right $\D$-module of finite rank. 
-    If there was a superinvolution on $Q(n)$, by Theorem \ref{thm:vphi-involution-iff-delta-pm-1} we would have a superinvolution on $\D$, a contradiction.
+    Proposition \ref{prop:odd-cant-have-order-2} also gives us another proof for the fact that the associative superalgebra $Q(n)$ does not admit a superinvolution (Corollary \ref{cor:Q-no-spuerinv-center}). 
+    Recall that $Q(n) \iso \End_\D (\U)$ (prop ??), where $\D= \FF\ZZ_2$ with its natural $\ZZ_2$-grading and $\U$ is a right $\D$-module of finite rank. 
+    If there were a superinvolution on $Q(n)$, by Theorem \ref{thm:vphi-involution-iff-delta-pm-1} we would have a superinvolution on $\D$, which is impossible since the only odd element of $T = \ZZ_2$ has order $2$. 
 \end{remark}
 
-Corollaries \ref{cor:D-has-the-same-type} and \ref{cor:no-odd-M-vphi} show us that the presence of a superinvolution give a strong restriction on the gradings on $M(m,n)$: we do not have odd gradings. 
-Nevertheless, we 
+% Sometimes it will be useful to consider the superalgebra $\D$ as a regular algebra and look to the involutions on it. 
+% Clearly, Proposition \ref{prop:superpolarization} can also be applied to this case.
 
-will now show an example of a division grading on $M(1,1)$ with a super-anti-isomorphism preserving degrees. 
+Corollaries \ref{cor:D-has-the-same-type} and \ref{cor:no-odd-M-vphi} show us that the presence of a superinvolution give a strong restriction on the gradings on $M(m,n)$: we do not have odd gradings. 
+Nevertheless, we will show that we do have odd gradings on $M(m,n)\times M(m,n)\sop$ when $m=n$. 
+To construct an example of that, we will use 
+% Nevertheless, Proposition ?? below tell us the case where we have a super-anti-automorphisms that is not a superinvolution is still of interest to us.
+% , like the supertranspose. 
+% The same is true for 
+
+The next result show us Our strategy consists in start with a graded division superalgebra $\D$ with $\beta$ taking values in $\{ \pm 1 \}$. 
+By Proposition \ref{prop:refinement-DxDsop} below, we can, then, refine the grading on $\D \times \D\sop$ to a division grading such that the exchange superinvolution preserves degree. 
+The refinement 
+
+
+
+
+
+% If $\D$ is a graded division superalgebra with $\beta$ taking values in $\{ \pm 1 \}$, we can refine the 
+% Then the grading on $\D \times \D\sop$ can be refined to a division grading such that the exchange superinvolution $\vphi$ preserves degree.
+
+\begin{prop}\label{prop:refinement-DxDsop}
+    Let $\D$ be a graded division superalgebra with support $T$ and $\beta$ taking values in $\{ \pm 1 \}$. 
+    Consider $\mc E \coloneqq \D \times \D\sop$ with its natural $T$-grading $\Gamma\colon \mc E = \bigoplus_{t\in T} \D_t \times \overline{\D_t}$ and let $\vphi$ be the exchange superinvolution on $\mc E$. 
+    Then there is a division grading $\widetilde \Gamma$ on $(\mc E, \vphi)$ by $\widetilde T$ such that $\Gamma = {}^\pi\widetilde \Gamma$, \ie, $\Gamma$ is the coarsening of $\widetilde \Gamma$ by $\pi$. 
+    Moreover, if $\Gamma'$ is another division grading on $(\mc E, \vphi)$ by an abelian group $T'$ such that $\Gamma = {}^{\pi'}\Gamma'$ for some homomorphism $\pi'\from T' \to T$, then there is a unique isomorphism $\alpha\from T \to  T'$ such that $\pi = \pi' \alpha$ and $\Gamma' = {}^\alpha \widetilde \Gamma$.
+    
+    % , let $\mc E \coloneqq \D \times \D\sop$ and $\vphi$ be the exchange superinvolution on $\mc E$. 
+    % The grading on $\mc E$ can be refined to a division grading such that $\vphi$ preserves degrees if, and only if, $\beta$ takes values $\pm 1$. 
+    % % If $\beta$ takes values $\pm 1$, the grading on $\D \times \D\sop$ can be refined to a division grading such that the exchange superinvolution preserves degree. 
+    % % if, and only if, $\beta$ takes values $\pm 1$
+    % Every such refinement has support isomorphic to $\widetilde T \coloneqq \{ \pm 1 \}\times T$ with product
+    % % and suppose there is a super-anti-automorphism $\psi$ on $\D$ preserving degrees. 
+    % % Then the grading on $\D \times \D\sop$ can be refined to a division grading such that the exchange superinvolution $\vphi$ preserves degree.
+\end{prop}
+
+\begin{proof}
+    First of all, note that every component of $\D \times \D\sop$ is $2$-dimensional. 
+    Moreover, for every $t\in T$, the eigenspaces of the exchange superinvolution associated to $1$ and $-1$ are spanned by $(X_t, \overline X_t)$ and $(X_t, -\overline X_t)$, respectively. 
+    
+    Consider the automorphism $\theta\from \D \times \D\sop \to \D \times \D\sop$ given by $\theta (x, \bar y) = (\psi(y), \overline{\psi(x)})$. 
+    Clearly, $\theta$ is preserves degrees and commutes with the exchange superinvolution. 
+    Hence, by ??, it corresponds to a refinement of the grading on $(\D \times \D\sop, \psi)$. 
+    Also, if $\eta\from T \to \FF^\times$ is the map corresponding to $\psi$, then $\theta(X_t, \overline X_t) = \eta(t) (X_t, \overline X_t)$ and $\theta(X_t, -\overline X_t) = -\eta(t) (X_t, \overline X_t)$, hence $(X_t, \overline X_t)$ and $(X_t, -\overline X_t)$ lie in different components. 
+    Therefore each component have dimension at most $1$, completing the proof.
+\end{proof}
+
+\begin{remark}
+    The refinement above could have been construct using an automorphism on $\mc E$. 
+    Since $\beta$ takes values in $\{ \pm 1 \}$, instead of taking an involution on $\D$ we can take a super-anti-automorphism ...
+\end{remark}
+
+We will now show an example of a division grading on $M(1,1)$ with a super-anti-isomorphism preserving degrees. 
 This will allow us to construct a grading on $M(1,1) \times M(1,1)\sop$ with the exchange superinvolution.
 % Example \ref{ex:FZ2xFZ2sop-iso-FZ4} shows us the situation is different on $Q(n)\times Q(n)\sop$. 
 % We will now give two constructions of an odd division grading on $M(2,2)\times M(2,2)\sop$.
@@ -1220,10 +1316,10 @@ This will allow us to construct a grading on $M(1,1) \times M(1,1)\sop$ with the
      The $Q$-super-anti-automorphism is a super-anti-automorphism on it.
 \end{ex}
 
-Consider $R = M(1,1)\times M(1,1)$ with the superinvolution $\vphi\from R \to R$ given by $\vphi(x, y) = (\psi\inv (y), \psi (x))$. 
-Clearly, $R$ is isomorphic to $M(1,1)\times M(1,1)\sop$ with exchange superinvolution.
-The grading on the example above entails a grading on $M(1,1)\times M(1,1)$, which is not division since not every component has dimension $1$. 
-But we can refine this grading while keeping $\phi$ homogeneous of degree $e$. 
+% Consider $R = M(1,1)\times M(1,1)$ with the superinvolution $\vphi\from R \to R$ given by $\vphi(x, y) = (\psi\inv (y), \psi (x))$. 
+% Clearly, $R$ is isomorphic to $M(1,1)\times M(1,1)\sop$ with exchange superinvolution.
+% The grading on the example above entails a grading on $M(1,1)\times M(1,1)$, which is not division since not every component has dimension $1$. 
+% But we can refine this grading while keeping $\phi$ homogeneous of degree $e$. 
 
 
 % Corollary \ref{cor:no-odd-M-vphi} tells us we cannot have odd gradings on We will now investigate what are the possible odd division gradings on the superinvolution-simple superalgebras. 
