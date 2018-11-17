@@ -1095,7 +1095,8 @@ Our final goal is to classify the division gradings on finite dimensional superi
 Recall that a graded division superalgebra is the same as a graded division algebra if we consider the $G^\#$-grading. 
 In particular, the isomorphism class of a finite dimensional graded division superalgebra $\D$ is determined by a pair $(T, \beta)$ where $T \coloneqq \supp \D \subseteq G^\#$ is a finite abelian group and $\beta\from T\times T \to \FF^\times$ is an alternating bicharacter {\tt (see ??)}. 
 \marginpar{\tt (for the ``see'' part: [EK] $D_4$ and [BK] gradings on classical \\lie algebras)}
-Instead of writing subscripts for the $G$-grading and superscripts for the canonical $\ZZ_2$-grading, it will be convenient to write $\D = \bigoplus_{t\in T} \D_t$ and recover the parity via the map $p\from T \to \ZZ_2$ which is the restriction of the projection $G^\# = G\times \ZZ_2 \to \ZZ_2$.
+Instead of writing subscripts for the $G$-grading and superscripts for the canonical $\ZZ_2$-grading, it will be convenient to write $\D = \bigoplus_{t\in T} \D_t$ and recover the parity via the map $p\from T \to \ZZ_2$ which is the restriction of the projection $G^\# = G\times \ZZ_2 \to \ZZ_2$. 
+% Sometimes we may want to discuss graded division superalgebras without reference to the groups $G$ or $G^\#$, so it is convenient to say 
 
 Since each component $\D_t$ of $\D$ is one-dimensional, an invertible degree preserving map $\vphi_0\from \D \to \D$ is completely determined by a map $\eta\from T \to \FF^\times$.
 
@@ -1191,48 +1192,147 @@ Combining Proposition \ref{prop:odd-cant-have-order-2} and Lemma \ref{lemma:beta
 
 Corollaries \ref{cor:D-has-the-same-type} and \ref{cor:no-odd-M-vphi} show us that the presence of a superinvolution give a strong restriction on the gradings on $M(m,n)$: we do not have odd gradings. 
 Nevertheless, we will show that we do have odd gradings on $M(m,n)\times M(m,n)\sop$ when $m=n$ (Example ??). 
+For that we will use the concept of group extension.
 % In our construction we are going to use the following concept:
 
+\begin{defi}
+    Let $H, K$ be (abelian) groups. 
+    A \emph{(abelian) group extension of $H$ by $K$} is a (abelian) group $E$ together with group homomorphisms $\iota\from K \to E$ and $\pi\from E \to H$ such that 
+    %
+    \begin{equation}\label{eq:short-exact-sequence}
+        0 \rightarrow K \xrightarrow{\iota} E \xrightarrow{\pi} H \rightarrow 0
+    \end{equation}
+    %
+    is a short exact sequence, \ie,
+    $\iota$ is injective, $\pi$ is surjective and $\iota(K) = \ker \pi$ (and, hence, $H \iso \frac{E}{\iota(K)}$). 
+    For shortness, we may refer to \eqref{eq:short-exact-sequence} as the extension itself. 
+    An \emph{equivalence} between two extensions $0 \rightarrow K \xrightarrow{\iota} E \xrightarrow{\pi} H \rightarrow 0$ and $0 \rightarrow K \xrightarrow{\iota'} E' \xrightarrow{\pi'} H \rightarrow 0$ is an isomorphism $\alpha\from E \to E'$ such that the diagram
+%     \begin{center}
+% 		\begin{tikzcd}
+% 			&& |[alias=E]|E \arrow[to=E', "\alpha"] \arrow[to = H, "\pi"]&&\\
+% 			K \arrow[to=E, "\iota"] \arrow[to=E', "\iota'"]&&&& |[alias=H]|H\\
+% 			&&|[alias=E']|E' \arrow[to=H, "\pi'"]&&
+% 		\end{tikzcd}
+% 	\end{center}
+%%%%%%%%%%
+	\begin{center}
+		\begin{tikzcd}
+			&& |[alias=E]|E \arrow[to=E', "\alpha"] \arrow[to = H, "\pi"]&&\\
+			0 \arrow[to=K]& |[alias=K]|K \arrow[to=E, "\iota"] \arrow[to=E', "\iota'"]&& |[alias=H]|H \arrow[to=0] & |[alias=0]|0\\
+			&&|[alias=E']|E' \arrow[to=H, "\pi'"]&&
+		\end{tikzcd}
+	\end{center}
+	commutes. 
+	An equivalence from an extension to itself is called a \emph{self-equivalence}.
+\end{defi}
+
+Group extensions are usually studied in the context of group cohomology, which goes far beyond our scope.  
+We will need only some simple concepts and elementary results involving then. 
+The reader who is interested in the topic can check ?? and ??. 
+
+Let us fix the abelian groups $H$ and $K$ for the remaining of the section.
+
+\begin{defi}
+    Let $H$ and $K$ be abelian groups and let $\sigma\from H\times H \to K$ be a map.
+    \begin{enumerate}[(i)]
+        \item We say that $\sigma$ is a \emph{symmetric $2$-cocycle} if $\sigma(a,b) = \sigma(b,a)$ and $\sigma(a,b) \sigma(ab, c) = \sigma(a, bc) \sigma(b,c)$, for all $a,b,c \in H$;
+        
+        \item We say that $\sigma$ is a \emph{$2$-coboundary} if there is a map $f\from H \to K$ such that $\sigma(a,b) = f(ab)f(a)\inv f(b)\inv$ for all $a,b \in H$. In this case, we write $\sigma  = \mathrm{d} f$.
+    \end{enumerate}
+\end{defi}
+
+It is easy to check that every symmetric bicharacter is a symmetric $2$-cocycle, and those are the only we will need. 
+It is also easy to check that every $2$-coboundary is a symmetric $2$-cocycle. 
+
+The condition of being a symmetric $2$-cocycle is precisely the one needed for the following definition:
+
+\begin{defi}
+    Let $H, K$ be abelian groups and let $\sigma\from H\times H \to K$ be a $2$-cocycle. 
+    The group $K \times_\sigma H$ is the set $K \times H$ endowed with the product $*_\sigma$ defined by
+    \[
+        (k_1, h_1)*_\sigma(k_2, h_2) = (\sigma(h_1, h_2) k_1 k_2, h_1 h_2),
+    \]
+    for all $k_1, k_2 \in K$ and $h_1, h_2 \in H$. 
+    The \emph{group extension determined by $\sigma$} is the group $K \times_\sigma H$ together the group homomorphisms $\iota_\sigma \from K \to K \times_\sigma H$ and $\pi_\sigma \from K \times_\sigma H \to H$ defined by $\iota(k) = (k \sigma(e,e)\inv, e)$ and $\pi(k, h) = h$, for all $k\in K$ and $h\in H$.
+\end{defi}
+
+% \begin{remark}
+%     In general, a \emph{group extension of $T$ by $H$} is a group $E$ together with group homomorphisms $\iota\from H \to E$ and $\pi\from E \to T$ such that $\iota$ is injective, $\pi$ is surjective and $\iota(H) = \ker \pi$. 
+%     For our needs, though, only the map $\pi$ will be needed.
+% \end{remark}
+
+\begin{prop}
+    Let $H$ be an abelian group and let $\sigma, \sigma' \from T\times T \to H$ be symmetric $2$-cocycles. 
+    If $\sigma' \sigma\inv$ is a $2$-coboundary, then there is an isomorphism $\alpha\from H \times_{\sigma} T \to H \times_{\sigma'} T$ such that $\pi_{\sigma'} \alpha = \pi_\sigma$.
+\end{prop}
+
+\begin{proof}
+    Take $f\from T\to H$ to be any map and consider $\alpha\from H \times_{\sigma} T \to H \times_{\sigma'} T$ defined by $\alpha(h,t) = ( f(t) h, t)$. 
+    It is easy to check that $\alpha$ is a bijection. 
+    
+    Let us denote the product on $H \times_{\sigma} T$ by juxtaposition and the one on $H \times_{\sigma'} T$ by $*$.  
+    If $h_1, h_2 \in H$ and $t_1, t_2 \in T$, then, on the one hand,
+    \begin{align*}
+        \alpha ((h_1, t_1)(h_2, t_2) ) &= \alpha (\sigma(t_1, t_2) h_1 h_2, t_1 t_2) = 
+        ( f(t_1 t_2)\sigma(t_1, t_2) h_1 h_2, t_1 t_2)
+    \end{align*}
+    and, on the other hand,
+    \begin{align*}
+        \alpha ((h_1, t_1)) * \alpha ((h_2, t_2) ) &= ( f(t_1) h_1, t_1) * ( f(t_2) h_2, t_2) \\&= 
+        (\sigma'(t_1, t_2) f(t_1) f(t_2) h_1 h_2, t_1 t_2).
+    \end{align*}
+    Hence $\alpha$ is an isomorphism if, and only if, $\mathrm{d}f = \sigma' \sigma\inv$. 
+    The result follows.
+\end{proof}
+
+One should note that the concept of $2$-coboundary is related to super-anti-automorphisms. 
+In fact, Equation \eqref{eq:superpolarization} states what $\mathrm{d} \eta$ is equal to.
+
+Equation \eqref{eq:superpolarization} is linked to the concepts of quadratic form and $2$-cocycles. 
+Let us explore this connection.
 
 \begin{defi}
     Let $\mu\from T \to \FF^\times$ be a map. 
-    We say that $\mu$ is a \emph{(multiplicative) quadratic form} on $T$ if $\mu(t\inv) = \mu (t)$ for all $t\in T$ and the map $\xi\from T\times T \to \FF^\times$ such that
-    \begin{equation}\label{eq:quadratic-form}
-        \forall a,b\in T, \quad \xi (a,b) =  \mu(ab) \mu(a)\inv \mu(b)\inv.
-    \end{equation}
-    We say that the bicharacter $\xi$ is the \emph{polarization} of $\mu$.
+    We say that $\mu$ is a \emph{(multiplicative) quadratic form} on $T$ if $\mu(t\inv) = \mu (t)$ for all $t\in T$ and the map $T\times T \to \FF^\times$ defined by
+    $(a,b) \mapsto \mu(ab) \mu(a)\inv \mu(b)\inv$
+    is a bicharacter, which is referred to as the \emph{polarization} of $\mu$.
 \end{defi}
 
 \begin{remark}
-    In the presence of Equation \eqref{eq:quadratic-form}, the condition $\mu(t\inv) = \mu(t)$ is equivalent to $\mu(t^n) = \mu(t)^{n^2}$ for all $t\in T$, which justifies the nomenclature.
+    In the literature, the additive notation is usually used. 
+    More generally, for a given commutative ring $\mathbb K$ and $\mathbb K$-modules $A$ and $B$, a \emph{quadratic map} $q\from A \to B$ is a map satisfying $q(kx) = k^2 x$, for all $k\in \mathbb K$ and $x \in A$, and that the map $A \times A \to B$ defined by $(x,y) \mapsto q(x+y) - q(x) - q(y)$ is bilinear. 
+    In the case of abelian groups (\ie, $\mathbb K = \ZZ$), the first condition is equivalent to $q(-x) = q(x)$, justifying our nomenclature.
+    % notion of \emph{quadratic map} is usually discussed with additive notation In the presence of the bicharacter condition, the condition $\mu(t\inv) = \mu(t)$ is equivalent to $\mu(t^n) = \mu(t)^{n^2}$ for all $t\in T$, which justifies the nomenclature.
 \end{remark}
 
-Let $\tilde\beta\from T\times T \to \FF^\times$ be the bicharacter given by $\tilde \beta (a, b) \coloneqq (-1)^{p(a) p(b)} \beta(a, b)$. 
-Despite of Equation \eqref{eq:superpolarization} being the special case of Equation \ref{eq:quadratic-form} for $\xi = \tilde\beta$ and $\mu = \eta$, not every super-anti-automorphism on $\D$ corresponds to a quadratic form. 
-But the ones that do correspond to quadratic forms are of special interest. 
+\begin{ex}\label{ex:quadratic-form-polarization-parity}
+    Let $\mu\from T \to \FF^\times$ be given by $\mu(t) = 1$ for all $t\in T^+$ and $\mu(t) = i$ for all $t\in T^-$. 
+    It is clear that $\mu(t\inv) = \mu(t)$. 
+    Also, we have that $\mu(ab) \mu(a)\inv \mu(b)\inv = (-1)^{p(a)p(b)}$, which is a bicharacter.
+\end{ex}
 
-It will be helpful to regard $\D$ as regular algebra and look to antiautomorphisms on it. 
-It is worth recalling that super-anti-automorphisms are in bijection with antiautomorphisms (see ??). 
-Note that, as a particular case of Proposition \ref{prop:superpolarization}, a map  $\psi\from \D \to \D$ defined by $\psi(X_t) = \mu(t) X_t$, %for all $t\in T$ and $X_t \in \D_t$.
-where $\mu\from T \to \FF^\times$ is an antiautomorphism if, and only, if 
-%
-\begin{equation}\label{eq:polarization}
-    \forall a,b\in T, \quad \beta(a,b) = \mu(ab) \mu(a)\inv \mu(b)\inv.
-\end{equation}
+It is important to notice that even if $\eta$ determines a super-anti-isomorphism, it is not necessarily a quadratic form. 
+Equation \eqref{eq:superpolarization} tell us that the bicharater condition will be satisfied for the bicharacter $\tilde\beta$ defined by $\tilde \beta (a, b) \coloneqq (-1)^{p(a) p(b)} \beta(a, b)$, but the other condition may fail. 
 
 \begin{prop}
     Let $\mu\from T \to \FF^\times$ be a map and let $\psi\from \D \to \D$ be the linear map defined by 
     $\psi(X_t) = \mu(t) X_t$ for every $t\in T$ and $X_t \in \D_t$. 
+    Denote by $\xi\from T\times T \to \FF^\times$ the map defined by $\xi(a, b) \coloneqq \mu(ab) \mu(a)\inv \mu(b)\inv$. 
     Then: 
     \begin{enumerate}[(i)]
-        \item $\mu$ is a quadratic form with polarization $\beta$ $\iff$ $\mu(t) \in \{\pm 1\}$ for all $t\in T$ $\iff$ $\psi$ is
-        an involution (in the usual, nonsuper, sense);
-        \item $\mu$ is a quadratic form with polarization $\tilde\beta$ $\iff$ $\mu(t)\in \{ \pm 1 \}$ for all $t \in T^+$ and $\mu(t)\in \{ \pm i \}$ for all $t \in T^-$ $\iff$ $\psi$ is a super-anti-automorphism such that $\psi^2$ is the parity automorphism on $\D$.
+        \item If $\xi = \beta$, then:
+        
+        $\mu$ is a quadratic form $\iff$ $\mu(t) \in \{\pm 1\}$ for all $t\in T$ $\iff$ $\psi$ is
+        an involution on $\D$ (considered as an algebra);
+        
+        \item If $\xi = \tilde\beta$, then: 
+        
+        $\mu$ is a quadratic form $\iff$ $\mu(t)\in \{ \pm 1 \}$ for all $t \in T^+$ and $\mu(t)\in \{ \pm i \}$ for all $t \in T^-$ $\iff$ $\psi$ is a super-anti-automorphism such that $\psi^2$ is the parity automorphism on $\D$.
     \end{enumerate}
 \end{prop}
 
 \begin{proof}
-    As a particular case of Proposition \ref{prop:superpolarization}, $\psi$ is an antiautomorphism if, and only, if 
+    First note that, as a particular case of Proposition \ref{prop:superpolarization}, $\psi$ is an antiautomorphism if, and only, if 
     %
     \begin{equation}\label{eq:polarization}
         \forall a,b\in T, \quad \beta(a,b) = \mu(ab) \mu(a)\inv \mu(b)\inv.
@@ -1245,88 +1345,86 @@ where $\mu\from T \to \FF^\times$ is an antiautomorphism if, and only, if
     Therefore $\mu(t\inv) = \mu(t)$ if, and only if, $\mu(t)^2 = (-1)^{p(t)}$, proving (ii).
 \end{proof}
 
-It should be noted that 
+
+
+
+% even though Equation \eqref{eq:superpolarization}
+% Let $\tilde\beta\from T\times T \to \FF^\times$ be the bicharacter given by $\tilde \beta (a, b) \coloneqq (-1)^{p(a) p(b)} \beta(a, b)$. 
+% Despite of Equation \eqref{eq:superpolarization} being the special case of Equation \ref{eq:quadratic-form} for $\xi = \tilde\beta$ and $\mu = \eta$, not every super-anti-automorphism on $\D$ corresponds to a quadratic form. 
+% But the ones that do correspond to quadratic forms are of special interest. 
+
+% It will be helpful to regard $\D$ as regular algebra and look to antiautomorphisms on it. 
+% It is worth recalling that super-anti-automorphisms are in bijection with antiautomorphisms (see ??). 
+% Note that, as a particular case of Proposition \ref{prop:superpolarization}, a map  $\psi\from \D \to \D$ defined by $\psi(X_t) = \mu(t) X_t$, %for all $t\in T$ and $X_t \in \D_t$.
+% where $\mu\from T \to \FF^\times$ is an antiautomorphism if, and only, if 
+% %
+% \begin{equation}\label{eq:polarization}
+%     \forall a,b\in T, \quad \beta(a,b) = \mu(ab) \mu(a)\inv \mu(b)\inv.
+% \end{equation}
+
+% \begin{prop}
+%     Let $\mu\from T \to \FF^\times$ be a map and let $\psi\from \D \to \D$ be the linear map defined by 
+%     $\psi(X_t) = \mu(t) X_t$ for every $t\in T$ and $X_t \in \D_t$. 
+%     Then: 
+%     \begin{enumerate}[(i)]
+%         \item $\mu$ is a quadratic form with polarization $\beta$ $\iff$ $\mu(t) \in \{\pm 1\}$ for all $t\in T$ $\iff$ $\psi$ is
+%         an involution (in the usual, nonsuper, sense);
+%         \item $\mu$ is a quadratic form with polarization $\tilde\beta$ $\iff$ $\mu(t)\in \{ \pm 1 \}$ for all $t \in T^+$ and $\mu(t)\in \{ \pm i \}$ for all $t \in T^-$ $\iff$ $\psi$ is a super-anti-automorphism such that $\psi^2$ is the parity automorphism on $\D$.
+%     \end{enumerate}
+% \end{prop}
+% It should be noted that 
 
 \begin{prop}
     If $\beta$ takes values in $\{ \pm 1 \}$, then there are a quadratic forms on $T$ whose polarization are $\beta$ and $\tilde \beta$.
 \end{prop}
 
 \begin{proof}
-    ??
+    To show there is a quadratic form whose polarization is $\beta$, 
+    consider the group $\barr T \coloneqq \frac{T}{\rad \beta}$ and let $\barr \beta\from \barr T \times \barr T \to \FF^\times$ be the bicharacter induced by $\beta$. 
+    Since $\barr \beta$ is nondegenerate and takes values $\pm 1$, by Lemma \ref{lemma:beta-nondeg-elem-2-grp}, $\barr T$ is an elementary $2$-group. 
+    Using again that $\barr \beta$ takes values $\pm 1$, there is an antiautomorphism $\psi$ on the graded division algebra associated to the pair $(\barr T, \barr \beta)$. 
+    Let $\bar \mu\from T \to \FF^\times$ be the map determining $\psi$. 
+    We then have $\bar\beta(a,b) = \bar\mu(ab) \bar\mu(a)\inv \bar\mu(b)\inv$ for all $a, b \in \overline T$.
+    Using that $\barr \beta$ is alternating and taking $t = a = b$, we get $\bar \mu (t)^2 = \bar \mu(t^2) = \bar \mu (e) = 1$, for all $t\in \barr T$. 
+    
+    Now let $q\from T \to \barr T$ to be quotient projection and define $\mu\from T\to \FF^\times$ by $\mu (t) = \barr \mu (q(t))$ for all $t\in T$. 
+    Then $\mu$ takes values in $\{ \pm 1 \}$ and $\beta(a, b) = \barr \beta (q(a), q(b)) = \barr \mu(q(a)q(b)) \barr \mu(q(a))\inv \barr \mu(q(b))\inv = \mu(ab) \mu(a)\inv \mu(b)\inv$, hence $\mu$ is a quadratic form with polarization $\beta$.
+    
+    To get a quadratic form with polarization $\tilde \beta$, simply multiply $\mu$ by the quadratic form of Example \ref{ex:quadratic-form-polarization-parity} (compare this with prop ??).
 \end{proof}
 
 %
 % In other words, $\mu$ is a quadratic form defined on $T$ with values in $\FF$ and its polarization is the bicharacter $\beta$. 
-If $\beta$ takes values $\pm 1$, we cannot guarantee that $\D$ admits a superinvolution, as seen in the case $Q(1) \iso \FF\ZZ_2$, but it always admits an involution:
-
-??
-
-It turns out that quadratic forms and their polarization are useful to construct abelian group extensions of $T$. 
-The theory of group extensions go well beyond what we are going to use here. 
-The reader who is interested can check ?? and ??. 
-For our purposes, we will need the following concepts:
-% We will now see Equation \eqref{eq:superpolarization} under a different perspective:
-
-\begin{defi}
-    Let $H$ be an abelian group and let $\sigma\from T\times T \to H$ be a (set theoretical) map.
-    \begin{enumerate}[(i)]
-        \item We say that $\sigma$ is a \emph{symmetric $2$-cocycle} if $\sigma(a,b) = \sigma(b,a)$ and $\sigma(a,b) \sigma(ab, c) = \sigma(a, bc) \sigma(b,c)$, for all $a,b,c \in T$;
-        
-        \item We say that $\sigma$ is a \emph{coboundary} if there is a map $f\from T \to H$ such that $\sigma(a,b) = f(ab)f(a)\inv f(b)\inv$ for all $a,b \in T$. In this case, we write $\sigma  = \mathrm{d} f$.
-    \end{enumerate}
-\end{defi}
-
-It is easy to check that every symmetric bicharacter is a symmetric $2$-cocycle, and those are the only that we will need. 
-It is also easy to check that every coboundary is a symmetric $2$-cocycle. 
-Note that Equation \eqref{eq:superpolarization} states that if we take $H = \FF^\times$ and define $\sigma$ to be the bicharacter on $T$ given by $\sigma(a, b) \coloneqq (-1)^{p(a) p(b)} \beta(a,b)$ for all $a,b\in T$, then $\sigma = \mathrm{d} \eta$.
-
-The condition of being a symmetric $2$-cocycle is precisely the one needed for the following definition:
-
-\begin{defi}
-    Let $H$ be an abelian group and let $\sigma\from T\times T \to H$ be a cocycle. 
-    We define the abelian group $H \times_\sigma T$ to be the set $H \times T$ endowed with the operation given by
-    \[
-        (h_1, t_1)(h_2, t_2) = (h_1 h_2 \sigma(t_1, t_2), t_1 t_2),
-    \]
-    for all $h_1, h_2 \in H$ and $t_1, t_2 \in T$.
-\end{defi}
-
-\begin{prop}
-    Let $H$ be an abelian group and let $\sigma_1, \sigma_2 \from T\times T \to H$ be symmetric $2$-cocycles. 
-    If $\sigma_1 \sigma_2\inv$ is a coboundary, then $H \times_{\sigma_1} T \iso H \times_{\sigma_2} T$.
-\end{prop}
-
-\begin{proof}
-    Let $f\from T\to H$ be a map such that $\sigma_1 \sigma_2\inv = \mathrm{df}$ and let $\alpha\from H \times_{\sigma_1} T \to H \times_{\sigma_2} T$ by $\alpha(h,t) = (h f(h), t)$.
-\end{proof}
+% If $\beta$ takes values $\pm 1$, we cannot guarantee that $\D$ admits a superinvolution, as seen in the case $Q(1) \iso \FF\ZZ_2$, but it always admits an involution:
 
 
+% ??
 
 % \begin{prop}
 %     If $\mu$ is a quadratic form on $T$, then $\mu(t^n) = \mu(t)^{n^2}$ for all $t\in T$.
 % \end{prop}
 
-It is important to note that even though Equation \eqref{eq:quadratic-form} reduces to Equation \eqref{eq:superpolarization} for $\mu = \eta$ and $\xi(a, b) = (-1)^{p(a)p(b)} \beta(a,b)$, it is not true, in general, that $\eta(t\inv) = \eta(t)$. 
-Actually, in the case $\eta$ determines a superinvolution, we have that $\eta (t\inv) = (-1)^{p(t)} \eta(t)$, so it is not a quadratic form if $\D\odd \neq 0$. 
+% It is important to note that even though Equation \eqref{eq:quadratic-form} reduces to Equation \eqref{eq:superpolarization} for $\mu = \eta$ and $\xi(a, b) = (-1)^{p(a)p(b)} \beta(a,b)$, it is not true, in general, that $\eta(t\inv) = \eta(t)$. 
+% Actually, in the case $\eta$ determines a superinvolution, we have that $\eta (t\inv) = (-1)^{p(t)} \eta(t)$, so it is not a quadratic form if $\D\odd \neq 0$. 
 
-\begin{prop}
-    Let $\mu$ be a quadratic form on $T$ and let $\xi$ be its polarization.
-    \begin{enumerate}[(i)]
-        \item If $\xi(a,b) = \beta(a,b)$ for all $a,b\in T$, then $\mu$ determines an involution 
-    \end{enumerate}
-\end{prop}
+% \begin{prop}
+%     Let $\mu$ be a quadratic form on $T$ and let $\xi$ be its polarization.
+%     \begin{enumerate}[(i)]
+%         \item If $\xi(a,b) = \beta(a,b)$ for all $a,b\in T$, then $\mu$ determines an involution 
+%     \end{enumerate}
+% \end{prop}
 
-Sometimes it is useful to consider the superalgebra $\D$ as a regular algebra and look to antiautomorphisms on it. 
-It is worth recalling that super-anti-automorphisms are in bijection with antiautomorphisms (see ??). 
-Note that, as a particular case of Proposition \ref{prop:superpolarization}, a map  $\psi\from \D \to \D$ defined by $\psi(X_t) = \mu(t) X_t$, %for all $t\in T$ and $X_t \in \D_t$.
-where $\mu\from T \to \FF^\times$ is an antiautomorphism if and only if 
-%
-\begin{equation}\label{eq:polarization}
-    \forall a,b\in T, \quad \beta(a,b) = \mu(ab) \mu(a)\inv \mu(b)\inv.
-\end{equation}
+% Sometimes it is useful to consider the superalgebra $\D$ as a regular algebra and look to antiautomorphisms on it. 
+% It is worth recalling that super-anti-automorphisms are in bijection with antiautomorphisms (see ??). 
+% Note that, as a particular case of Proposition \ref{prop:superpolarization}, a map  $\psi\from \D \to \D$ defined by $\psi(X_t) = \mu(t) X_t$, %for all $t\in T$ and $X_t \in \D_t$.
+% where $\mu\from T \to \FF^\times$ is an antiautomorphism if and only if 
+% %
+% \begin{equation}\label{eq:polarization}
+%     \forall a,b\in T, \quad \beta(a,b) = \mu(ab) \mu(a)\inv \mu(b)\inv.
+% \end{equation}
 %
 % In other words, $\mu$ is a quadratic form defined on $T$ with values in $\FF$ and its polarization is the bicharacter $\beta$. 
-If $\beta$ takes values $\pm 1$, we cannot guarantee that $\D$ admits a superinvolution, as seen in the case $Q(1) \iso \FF\ZZ_2$, but it always admits an involution:
+% If $\beta$ takes values $\pm 1$, we cannot guarantee that $\D$ admits a superinvolution, as seen in the case $Q(1) \iso \FF\ZZ_2$, but it always admits an involution:
 % , as we will see in Proposition \ref{prop:D-has-involution}. %, in the usual sense. 
 % Let $\mu\from T \to \FF^\times$ be any map and consider $\psi\from \D \to \D$ defined by $\psi(X_t) = \mu(t) X_t$ for all $t\in T$ and $X_t \in \D_t$. 
 % By Proposition \ref{prop:superpolarization}, considering $p$ being always zero, we get that $\psi$ is an antiautomorphism if, and only if,
@@ -1338,44 +1436,36 @@ If $\beta$ takes values $\pm 1$, we cannot guarantee that $\D$ admits a superinv
 % will be useful for us to consider involutions on $\D$, in the usual sense (see Prop ??). 
 
 
-\begin{prop}\label{prop:D-has-involution}
-    If $\beta$ takes values in $\{ \pm 1 \}$, then $\D$ admits an involution.
-\end{prop}
+% \begin{prop}\label{prop:D-has-involution}
+%     If $\beta$ takes values in $\{ \pm 1 \}$, then $\D$ admits an involution.
+% \end{prop}
 
-\begin{proof}
-    Consider the group $\barr T \coloneqq \frac{T}{\rad \beta}$ and let $\barr \beta\from \barr T \times \barr T \to \FF^\times$ be the bicharacter induced by $\beta$. 
-    Since $\barr \beta$ is nondegenerate and takes values $\pm 1$, by Lemma \ref{lemma:beta-nondeg-elem-2-grp}, $\barr T$ is an elementary $2$-group. 
-    Using again that $\barr \beta$ takes values $\pm 1$, there is an antiautomorphism on the graded division algebra associated to the pair $(\barr T, \barr \beta)$. 
-    Let $\bar \mu$ be the quadratic form associated to it. 
-    Putting $t = a = b$ on Equation \eqref{eq:polarization} and using that $\barr \beta$ is alternating, we get $\bar \mu (t)^2 = \bar \mu(t^2) = \bar \mu (e) = 1$, for all $t\in \barr T$. 
+% \begin{proof}
+%     Consider the group $\barr T \coloneqq \frac{T}{\rad \beta}$ and let $\barr \beta\from \barr T \times \barr T \to \FF^\times$ be the bicharacter induced by $\beta$. 
+%     Since $\barr \beta$ is nondegenerate and takes values $\pm 1$, by Lemma \ref{lemma:beta-nondeg-elem-2-grp}, $\barr T$ is an elementary $2$-group. 
+%     Using again that $\barr \beta$ takes values $\pm 1$, there is an antiautomorphism on the graded division algebra associated to the pair $(\barr T, \barr \beta)$. 
+%     Let $\bar \mu$ be the quadratic form associated to it. 
+%     Putting $t = a = b$ on Equation \eqref{eq:polarization} and using that $\barr \beta$ is alternating, we get $\bar \mu (t)^2 = \bar \mu(t^2) = \bar \mu (e) = 1$, for all $t\in \barr T$. 
     
-    Take $q\from T \to \barr T$ to be quotient projection and define $\mu\from T\to \FF^\times$ by $\mu (t) = \barr \mu (q(t))$ for all $t\in T$. 
-    Then $\beta(a, b) = \barr \beta (q(a), q(b)) = \barr \mu(q(a)q(b)) \barr \mu(q(a))\inv \barr \mu(q(b))\inv = \mu(ab) \mu(a)\inv \mu(b)\inv$, so $\mu$ determines an antiautomorphism on $\D$. 
-    Since $\mu$ takes values in $\{ \pm 1 \}$, it determines an involution on $\D$.
-\end{proof}
+%     Take $q\from T \to \barr T$ to be quotient projection and define $\mu\from T\to \FF^\times$ by $\mu (t) = \barr \mu (q(t))$ for all $t\in T$. 
+%     Then $\beta(a, b) = \barr \beta (q(a), q(b)) = \barr \mu(q(a)q(b)) \barr \mu(q(a))\inv \barr \mu(q(b))\inv = \mu(ab) \mu(a)\inv \mu(b)\inv$, so $\mu$ determines an antiautomorphism on $\D$. 
+%     Since $\mu$ takes values in $\{ \pm 1 \}$, it determines an involution on $\D$.
+% \end{proof}
 
-\begin{cor}
-    If $\D$ is even, then it admits a superinvolution. 
-    If $\D$ is odd, then it admits a super-anti-automorphism of order $4$.
-\end{cor}
+% \begin{cor}
+%     If $\D$ is even, then it admits a superinvolution. 
+%     If $\D$ is odd, then it admits a super-anti-automorphism of order $4$.
+% \end{cor}
 
-\begin{proof}
-    Given an involution $\psi\from \D \to \D$, we can define $\vphi\from \D \to \D$ by $\vphi(d) = \psi(d)$ if $\D$ is even and $\vphi(d) = i\psi (d)$ if $d$ is odd. 
-    It is easy to see that $\vphi$ is a super-anti-automorphism (compare with ??) and that it has the desired order.
-\end{proof}
+% \begin{proof}
+%     Given an involution $\psi\from \D \to \D$, we can define $\vphi\from \D \to \D$ by $\vphi(d) = \psi(d)$ if $\D$ is even and $\vphi(d) = i\psi (d)$ if $d$ is odd. 
+%     It is easy to see that $\vphi$ is a super-anti-automorphism (compare with ??) and that it has the desired order.
+% \end{proof}
  
-We will now explore Equations \eqref{eq:superpolarization} and \eqref{eq:polarization} under a different perspective. 
-Note that, in both cases, what we have in the right hand side is a bicharacter on $T$. 
-
-\begin{defi}
-    
-\end{defi}
+% We will now explore Equations \eqref{eq:superpolarization} and \eqref{eq:polarization} under a different perspective. 
+% Note that, in both cases, what we have in the right hand side is a bicharacter on $T$. 
 
 
-connect super-anti-automorphism and antiautomorphisms on $\D$ with different bicharacters. 
-
-give us an interesting connection with the theory of group extensions (see ?? and ??). 
-In both equations, the right hand side is a bicharacter
 
 % As a consequence of Proposition \ref{prop:D-has-involution}, if $\D$ is odd, we always have that $\D$ admits a super-anti-automorphism of order $4$. 
 % But it is harder to get superinvolutions: 
@@ -1413,8 +1503,14 @@ In both equations, the right hand side is a bicharacter
 
 We are now in position to apply these concepts and results to our original problem. 
 Given a graded division superalgebra $\D$ associated to $(T, \beta)$, we want to refine the grading on $\D \times \D\sop$ to a division grading such that the exchange superinvolution preserves degrees. 
-The support of the new grading will be the group $\widetilde T \coloneqq \{ \pm 1 \} \times_\sigma T$, where $\sigma\from T\times T \to \{\pm 1\}$ is given by $\sigma(a,b) = (-1)^{p(a)p(b)}$ for all $a,b \in T$. 
-Also, we will denote by $\pi\from \widetilde T \to T$ the projection on the second entry.
+In the construction we will show, the support of the new grading will be the group $\widetilde T \coloneqq \{ \pm 1 \} \times_\sigma T$, where $\sigma\from T\times T \to \{\pm 1\}$ is the bicharacter given by $\sigma(a,b) = (-1)^{p(a)p(b)}$ for all $a,b \in T$. 
+We will denote by $\pi\from \widetilde T \to T$ the projection on the second entry.
+
+\begin{lemma}\label{lemma:tildeT-finally}
+    Let $T$ be a group, let $\beta$ be an alternating bicharacter on it taking values only in $\pmone$ and let $p\from T \to \ZZ_2$ be a group homomorphism. 
+    The extensions corresponding to ?? and ?? are equivalent. 
+    Further, we can embed the group $\pmone \times_\sigma T$ in $T \times \ZZ_4$.
+\end{lemma}
 
 % The next result show us Our strategy consists in start with a graded division superalgebra $\D$ with $\beta$ taking values in $\{ \pm 1 \}$. 
 % By Proposition \ref{prop:refinement-DxDsop} below, we can, then, refine the grading on $\D \times \D\sop$ to a division grading such that the exchange superinvolution preserves degree. 
@@ -1442,12 +1538,50 @@ Also, we will denote by $\pi\from \widetilde T \to T$ the projection on the seco
     % % Then the grading on $\D \times \D\sop$ can be refined to a division grading such that the exchange superinvolution $\vphi$ preserves degree.
 \end{prop}
 
+\begin{prop}\label{prop:refinement-DxDsop}
+    Let $\D$ be a graded division superalgebra associated to $(T, \beta, p)$.  
+    Consider $\mc E \coloneqq \D \times \D\sop$ with its natural $T$-grading $\Gamma\colon \mc E = \bigoplus_{t\in T} \D_t \times \overline{\D_t}$ and let $\vphi$ be the exchange superinvolution on $\mc E$. 
+    There is a division grading on $(\mc E, \vphi)$ refining $\Gamma$ if, and only if, $\beta$ takes values in $\{ \pm 1 \}$. 
+    If $\widetilde \Gamma$ is a such grading and $\widetilde T$ is its support, then there are group homomorphisms $\tilde \pi\from \widetilde T \to T$ and $\alpha\from \widetilde T \to \{ \pm 1\} \times_\sigma T$, where $\sigma$ is the bicharater defined by $\sigma(a,b) = (-1)^{p(a)p(b)}$, such that $\Gamma = {}^{\tilde\pi}\widetilde \Gamma$ and $\pi_\sigma \alpha = \tilde \pi$.
+\end{prop}
+
+\begin{prop}\label{prop:refinement-DxDsop}
+    Let $\D$ be a graded division superalgebra associated to $(T, \beta, p)$.  
+    Consider $\mc E \coloneqq \D \times \D\sop$ with its natural $T$-grading $\Gamma\colon \mc E = \bigoplus_{t\in T} \D_t \times \overline{\D_t}$ and let $\vphi$ be the exchange superinvolution on $\mc E$. 
+    There is a division grading on $(\mc E, \vphi)$ refining $\Gamma$ if, and only if, $\beta$ takes values in $\{ \pm 1 \}$. 
+    If $\widetilde \Gamma$ is a such grading and $\widetilde T$ is its support, then there is a unique group extension $0 \to \{ \pm 1 \} \xrightarrow{\iota} \widetilde T \xrightarrow{\pi} T \to 0$ such that ${}^\pi \widetilde \Gamma = \Gamma$, and this extension is equivalent to the one given by the $2$-cocycle $\sigma$ given by $\sigma(a,b) = (-1)^{p(a) p(b)}$. 
+    Moreover, the set of all gradings corresponding to $0 \to \{ \pm 1 \} \xrightarrow{\iota} \widetilde T \xrightarrow{\pi} T \to 0$ is in bijection with its self-equivalences.
+\end{prop}
+
 \begin{proof}
     First of all, note that, for every $t\in T$, the homogeneous component $\mc E_t$ is $2$-dimensional and $\vphi$-invariant. 
     Moreover, the eigenspaces of $\vphi \restriction_{\mc E_t}$ associated to $1$ and $-1$ are both one dimensional, spanned by $(X_t, \overline{X_t})$ and $(X_t, -\overline{X_t})$, respectively. 
     Hence on any division grading on $(\mc E, \vphi)$ refining the natural $T$-grading on $\mc E$, these eigenspaces have to be the homogeneous components. 
+    We will denote the subspace generated by $(X_t, \lambda\overline{X_t})$, for $\lambda \in \{ \pm 1 \}$, by $\mc E_{(\lambda, t)}$. 
+    Clearly, $\mc E$ is the direct sum of all subspaces of this form. 
     
-    Let $T'$ be the support of such an 
+    Now, for all $a, b \in T$ and $\lambda_1, \lambda_2 \in \{ \pm 1 \}$, we have:
+    \begin{align*}
+        (X_{a}, \lambda_1 \overline{X_{a}})(X_{b}, \lambda_2 \overline{X_{b}}) &= (X_{a} X_{b}, \lambda_1 \lambda_2 \overline{X_{a}} \,\overline{X_{b}}) \\
+        &= (X_{a} X_{b}, \lambda_1 \lambda_2 (-1)^{p(a)p(b)} \overline{X_{b}X_{a}})\\ 
+        &=(X_{a} X_{b}, \lambda_1 \lambda_2 (-1)^{p(a)p(b)} \beta(a, b) \overline{X_{a} X_{b}})\\
+        &= (X_{a} X_{b}, \lambda_1 \lambda_2 \tilde\beta (a,b) \overline{X_{a} X_{b}}).
+    \end{align*}
+    
+    Clearly, if $\beta(a, b) \neq \pm 1$ for some $a,b \in T$, then this direct sum decomposition do not correspond to a grading. 
+    On the other hand, if $\beta$ takes values in $\{ \pm 1 \}$, it follows that $\mc E_{(\lambda_1, a)} \mc E_{(\lambda_2, b)} \subseteq \mc E_{(\lambda_1 \lambda_2 \tilde\beta (a,b), ab)}$. 
+    Therefore we have a grading by the group $\{ \pm 1\} \times_{\tilde\beta} T$. 
+    We will denote this grading by $\Delta$.
+    
+    Now suppose $\widetilde \Gamma$ is any grading on $(\mc E, \vphi)$ refining $\Gamma$, and consider $\widetilde T \coloneqq \supp \widetilde \Gamma$. 
+    For each $\tilde t\in T$, there are unique $\lambda \in \pmone$ and $t\in T$ such that the component of $\tilde t$ with respect to $\widetilde \Gamma$
+
+    % From this and the assumption that $\beta$ takes values in $\{ \pm 1 \}$, it follows that we can grade $\mc E$ by the group $\{ \pm 1\} \times_{\tilde\beta} T$ by defining the degree of $(X_t, \lambda\overline{X_t})$ to be $(\lambda, t)$, for all $t \in T$ and $\lambda \in \{ \pm 1 \}$.
+    
+    Using again that $\beta$ takes values in $\{ \pm 1 \}$, by Proposition ?? there is a quadratic form $\mu$ on $T$ whose polarization is $\beta$. 
+    Since $\mu$ takes values in $\{ \pm 1 \}$, it follows that $\beta$ is a $2$-coboundary, so by Proposition ??, there is an isomorphism from $\{ \pm 1 \} \times_{\tilde\beta} T$ to $\{ \pm 1 \} \times_{\sigma} T$ preserving the projection on $T$.
+    
+    
     
     Consider the automorphism $\theta\from \D \times \D\sop \to \D \times \D\sop$ given by $\theta (x, \bar y) = (\psi(y), \overline{\psi(x)})$. 
     Clearly, $\theta$ is preserves degrees and commutes with the exchange superinvolution. 
